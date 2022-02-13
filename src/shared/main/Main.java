@@ -7,6 +7,7 @@ package shared.main;
 
 import java.sql.Date;
 import shared.connexion.MaConnexion;
+import shared.entities.enums.TypeDeTransport;
 
 
 /**
@@ -15,7 +16,6 @@ import shared.connexion.MaConnexion;
  */
 public class Main {    
     public static void main(String[] args) {
-          
          }
     
 }

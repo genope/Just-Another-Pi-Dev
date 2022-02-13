@@ -3,12 +3,12 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/Shared.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Logements.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/main/Main.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/OffresServices.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/connexion/MaConnexion.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Offres.java</file>
+            <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/entities/Evenement.java</file>
+            <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/Shared.java</file>
+            <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/entities/MoyenDeTransport.java</file>
+            <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/services/MoyenDeTransportService.java</file>
+            <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/services/EvenementService.java</file>
+            <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/entities/Offres.java</file>
         </group>
     </open-files>
 </project-private>
