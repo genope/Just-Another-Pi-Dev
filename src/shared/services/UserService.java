@@ -13,10 +13,7 @@ import shared.entities.User;
 import shared.entities.enums.Etat;
 import shared.entities.enums.Role;
 
-/**
- *
- * @author genop
- */
+
 public class UserService {
 
     public User GetUserByMail(String mail, String password) {
