@@ -38,6 +38,16 @@ public class Publication {
        
     }
 
+    public Publication(int id, int id_guest, String nom, String description, String image, String adresse, int region_id) {
+        this.id = id;
+        this.id_guest = id_guest;
+        this.nom = nom;
+        this.description = description;
+        this.image = image;
+        this.adresse = adresse;
+        this.region_id = region_id;
+    }
+
    
     public int getId() {
         return id;

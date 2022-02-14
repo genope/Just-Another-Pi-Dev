@@ -12,16 +12,7 @@ package shared.services;
  */
 import java.sql.*;
 import java.util.*;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
-import java.sql.SQLException;
-import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Calendar;
-import java.util.logging.Level;
-import java.util.logging.Logger;
+
 import shared.connexion.MaConnexion;
 import shared.entities.Publication;
 
@@ -80,27 +71,27 @@ public class PublicationService {
         return publications;
     }
     
-    public void modifierPersonne( String nom, String description,String image,String adresse, int id){
+    public void modifierPublication( Publication p, int id){
         try {
             String sql = "UPDATE publication SET nom=?,description=?,image=?,adresse=? WHERE id=?";
             
             ste=mc.prepareStatement(sql);
-           ste.setString(1,nom);
-            ste.setString(2, description);
-            ste.setString(3, image);
-            ste.setString(4, adresse);
+           ste.setString(1,p.getNom());
+            ste.setString(2, p.getDescription());
+            ste.setString(3, p.getImage());
+            ste.setString(4, p.getAdresse());
             ste.setInt(5, id);
            
            
             
             
             ste.executeUpdate();
-            System.out.println("Personne modifiee");
+            System.out.println("Publication modifiée");
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
     }
-    public void supprimerPersonne(int id) {
+    public void supprimerPublication(int id) {
          try {
             String sql = "DELETE FROM publication WHERE id=?;";
             
