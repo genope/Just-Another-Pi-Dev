@@ -388,9 +388,9 @@ public class Login_form extends javax.swing.JFrame {
 
                     break;
             }
-        } else {
-
-        }
+        } else 
+            System.out.println("");
+       
     }//GEN-LAST:event_jButton_loginActionPerformed
 
     /**
