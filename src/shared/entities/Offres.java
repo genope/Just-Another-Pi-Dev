@@ -9,6 +9,8 @@ import java.sql.Date;
 
 public class Offres {
     
+    
+    private int id;
     private String nom;
     private String description;
    // private String File;
@@ -16,22 +18,25 @@ public class Offres {
     private Date datefin;
     private float prix;
     private boolean etat;
+    private String ville;
 
-    public Offres(String nom, String description, Date datedebut, Date datefin, float prix, boolean etat) {
+    public Offres(String nom, String description, Date datedebut, Date datefin, float prix, boolean etat ,String ville) {
         this.nom = nom;
         this.description = description;
         this.datedebut = datedebut;
         this.datefin = datefin;
         this.prix = prix;
         this.etat = etat;
+        this.ville=ville;
     }
 
     public Offres() {
+        
     }
 
     @Override
     public String toString() {
-        return "OffresServices{" + "nom=" + nom + ", description=" + description + ", datedebut=" + datedebut + ", datefin=" + datefin + ", prix=" + prix + ", etat=" + etat + '}';
+        return "{ id="+this.id + ", nom=" + nom + ", description=" + description + ", datedebut=" + datedebut + ", datefin=" + datefin + ", prix=" + prix + ", etat=" + etat + ", ville="+this.ville;
     }
 
     public String getNom() {
@@ -80,6 +85,22 @@ public class Offres {
 
     public void setEtat(boolean etat) {
         this.etat = etat;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getVille() {
+        return ville;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
     }
     
     

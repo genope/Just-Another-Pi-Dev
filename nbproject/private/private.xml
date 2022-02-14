@@ -7,8 +7,11 @@
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Logements.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/main/Main.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/OffresServices.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/HorecaServices.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/LogementsServices.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/connexion/MaConnexion.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Offres.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Horeca.java</file>
         </group>
     </open-files>
 </project-private>

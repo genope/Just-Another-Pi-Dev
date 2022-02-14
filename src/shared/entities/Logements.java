@@ -12,21 +12,29 @@ import java.sql.Date;
  * @author user
  */
 public class Logements extends Offres{
-    
-    public enum type{
-        Maison,
-        Chambre,
-        Appartement,
+    private String type;
+   
+
+    public Logements(String nom, String description, Date datedebut, Date datefin, float prix, boolean etat,String ville,String type) {
+        super(nom, description, datedebut, datefin, prix, etat,ville);
+        this.type=type;
     }
 
-    public Logements(String nom, String description, Date datedebut, Date datefin, float prix, boolean etat,enum type) {
-        super(nom, description, datedebut, datefin, prix, etat);
-        this.type=type;
+    public Logements() {
+       super();
     }
 
     @Override
     public String toString() {
-        return super.toString()+"Logements{" +this.type '}';
+        return "Logements"+super.toString()+", type=" +this.type+ '}';
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
     
     
