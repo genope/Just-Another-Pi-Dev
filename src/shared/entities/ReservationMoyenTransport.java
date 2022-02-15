@@ -50,11 +50,13 @@ public class ReservationMoyenTransport extends Reservation {
     }
 
     public ReservationMoyenTransport() {
+        super();
     }
 
+   
     @Override
     public String toString() {
-        return "ReservationMoyenTransport{" + "idMoyt=" + idMoyt + ", datedebutReservMt=" + datedebutReservMt + ", datefinReservMt=" + datefinReservMt + '}';
+        return "ReservationMoyenTransport{" +super.toString()+ "idMoyt=" + idMoyt + ", datedebutReservMt=" + datedebutReservMt + ", datefinReservMt=" + datefinReservMt + '}';
     }
 
 }

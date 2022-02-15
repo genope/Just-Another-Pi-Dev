@@ -25,6 +25,7 @@ public class ReservationLogement extends Reservation {
     }
 
     public ReservationLogement() {
+        super();
     }
 
     public int getIdLog() {
@@ -56,7 +57,7 @@ public class ReservationLogement extends Reservation {
 
     @Override
     public String toString() {
-        return "ReservationLogement{" + "idLog=" + idLog + ", datedebutReservL=" + datedebutReservL + ", datefinReservL=" + datefinReservL + '}';
+        return "Reservation Logement"+super.toString()+" ,idLog=" + idLog + ", datedebutReservL=" + datedebutReservL + ", datefinReservL=" + datefinReservL ;
     }
 
    
