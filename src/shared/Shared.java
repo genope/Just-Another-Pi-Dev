@@ -43,7 +43,8 @@ public class Shared {
            //  hs.ajouterReservationL(mh);
       //  hs.modifierReservationHoreca(new ReservationHoreca(2,3,4,sqlTS,Date.valueOf("2011-12-10")),1);
        // int sup=hs.supprimerReservationHoreca(1);
-      
+       // int sup=hs.supprimerReservationHoreca(1);
+
         
  ReservationEventService vs = new ReservationEventService();
        ReservationEvent mv=new ReservationEvent(1,4,5,sqlTS,Date.valueOf("2020-03-20"));
