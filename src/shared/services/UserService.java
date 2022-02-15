@@ -160,10 +160,10 @@ public class UserService {
                 pst.setString(9, null);
             }
 
-           //set block where 
-             pst.setInt(10,user.getCin());
-             pst.setString(11,user.getEmail());
-             System.out.println(pst);
+            //set block where 
+            pst.setInt(10, user.getCin());
+            pst.setString(11, user.getEmail());
+            System.out.println(pst);
             if (pst.executeUpdate() > 0) {
                 System.out.println("You have updated successfully.");
                 return true;
@@ -176,5 +176,69 @@ public class UserService {
             return false;
         }
         //return false;
+    }
+
+    public User GetUserByCin(int cin) {
+        User user = null;
+        Role role = null;
+        try {
+            String requete = "Select role, cin from user where cin = ?";
+            PreparedStatement pst = MaConnexion.getInstance().getCnx().prepareStatement(requete);
+
+            System.out.println(MaConnexion.getInstance().getCnx());
+
+            pst.setInt(1, cin);
+            ResultSet rs;
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                role = Role.valueOf(rs.getString("role"));
+            }
+            //decrypt pass :
+            //pass = decrypt(pass);
+
+            System.out.println("bon pass");
+            requete = "SELECT nom,prenom,email,password,datedenaissance,telephone,etat FROM user WHERE cin=?";
+            pst = MaConnexion.getInstance().getCnx().prepareStatement(requete);
+            pst.setInt(1, cin);
+            rs = pst.executeQuery();
+
+            while (rs.next()) {
+                System.out.println("bon pass");
+
+                user = new User(
+                        cin,
+                        rs.getString("nom"),
+                        rs.getString("prenom"),
+                        rs.getString("email"),
+                        rs.getString("password"),
+                        rs.getDate("datedenaissance"),
+                        rs.getInt("telephone"),
+                        role,
+                        Etat.valueOf(rs.getString("etat")),
+                        null,
+                        null
+                );
+                System.out.println("++++++++++++++++++++++++++++++++++++++++++++++" + user);
+            }
+            System.out.println(role);
+            if (Role.Host.equals(role)) {
+                requete = "SELECT image_cin,adress_host From user WHERE cin= ?";
+                pst = MaConnexion.getInstance().getCnx().prepareStatement(requete);
+                pst.setInt(1, cin);
+                rs = pst.executeQuery();
+
+                while (rs.next()) {
+
+                    user.setAdress_host(rs.getString("adress_host"));
+                    user.setImage_cin(rs.getString("image_cin"));
+                    System.out.println("____________________" + user);
+                }
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+            return null;
+        }
+        return user;
     }
 }

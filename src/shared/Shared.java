@@ -14,9 +14,16 @@ public class Shared {
     public static void main(String[] args) {
         MaConnexion m = MaConnexion.getInstance();
         UserService userService = new UserService();
-        User user = userService.GetUserByMail("hasen@hasenhhh.hsds", "aze");
-        user.setNom("addddddzee");
-        userService.UpdateUser(user);
+       // User user = userService.GetUserByMail("hasen@hasenhhh.hsds", "aze");
+        //user.setNom("addddddzee");
+        //userService.UpdateUser(user);
+        User user = userService.GetUserByCin(1);
+        userService.GetUserByCin(1);
+         User user1 = userService.GetUserByCin(12);
+        userService.GetUserByCin(12);
+        
+        
+        
         
         
         //register host
