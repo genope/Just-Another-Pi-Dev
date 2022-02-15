@@ -24,7 +24,7 @@ public class Shared {
 
         
         EvenementService e = new EvenementService();
-        Evenement event = new Evenement("Sidi 3mor", "Ba3be3i", "w mriguel", new Date(2021,9,18), new Date(2021,9,18), 0, true, "Ariana");
+        Evenement event = new Evenement(11,"asdaé", "Ba3be3iaze", "w mriguel", new Date(2021,9,18), new Date(2021,9,18), 0, true, "Ariana");
 //        a.ajouterMoyenDeTransport(mdt);
 //        a.ajouterMoyenDeTransport(mdt1);  
 //        a.ajouterMoyenDeTransport(mdt2);  
@@ -36,15 +36,15 @@ public class Shared {
 //            System.out.println(moydetrans);
 //        }
           e.ajouterEvenement(event);
-
-          e.afficherEvenement();
-          
-          List<Evenement> l = e.afficherEvenement();
-          
-//        
-        for(Evenement even : l){
-            System.out.println(even);
-        }
+          System.out.println(event);
+//          e.afficherEvenement();
+//          
+//          List<Evenement> l = e.afficherEvenement();
+//          
+////        
+//        for(Evenement even : l){
+//            System.out.println(even);
+//        }
 //        System.out.println(a.getMoyenDeTransportByID(3));
     }
     

@@ -49,6 +49,12 @@ public class MoyenDeTransport extends Offres{
         this.matricule = matricule;
         this.typeDeTransport = typeDeTransport;
     }
+
+    public MoyenDeTransport(int id_user, int matricule, TypeDeTransport typeDeTransport, String nom, String description, Date datedebut, Date datefin, float prix, boolean etat, String ville) {
+        super(id_user, nom, description, datedebut, datefin, prix, etat, ville);
+        this.matricule = matricule;
+        this.typeDeTransport = typeDeTransport;
+    }
     
    
 }

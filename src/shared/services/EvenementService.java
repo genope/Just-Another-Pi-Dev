@@ -10,6 +10,8 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import shared.connexion.MaConnexion;
 import shared.entities.Evenement;
 import shared.entities.MoyenDeTransport;
@@ -28,7 +30,7 @@ public class EvenementService {
     }
     
      public void ajouterEvenement(Evenement even) {
-        String sql = "insert into Evenement (nom, description, datedebut, datefin, prix, etat, ville, lieu) Values(?,?,DATE_ADD(?, INTERVAL -22801 MONTH),DATE_ADD(?, INTERVAL -1901 YEAR),?,?,?,?)";
+        String sql = "insert into Evenement (nom, description, datedebut, datefin, prix, etat, ville, lieu,CIN) Values(?,?,DATE_ADD(?, INTERVAL -22801 MONTH),DATE_ADD(?, INTERVAL -1901 YEAR),?,?,?,?,?)";
         try {
             System.out.println(mc);
             ste = mc.prepareStatement(sql);
@@ -40,6 +42,7 @@ public class EvenementService {
             ste.setBoolean(6, even.isEtat());
             ste.setString(7, even.getVille());
             ste.setString(8, even.getLieu());
+            ste.setInt(9, even.getId_user());
             ste.executeUpdate();
             System.out.println("Evenement ajouté");
         } catch (SQLException ex) {
@@ -74,6 +77,7 @@ public class EvenementService {
             ResultSet rs = ste.executeQuery();
             while (rs.next()) {
                 Evenement mdtAff = new Evenement(
+                        rs.getInt("CIN"),
                         rs.getString("lieu"),
                         rs.getString("nom"),
                         rs.getString("description"),
@@ -84,6 +88,7 @@ public class EvenementService {
                         rs.getString("ville"));
                         
                         mdtAff.setId(rs.getInt("id"));
+                        //mdtAff.setId_user(rs.getInt("CIN"));
                 mdt.add(mdtAff);
             }
 
@@ -116,9 +121,57 @@ public class EvenementService {
         
     }
     
+    public List<Evenement> getAllEvenement(){
+        List<Evenement> AllEvent = new ArrayList();
+        String sql = "select * from Evenement";
+        
+        try {
+            ste = mc.prepareStatement(sql);
+            ResultSet rs = ste.executeQuery();
+            while (rs.next()){
+                Evenement eventAff = new Evenement(
+                        rs.getInt("CIN"),
+                        rs.getString("lieu"),
+                        rs.getString("nom"),
+                        rs.getString("description"),
+                        rs.getDate("datedebut"),
+                        rs.getDate("datefin"),
+                        rs.getInt("prix"),
+                        rs.getBoolean("etat"),
+                        rs.getString("ville"));
+            } 
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());;
+        }
+        return AllEvent;
+    }
     
-    
-    
+    public Evenement getEventById(int id){
+        Evenement even= new Evenement();
+        String sql = "select * from Evenement where id = ?";
+        try {
+            ste = mc.prepareStatement(sql);
+            ste.setInt(1, id);
+            ResultSet rs = ste.executeQuery();
+            rs.next();
+                Evenement eventAff = new Evenement(
+                        rs.getInt("CIN"),
+                        rs.getString("lieu"),
+                        rs.getString("nom"),
+                        rs.getString("description"),
+                        rs.getDate("datedebut"),
+                        rs.getDate("datefin"),
+                        rs.getInt("prix"),
+                        rs.getBoolean("etat"),
+                        rs.getString("ville"));
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());        
+            }
+        
+        
+        return even;
+    }
     
     
     

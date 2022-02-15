@@ -28,7 +28,7 @@ public class MoyenDeTransportService {
 
     //DATE_ADD(?, INTERVAL -22801 MONTH)
     public void ajouterMoyenDeTransport(MoyenDeTransport mdt) {
-        String sql = "insert into MoyenDeTransport (nom, description, datedebut, datefin, prix, etat, ville, TypeDeTransport, matricule) Values(?,?,DATE_ADD(?, INTERVAL -22801 MONTH),DATE_ADD(?, INTERVAL -1901 YEAR),?,?,?,?,?)";
+        String sql = "insert into MoyenDeTransport (nom, description, datedebut, datefin, prix, etat, ville, TypeDeTransport, matricule,CIN) Values(?,?,DATE_ADD(?, INTERVAL -22801 MONTH),DATE_ADD(?, INTERVAL -1901 YEAR),?,?,?,?,?,?)";
         try {
             System.out.println(mc);
             ste = mc.prepareStatement(sql);
@@ -41,6 +41,7 @@ public class MoyenDeTransportService {
             ste.setString(7, mdt.getVille());
             ste.setString(8, mdt.getTypeDeTransport().toString());
             ste.setInt(9, mdt.getMatricule());
+            ste.setInt(9, mdt.getId_user());
             ste.executeUpdate();
             System.out.println("Moyen De transport ajouté");
         } catch (SQLException ex) {
@@ -75,6 +76,7 @@ public class MoyenDeTransportService {
             ResultSet rs = ste.executeQuery();
             while (rs.next()) {
                 MoyenDeTransport mdtAff = new MoyenDeTransport(
+                        rs.getInt("CIN"),
                         rs.getInt("matricule"),
                         TypeDeTransport.valueOf(rs.getString("TypeDeTransport")),
                         rs.getString("nom"),
