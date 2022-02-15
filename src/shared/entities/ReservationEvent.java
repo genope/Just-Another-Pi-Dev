@@ -5,22 +5,27 @@
  */
 package shared.entities;
 
-import java.util.Date;
+import java.sql.Date;
 
+import java.sql.Timestamp;
 /**
  *
  * @author USER
  */
 public class ReservationEvent extends Reservation{
     private int idEvent;
-     private Date datedebutReservE;
-          private Date datefinReservE;
+     private Timestamp datedebutReserE;
+          private Date datefinReserE;
 
-    public ReservationEvent(int idEvent, Date datedebutReservE, Date datefinReservE, int idReserv, int idGuest) {
+    public ReservationEvent(int idReserv, int idGuest,int idEvent,  Timestamp datedebutReserE, Date datefinReserE) {
         super(idReserv, idGuest);
         this.idEvent = idEvent;
-        this.datedebutReservE = datedebutReservE;
-        this.datefinReservE = datefinReservE;
+        this.datedebutReserE = datedebutReserE;
+        this.datefinReserE = datefinReserE;
+    }
+
+    public ReservationEvent() {
+        super();
     }
 
     public int getIdEvent() {
@@ -31,20 +36,26 @@ public class ReservationEvent extends Reservation{
         this.idEvent = idEvent;
     }
 
-    public Date getDatedebutReservE() {
-        return datedebutReservE;
+    public  Timestamp getDatedebutReservE() {
+        return datedebutReserE;
     }
 
-    public void setDatedebutReservE(Date datedebutReservE) {
-        this.datedebutReservE = datedebutReservE;
+    public void setDatedebutReservE( Timestamp datedebutReserE) {
+        this.datedebutReserE = datedebutReserE;
     }
 
     public Date getDatefinReservE() {
-        return datefinReservE;
+        return datefinReserE;
     }
 
-    public void setDatefinReservE(Date datefinReservE) {
-        this.datefinReservE = datefinReservE;
+    public void setDatefinReservE(Date datefinReserE) {
+        this.datefinReserE = datefinReserE;
+    }
+
+    @Override
+    public String toString() {
+        return "ReservationEvent" +super.toString()+ "idEvent=" + idEvent + ", datedebutReserE=" + datedebutReserE + ", datefinReserE=" + datefinReserE ;
+
     }
           
 }

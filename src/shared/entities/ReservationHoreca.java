@@ -5,8 +5,8 @@
  */
 package shared.entities;
 
-import java.util.Date;
-
+import java.sql.Date;
+import java.sql.Timestamp;
 /**
  *
  * @author USER
@@ -14,14 +14,14 @@ import java.util.Date;
 public class ReservationHoreca extends Reservation{
     
      private int idHoreca; //fk
-     private Date datedebutReservL;
-          private Date datefinReservL;
+     private Timestamp datedebutReservH;
+          private Date datefinReservH;
 
-    public ReservationHoreca(int idHoreca, Date datedebutReservL, Date datefinReservL, int idReserv, int idGuest) {
+    public ReservationHoreca(int idReserv, int idGuest,int idHoreca, Timestamp datedebutReservH, Date datefinReservH) {
         super(idReserv, idGuest);
         this.idHoreca = idHoreca;
-        this.datedebutReservL = datedebutReservL;
-        this.datefinReservL = datefinReservL;
+        this.datedebutReservH = datedebutReservH;
+        this.datefinReservH = datefinReservH;
     }
 
     public int getIdHoreca() {
@@ -32,20 +32,29 @@ public class ReservationHoreca extends Reservation{
         this.idHoreca = idHoreca;
     }
 
-    public Date getDatedebutReservL() {
-        return datedebutReservL;
+    public ReservationHoreca() {
+        super();
     }
 
-    public void setDatedebutReservL(Date datedebutReservL) {
-        this.datedebutReservL = datedebutReservL;
+    public Timestamp getDatedebutReservH() {
+        return datedebutReservH;
     }
 
-    public Date getDatefinReservL() {
-        return datefinReservL;
+    public void setDatedebutReservH( Timestamp datedebutReservH) {
+        this.datedebutReservH = datedebutReservH;
     }
 
-    public void setDatefinReservL(Date datefinReservL) {
-        this.datefinReservL = datefinReservL;
+    public Date getDatefinReservH() {
+        return datefinReservH;
+    }
+
+    public void setDatefinReservH(Date datefinReservH) {
+        this.datefinReservH = datefinReservH;
+    }
+
+    @Override
+    public String toString() {
+        return "ReservationHoreca" +super.toString()+ "idHoreca=" + idHoreca + ", datedebutReservH=" + datedebutReservH + ", datefinReservH=" + datefinReservH  ;
     }
           
           

@@ -62,4 +62,40 @@ public class ReservationLogementService {
         }
         return ReservationsLog; //list  
     }
+     
+          public int modifierReservationMT(ReservationLogement mt,int idReserv) {
+        int nbModif = 0;
+        try {
+            String sql = "UPDATE reservationlogement SET idlog=?,datedebutreservl=? , datefinreservl=? where idreserv=?";
+            ste=mc.prepareStatement(sql);
+            ste.setInt(1,mt.getIdLog());
+            ste.setTimestamp(2,mt.getDatedebutReservL());
+            ste.setDate(3,mt.getDatefinReservL());
+            ste.setInt(4, idReserv);
+
+            nbModif = ste.executeUpdate();
+            System.out.println("Reservation de logement modifiée");
+            //System.out.println(ste);
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return nbModif;
+    }
+    
+      public int supprimerReservationMoyenTransport(int idReserv) {
+            int nb = 0;
+        try {
+            String sql = "DELETE FROM Reservationlogement where idreserv=?";
+            ste=mc.prepareStatement(sql);
+            ste.setInt(1, idReserv);
+            nb = ste.executeUpdate();
+            System.out.println("réservation de logement supprimée");
+
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return nb;
+     
+}
+     
 }
