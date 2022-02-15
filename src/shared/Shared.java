@@ -27,7 +27,7 @@ public class Shared {
         userService.register(user1);*/
      //    User user2=new User(39,"hassen","mabrouk","hasen@hasenhhh.hsds","aze",new Date(1999, 1, 1),12,Role.Admin,Etat.approved,"okk","hhhh");
        // userService.register(user2);
-
+       
        
     }
     
