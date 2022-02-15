@@ -21,10 +21,9 @@ public class Shared {
         ReservationMoyenTransportService mts = new ReservationMoyenTransportService();
         //mts.ajouterReservationMT(mt);
         ReservationMoyenTransport mt1=new ReservationMoyenTransport(3,130,14,sqlTS,Date.valueOf("2022-03-15"));
-         mts.ajouterReservationMT(mt1);
-        // System.out.println(mts.afficherReservationMT()); 
-        //ReservationMoyenTransport mt2 = new ReservationMoyenTransport(13,15,16,sqlTS,Date.valueOf("2010-10-10"));
-      //  mts.modifierReservationMT(new ReservationMoyenTransport(3,15,6,sqlTS,Date.valueOf("2010-12-10")),3);
+        // mts.ajouterReservationMT(mt1);
+         //System.out.println(mts.afficherReservationMT()); 
+        mts.modifierReservationMT(new ReservationMoyenTransport(3,15,16,sqlTS,Date.valueOf("2010-12-10")),3);
         //System.out.println("apres modif" +mts.afficherReservationMT()); 
        //int sup=mts.supprimerReservationMoyenTransport(2);
     

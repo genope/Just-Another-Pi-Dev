@@ -83,7 +83,7 @@ public class ReservationMoyenTransportService {
 
             nbModif = ste.executeUpdate();
             System.out.println("Reservation de moyen de transport modifiée");
-            System.out.println(ste);
+            //System.out.println(ste);
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
