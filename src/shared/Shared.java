@@ -13,22 +13,23 @@ public class Shared {
 
     public static void main(String[] args) {
         MaConnexion m = MaConnexion.getInstance();
-        //  Publication p =new Publication(2,2,"louhichi", "description", "image", "adresse", 5, new Date(07, 02, 2021));
-        // Publication p2 =new Publication(4,5,"Boughnim", "description", "image", "adresse", 5);
+          Publication p =new Publication(1,14725836,"nom publication2", "description2", "image2", "adresse2",24, new Date(07, 02, 2021));
+        
 
-        Commentaire c=new Commentaire(4, 7,6, "testt", "commentaireeeeetestt");
+        Commentaire c=new Commentaire(4,14725836,11, "nom commentaire", "commentaireeeeetestt");
         PublicationService ps = new PublicationService();
         CommentaireService cs= new CommentaireService();
       // ps.ajouterPublication(p);
-        cs.ajouterCommentaire(c);
+      cs.ajouterCommentaire(c);
         
         // cs.modifierCommentaire(c,2);
          
        // ps.modifierPublication("soudani","wissal","xxxx","azerty",1);
-       // System.out.println(ps.afficherPublication());
-      //  ps.supprimerPublication(2);
+        
+       // ps.supprimerPublication(8);
      // cs.supprimerCommentaire(3);
        System.out.println(cs.afficherCommentaire());
+      //System.out.println(ps.afficherPublication());
     }
     
        

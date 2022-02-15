@@ -55,6 +55,7 @@ public class PublicationService {
             while(rs.next()){
                 Publication p = new Publication();
                 p.setId(rs.getInt("id"));
+                p.setId_guest(rs.getInt("id_guest"));
                 p.setNom(rs.getString("nom"));
                 p.setDescription(rs.getString("description"));
                 p.setImage(rs.getString("image"));
