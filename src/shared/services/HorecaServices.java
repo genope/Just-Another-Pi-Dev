@@ -29,7 +29,7 @@ public class HorecaServices {
     
            public void ajoutHoreca(Horeca h){
         
-        String req="insert into horeca(nom,description,datedebut,datefin,prix,etat,ville,dateOuverture,dateFermeture) Values(?,?,DATE_ADD(?, INTERVAL -22801 MONTH),DATE_ADD(?, INTERVAL -22801 MONTH),?,?,?,DATE_ADD(?, INTERVAL -22801 MONTH),DATE_ADD(?, INTERVAL -22801 MONTH))";
+        String req="insert into horeca(nom,description,datedebut,datefin,prix,etat,ville,dateOuverture,dateFermeture,id_host) Values(?,?,DATE_ADD(?, INTERVAL -22801 MONTH),DATE_ADD(?, INTERVAL -22801 MONTH),?,?,?,DATE_ADD(?, INTERVAL -22801 MONTH),DATE_ADD(?, INTERVAL -22801 MONTH),?)";
         
          try {
             ste=mc.prepareStatement(req);
@@ -42,6 +42,7 @@ public class HorecaServices {
             ste.setString(7, h.getVille());
             ste.setDate(8, h.getDateOuverture());
             ste.setDate(9, h.getDateFermeture());
+            ste.setInt(10, h.getIdhost());
             ste.executeUpdate();
             System.out.println("Horeca ajoutée");
         } catch (SQLException ex) {
@@ -84,7 +85,7 @@ public class HorecaServices {
                ste.setDate(9,o.getDateOuverture());
                ste.setInt(10,i);
                ste.executeUpdate();
-               System.out.println("logement modifier");
+               System.out.println("Horeca modifier");
                
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -111,6 +112,7 @@ public class HorecaServices {
                 horeca.setVille(rs.getString("ville"));
                 horeca.setDateOuverture(rs.getDate("dateOuverture"));
                 horeca.setDateFermeture(rs.getDate("dateFermeture"));
+                horeca.setIdhost(rs.getInt("id_host"));
                 horeca.setId(rs.getInt("id"));
       
              
@@ -144,6 +146,7 @@ public class HorecaServices {
                 horec.setVille(rs.getString("ville"));
                 horec.setDateOuverture(rs.getDate("dateOuverture"));
                 horec.setDateFermeture(rs.getDate("dateFermeture"));
+                horec.setIdhost(rs.getInt("id_host"));
                 
                 horec.setId(rs.getInt("id"));
                 

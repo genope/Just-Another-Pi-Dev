@@ -11,6 +11,7 @@ public class Offres {
     
     
     private int id;
+    private int idhost;
     private String nom;
     private String description;
    // private String File;
@@ -20,7 +21,21 @@ public class Offres {
     private boolean etat;
     private String ville;
 
-    public Offres(String nom, String description, Date datedebut, Date datefin, float prix, boolean etat ,String ville) {
+    public Offres(int idhost,String nom, String description, Date datedebut, Date datefin, float prix, boolean etat ,String ville) {
+        this.idhost=idhost;
+        this.nom = nom;
+        this.description = description;
+        this.datedebut = datedebut;
+        this.datefin = datefin;
+        this.prix = prix;
+        this.etat = etat;
+        this.ville=ville;
+    }
+    
+    
+    
+        public Offres(String nom, String description, Date datedebut, Date datefin, float prix, boolean etat ,String ville) {
+        
         this.nom = nom;
         this.description = description;
         this.datedebut = datedebut;
@@ -36,7 +51,7 @@ public class Offres {
 
     @Override
     public String toString() {
-        return "{ id="+this.id + ", nom=" + nom + ", description=" + description + ", datedebut=" + datedebut + ", datefin=" + datefin + ", prix=" + prix + ", etat=" + etat + ", ville="+this.ville;
+        return "{ id="+this.id+", id_host="+this.idhost + ", nom=" + nom + ", description=" + description + ", datedebut=" + datedebut + ", datefin=" + datefin + ", prix=" + prix + ", etat=" + etat + ", ville="+this.ville;
     }
 
     public String getNom() {
@@ -101,6 +116,14 @@ public class Offres {
 
     public void setVille(String ville) {
         this.ville = ville;
+    }
+
+    public void setIdhost(int idhost) {
+        this.idhost = idhost;
+    }
+
+    public int getIdhost() {
+        return idhost;
     }
     
     

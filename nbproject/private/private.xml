@@ -6,10 +6,12 @@
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/Shared.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Logements.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/main/Main.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/OffresServices.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/HorecaServices.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Chat.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/LogementsServices.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/ChatServices.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/connexion/MaConnexion.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/enums/TypeLogements.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Offres.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Horeca.java</file>
         </group>

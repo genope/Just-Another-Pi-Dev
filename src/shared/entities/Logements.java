@@ -6,19 +6,28 @@
 package shared.entities;
 
 import java.sql.Date;
+import shared.entities.enums.TypeLogements;
 
 /**
  *
  * @author user
  */
 public class Logements extends Offres{
-    private String type;
+    private TypeLogements type;
    
 
-    public Logements(String nom, String description, Date datedebut, Date datefin, float prix, boolean etat,String ville,String type) {
+    public Logements(int idhost,String nom, String description, Date datedebut, Date datefin, float prix, boolean etat,String ville,TypeLogements type) {
+        super(idhost,nom, description, datedebut, datefin, prix, etat,ville);
+        this.type=type;
+    }
+    
+       public Logements(String nom, String description, Date datedebut, Date datefin, float prix, boolean etat,String ville,TypeLogements type) {
         super(nom, description, datedebut, datefin, prix, etat,ville);
         this.type=type;
     }
+    
+    
+    
 
     public Logements() {
        super();
@@ -29,11 +38,11 @@ public class Logements extends Offres{
         return "Logements"+super.toString()+", type=" +this.type+ '}';
     }
 
-    public String getType() {
+    public TypeLogements getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(TypeLogements type) {
         this.type = type;
     }
     

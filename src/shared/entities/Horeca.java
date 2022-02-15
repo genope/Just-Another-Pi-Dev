@@ -17,12 +17,17 @@ public class Horeca extends Offres {
     private Date dateFermeture;
     
 
+    public Horeca(int idhost,String nom, String description, Date datedebut, Date datefin, float prix, boolean etat, String ville,Date dateOuverture,Date dateFermrture) {
+        super(idhost,nom, description, datedebut, datefin, prix, etat, ville);
+        this.dateOuverture=dateOuverture;
+        this.dateFermeture=dateFermrture;
+    }
+
     public Horeca(String nom, String description, Date datedebut, Date datefin, float prix, boolean etat, String ville,Date dateOuverture,Date dateFermrture) {
         super(nom, description, datedebut, datefin, prix, etat, ville);
         this.dateOuverture=dateOuverture;
         this.dateFermeture=dateFermrture;
     }
-
     public Horeca() {
         super();
     }

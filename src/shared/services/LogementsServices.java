@@ -15,6 +15,7 @@ import java.util.logging.LogManager;
 import shared.connexion.MaConnexion;
 import shared.entities.Logements;
 import shared.entities.Offres;
+import shared.entities.enums.TypeLogements;
 
 /**
  *
@@ -30,7 +31,7 @@ public class LogementsServices {
     
        public void ajoutLogement(Logements l){
         
-        String req="insert into logement(nom,description,datedebut,datefin,prix,etat,ville,type) Values(?,?,DATE_ADD(?, INTERVAL -22801 MONTH),DATE_ADD(?, INTERVAL -22801 MONTH),?,?,?,?)";
+        String req="insert into logement(nom,description,datedebut,datefin,prix,etat,ville,type,id_host) Values(?,?,DATE_ADD(?, INTERVAL -22801 MONTH),DATE_ADD(?, INTERVAL -22801 MONTH),?,?,?,?,?)";
         
          try {
             ste=mc.prepareStatement(req);
@@ -41,14 +42,15 @@ public class LogementsServices {
             ste.setFloat(5, l.getPrix());
             ste.setBoolean(6, l.isEtat());
             ste.setString(7, l.getVille());
-            ste.setString(8, l.getType());
+            ste.setString(8, l.getType().toString());
+            ste.setInt(9, l.getIdhost());
             ste.executeUpdate();
             System.out.println("Logement ajoutée");
         } catch (SQLException ex) {
              System.out.println(ste);
             System.out.println(ex.getMessage());
         }
-    }
+    }   
        
        
        
@@ -67,7 +69,8 @@ public class LogementsServices {
                 o.setPrix(rs.getFloat("prix"));
                 o.setEtat(rs.getBoolean("etat"));
                 o.setVille(rs.getString("ville"));
-                o.setType(rs.getString("type"));
+                o.setType(TypeLogements.valueOf(rs.getString("type")));
+                o.setIdhost(rs.getInt("id_host"));
                 o.setId(rs.getInt("id"));
                 log.add(o);
             }
@@ -93,7 +96,8 @@ public class LogementsServices {
                 o.setPrix(rs.getFloat("prix"));
                 o.setEtat(rs.getBoolean("etat"));
                 o.setVille(rs.getString("ville"));
-                o.setType(rs.getString("type"));
+                o.setType(TypeLogements.valueOf(rs.getString("type")));
+                  o.setIdhost(rs.getInt("id_host"));
                 o.setId(rs.getInt("id"));
       
                 log.add(o);
@@ -121,7 +125,8 @@ public class LogementsServices {
                 o.setPrix(rs.getFloat("prix"));
                 o.setEtat(rs.getBoolean("etat"));
                 o.setVille(rs.getString("ville"));
-                o.setType(rs.getString("type"));
+                o.setType(TypeLogements.valueOf(rs.getString("type")));
+                  o.setIdhost(rs.getInt("id_host"));
                 o.setId(rs.getInt("id"));
       
                 log.add(o);
@@ -149,7 +154,8 @@ public class LogementsServices {
                 logement.setPrix(rs.getFloat("prix"));
                 logement.setEtat(rs.getBoolean("etat"));
                 logement.setVille(rs.getString("ville"));
-                logement.setType(rs.getString("type"));
+                logement.setType(TypeLogements.valueOf(rs.getString("type")));
+                logement.setIdhost(rs.getInt("id_host"));
                 logement.setId(rs.getInt("id"));
                 
                
@@ -218,7 +224,8 @@ public class LogementsServices {
                 loge.setPrix(rs.getFloat("prix"));
                 loge.setEtat(rs.getBoolean("etat"));
                 loge.setVille(rs.getString("ville"));
-                loge.setType(rs.getString("type"));
+                loge.setType(TypeLogements.valueOf(rs.getString("type")));
+                loge.setIdhost(rs.getInt("id_host"));
                 loge.setId(rs.getInt("id"));
                  
                 

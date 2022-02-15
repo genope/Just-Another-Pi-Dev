@@ -8,7 +8,6 @@ package shared.main;
 import java.sql.Date;
 import shared.connexion.MaConnexion;
 import shared.entities.*;
-import shared.services.OffresServices;
 
 /**
  *
