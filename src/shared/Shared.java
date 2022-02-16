@@ -16,8 +16,6 @@ public class Shared {
     public static void main(String[] args) {
         
         MaConnexion m = MaConnexion.getInstance();
-
-
         UserService userService = new UserService();
        // User user = userService.GetUserByMail("hasen@hasenhhh.hsds", "aze");
         //user.setNom("addddddzee");
