@@ -15,7 +15,11 @@ import shared.connexion.MaConnexion;
  */
 public class Main {    
     public static void main(String[] args) {
-          
+         MaConnexion m = MaConnexion.getInstance();
+         System.out.println("hi");
+         
+                 
+                
+         
          }
-    
 }
