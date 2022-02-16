@@ -13,11 +13,11 @@ public class Shared {
 
 
     public static void main(String[] args) {
-        MaConnexion m = MaConnexion.getInstance();
-        Reclamation R= new Reclamation(7,9637898, new Date(2022, 02, 15), new Date(2022, 02, 18), "Problème logement", "Logement non propre ",Statut.EnAttente, "ali.boughnim@esprit.tn", "xxxxxx.jpeg");
-        Reclamation R2= new Reclamation(10,9637898, new Date(2022, 02, 15), new Date(2022, 02, 19), "Problème compte", "Je ne peux pas me connecter",Statut.EnCours, "ali.boughnim@esprit.tn", "xxxxxx;jpg");
-        ReclamationServices rs=new ReclamationServices();
-        rs.ajouterReclamation(R);
+//        MaConnexion m = MaConnexion.getInstance();
+//        Reclamation R= new Reclamation(7,9637898, new Date(2022, 02, 15), new Date(2022, 02, 18), "Problème logement", "Logement non propre ",Statut.EnAttente, "ali.boughnim@esprit.tn", "xxxxxx.jpeg");
+//        Reclamation R2= new Reclamation(10,9637898, new Date(2022, 02, 15), new Date(2022, 02, 19), "Problème compte", "Je ne peux pas me connecter",Statut.EnCours, "ali.boughnim@esprit.tn", "xxxxxx;jpg");
+//        ReclamationServices rs=new ReclamationServices();
+//        rs.ajouterReclamation(R);
 //        rs.ajouterReclamation(R2);
 //         rs.modifierReclamation(1, R2);
 //         System.out.println(rs.afficherReclamation());
