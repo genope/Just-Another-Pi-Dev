@@ -1,40 +1,49 @@
 package shared;
 
+
+
 import java.sql.Date;
 import shared.connexion.MaConnexion;
-import shared.entities.Avis;
-import shared.entities.Reclamation;
-import shared.entities.enums.Statut;
-import shared.services.AvisServices;
-import shared.services.ReclamationServices;
+import shared.entities.User;
+import shared.entities.enums.Etat;
+import shared.entities.enums.Role;
+import shared.services.UserService;
 
 
 public class Shared {
 
 
     public static void main(String[] args) {
-//        MaConnexion m = MaConnexion.getInstance();
-//        Reclamation R= new Reclamation(7,9637898, new Date(2022, 02, 15), new Date(2022, 02, 18), "Problème logement", "Logement non propre ",Statut.EnAttente, "ali.boughnim@esprit.tn", "xxxxxx.jpeg");
-//        Reclamation R2= new Reclamation(10,9637898, new Date(2022, 02, 15), new Date(2022, 02, 19), "Problème compte", "Je ne peux pas me connecter",Statut.EnCours, "ali.boughnim@esprit.tn", "xxxxxx;jpg");
-//        ReclamationServices rs=new ReclamationServices();
-//        rs.ajouterReclamation(R);
-//        rs.ajouterReclamation(R2);
-//         rs.modifierReclamation(1, R2);
-//         System.out.println(rs.afficherReclamation());
-//         rs.supprimerReclamation(2);
-//           Avis A= new Avis(9637898,30,5,new Date(2022, 02, 15));
-//           Avis A2= new Avis(9637898,305,2,new Date(2022, 02, 15));
-//           AvisServices as=new AvisServices();
-//         as.ajouterAvis(A);
-//         as.ajouterAvis(A2);
-//         as.modifierAvis(1, A2);
-//         System.out.println(as.afficherAvis());
-//         as.supprimerAvis(1);
-//         as.supprimerAvis(0);
-         
-                 
-                
-         
+
+        
+        MaConnexion m = MaConnexion.getInstance();
+        UserService userService = new UserService();
+       // User user = userService.GetUserByMail("hasen@hasenhhh.hsds", "aze");
+        //user.setNom("addddddzee");
+        //userService.UpdateUser(user);
+        User user = userService.GetUserByCin(1);
+        userService.GetUserByCin(1);
+         User user1 = userService.GetUserByCin(12);
+        userService.GetUserByCin(12);
+        
+        
+        
+        
+        
+        //register host
+        /* User user=new User(1,"hassen","mabrouk","hassen@hassen.has","aze",new Date(1999, 1, 1),12,Role.Host,Etat.approved,"okk","hhhh");
+        userService.register(user);
+         //register guest
+        User user1=new User(2,"hassen","mabrouk","hasen@hasen.hasss","aze",new Date(1999, 1, 1),12,Role.Guest,Etat.approved,"okk","hhhh");
+        userService.register(user1);*/
+     //    User user2=new User(39,"hassen","mabrouk","hasen@hasenhhh.hsds","aze",new Date(1999, 1, 1),12,Role.Admin,Etat.approved,"okk","hhhh");
+       // userService.register(user2);
+       
+
+
     }
     
+       
+    
 }
+    

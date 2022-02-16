@@ -7,6 +7,12 @@ package shared.main;
 
 import java.sql.Date;
 import shared.connexion.MaConnexion;
+import shared.entities.Commentaire;
+import shared.entities.Publication;
+import shared.services.CommentaireService;
+import shared.services.PublicationService;
+
+
 
 
 /**
@@ -15,11 +21,6 @@ import shared.connexion.MaConnexion;
  */
 public class Main {    
     public static void main(String[] args) {
-         MaConnexion m = MaConnexion.getInstance();
-         System.out.println("hi");
-         
-                 
-                
-         
+
          }
 }
