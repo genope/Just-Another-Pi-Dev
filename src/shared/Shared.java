@@ -8,11 +8,14 @@ import shared.entities.enums.Role;
 import shared.services.UserService;
 
 
+
 public class Shared {
 
 
     public static void main(String[] args) {
         MaConnexion m = MaConnexion.getInstance();
+
+
         UserService userService = new UserService();
        // User user = userService.GetUserByMail("hasen@hasenhhh.hsds", "aze");
         //user.setNom("addddddzee");
@@ -35,8 +38,10 @@ public class Shared {
      //    User user2=new User(39,"hassen","mabrouk","hasen@hasenhhh.hsds","aze",new Date(1999, 1, 1),12,Role.Admin,Etat.approved,"okk","hhhh");
        // userService.register(user2);
        
-       
+
     }
+    
+       
     
 }
     
