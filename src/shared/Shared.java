@@ -1,15 +1,13 @@
 package shared;
 
-import shared.entities.ReservationLogement;
-import shared.entities.ReservationMoyenTransport;
-import shared.services.ReservationMoyenTransportService;
-import shared.services.ReservationLogementService;
+
 import java.sql.Date;
 import shared.connexion.MaConnexion;
-import shared.entities.ReservationEvent;
-import shared.entities.ReservationHoreca;
-import shared.services.ReservationEventService;
-import shared.services.ReservationHorecaService;
+import shared.entities.User;
+import shared.entities.enums.Etat;
+import shared.entities.enums.Role;
+import shared.services.UserService;
+
 
 
 public class Shared {
@@ -18,42 +16,34 @@ public class Shared {
     public static void main(String[] args) {
         
         MaConnexion m = MaConnexion.getInstance();
-       java.util.Date utilDate = new java.util.Date();
-        java.sql.Timestamp sqlTS = new java.sql.Timestamp(utilDate.getTime());
-           
-       
-        ReservationMoyenTransportService mts = new ReservationMoyenTransportService();
-        //mts.ajouterReservationMT(mt);
-        ReservationMoyenTransport mt1=new ReservationMoyenTransport(3,130,14,sqlTS,Date.valueOf("2022-03-15"));
-        //mts.ajouterReservationMT(mt1);
-         //System.out.println(mts.afficherReservationMT()); 
-        //mts.modifierReservationMT(new ReservationMoyenTransport(3,15,16,sqlTS,Date.valueOf("2010-12-10")),3);
-        //System.out.println("apres modif" +mts.afficherReservationMT()); 
-        //int sup=mts.supprimerReservationMoyenTransport(3);
-    
-       
-       ReservationLogementService ms = new ReservationLogementService();
-       ReservationLogement ml=new ReservationLogement(1,4,5,sqlTS,Date.valueOf("2020-03-20"));
-       // ms.ajouterReservationL(ml);
-      //  ms.modifierReservationMT(new ReservationLogement(2,3,4,sqlTS,Date.valueOf("2011-12-10")),1);
-      //  int sup=ms.supprimerReservationMoyenTransport(1);
 
-      ReservationHorecaService hs = new ReservationHorecaService();
-       ReservationHoreca mh=new ReservationHoreca(1,4,5,sqlTS,Date.valueOf("2020-03-20"));
-           //  hs.ajouterReservationL(mh);
-      //  hs.modifierReservationHoreca(new ReservationHoreca(2,3,4,sqlTS,Date.valueOf("2011-12-10")),1);
-       // int sup=hs.supprimerReservationHoreca(1);
-       // int sup=hs.supprimerReservationHoreca(1);
 
+        UserService userService = new UserService();
+       // User user = userService.GetUserByMail("hasen@hasenhhh.hsds", "aze");
+        //user.setNom("addddddzee");
+        //userService.UpdateUser(user);
+        User user = userService.GetUserByCin(1);
+        userService.GetUserByCin(1);
+         User user1 = userService.GetUserByCin(12);
+        userService.GetUserByCin(12);
         
- ReservationEventService vs = new ReservationEventService();
-       ReservationEvent mv=new ReservationEvent(1,4,5,sqlTS,Date.valueOf("2020-03-20"));
-     //   vs.ajouterReservationE(mv);
-       // vs.modifierReservationEvent(new ReservationEvent(2,3,4,sqlTS,Date.valueOf("2011-12-10")),1);
-        int sup=vs.supprimerReservationEvent(1);
-              
         
         
+        
+        
+        //register host
+        /* User user=new User(1,"hassen","mabrouk","hassen@hassen.has","aze",new Date(1999, 1, 1),12,Role.Host,Etat.approved,"okk","hhhh");
+        userService.register(user);
+         //register guest
+        User user1=new User(2,"hassen","mabrouk","hasen@hasen.hasss","aze",new Date(1999, 1, 1),12,Role.Guest,Etat.approved,"okk","hhhh");
+        userService.register(user1);*/
+     //    User user2=new User(39,"hassen","mabrouk","hasen@hasenhhh.hsds","aze",new Date(1999, 1, 1),12,Role.Admin,Etat.approved,"okk","hhhh");
+       // userService.register(user2);
+       
+
     }
     
+       
+    
 }
+    
