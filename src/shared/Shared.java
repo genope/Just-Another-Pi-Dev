@@ -1,5 +1,6 @@
 package shared;
 
+
 import java.sql.Date;
 import shared.connexion.MaConnexion;
 import shared.entities.User;
@@ -13,6 +14,7 @@ public class Shared {
 
 
     public static void main(String[] args) {
+        
         MaConnexion m = MaConnexion.getInstance();
 
 
