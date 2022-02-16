@@ -7,7 +7,12 @@ package shared.main;
 
 import java.sql.Date;
 import shared.connexion.MaConnexion;
-import shared.entities.enums.TypeDeTransport;
+import shared.entities.Commentaire;
+import shared.entities.Publication;
+import shared.services.CommentaireService;
+import shared.services.PublicationService;
+
+
 
 
 /**
@@ -16,6 +21,7 @@ import shared.entities.enums.TypeDeTransport;
  */
 public class Main {    
     public static void main(String[] args) {
+
          }
     
 }

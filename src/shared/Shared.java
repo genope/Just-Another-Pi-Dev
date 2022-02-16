@@ -1,51 +1,47 @@
 package shared;
 
+
 import java.sql.Date;
-import java.util.List;
 import shared.connexion.MaConnexion;
-import shared.entities.enums.TypeDeTransport;
-import shared.services.MoyenDeTransportService;
-import shared.entities.*;
-import shared.services.EvenementService;
+import shared.entities.User;
+import shared.entities.enums.Etat;
+import shared.entities.enums.Role;
+import shared.services.UserService;
+
 
 
 public class Shared {
 
 
     public static void main(String[] args) {
+        
         MaConnexion m = MaConnexion.getInstance();
+        UserService userService = new UserService();
+       // User user = userService.GetUserByMail("hasen@hasenhhh.hsds", "aze");
+        //user.setNom("addddddzee");
+        //userService.UpdateUser(user);
+        User user = userService.GetUserByCin(1);
+        userService.GetUserByCin(1);
+         User user1 = userService.GetUserByCin(12);
+        userService.GetUserByCin(12);
         
-                  
-        MoyenDeTransportService a = new MoyenDeTransportService();
         
-        MoyenDeTransport mdt = new MoyenDeTransport(8, TypeDeTransport.Voiture, "Golf 6", "nnvspod", new Date(2009, 11, 12), new Date(2009, 11, 20), 0, true, "Sousse");
-        MoyenDeTransport mdt1 = new MoyenDeTransport(68, TypeDeTransport.Moto, "Honda ", "aasdaex", new Date(2010, 1, 31), new Date(2010, 7, 3), 0, true, "Ariana");
-        MoyenDeTransport mdt2 = new MoyenDeTransport(4, TypeDeTransport.Velo, "RockRider ", "sdqsrx", new Date(2010, 1, 28), new Date(2011, 8, 47), 0, true, "Tunis");
+        
+        
+        
+        //register host
+        /* User user=new User(1,"hassen","mabrouk","hassen@hassen.has","aze",new Date(1999, 1, 1),12,Role.Host,Etat.approved,"okk","hhhh");
+        userService.register(user);
+         //register guest
+        User user1=new User(2,"hassen","mabrouk","hasen@hasen.hasss","aze",new Date(1999, 1, 1),12,Role.Guest,Etat.approved,"okk","hhhh");
+        userService.register(user1);*/
+     //    User user2=new User(39,"hassen","mabrouk","hasen@hasenhhh.hsds","aze",new Date(1999, 1, 1),12,Role.Admin,Etat.approved,"okk","hhhh");
+       // userService.register(user2);
+       
 
-        
-        EvenementService e = new EvenementService();
-        Evenement event = new Evenement(11,"asdaé", "Ba3be3iaze", "w mriguel", new Date(2021,9,18), new Date(2021,9,18), 0, true, "Ariana");
-//        a.ajouterMoyenDeTransport(mdt);
-//        a.ajouterMoyenDeTransport(mdt1);  
-//        a.ajouterMoyenDeTransport(mdt2);  
-        //a.modifierMoyenDeTransport(mdt1,14);
-        //a.supprimerMoyenDeTransport(68);
-//        List<MoyenDeTransport> l = a.afficherMoyenDeTransport();
-//        
-//        for(MoyenDeTransport moydetrans : l){
-//            System.out.println(moydetrans);
-//        }
-          e.ajouterEvenement(event);
-          System.out.println(event);
-//          e.afficherEvenement();
-//          
-//          List<Evenement> l = e.afficherEvenement();
-//          
-////        
-//        for(Evenement even : l){
-//            System.out.println(even);
-//        }
-//        System.out.println(a.getMoyenDeTransportByID(3));
     }
     
+       
+    
 }
+    
