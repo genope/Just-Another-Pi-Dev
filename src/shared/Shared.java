@@ -2,10 +2,11 @@ package shared;
 
 import java.sql.Date;
 import shared.connexion.MaConnexion;
-import shared.entities.Commentaire;
-import shared.entities.Publication;
-import shared.services.CommentaireService;
-import shared.services.PublicationService;
+import shared.entities.User;
+import shared.entities.enums.Etat;
+import shared.entities.enums.Role;
+import shared.services.UserService;
+
 
 
 public class Shared {
@@ -13,25 +14,34 @@ public class Shared {
 
     public static void main(String[] args) {
         MaConnexion m = MaConnexion.getInstance();
-          Publication p =new Publication(1,14725836,"nom publication2", "description2", "image2", "adresse2",24, new Date(07, 02, 2021));
-        
 
-        Commentaire c=new Commentaire(4,14725836,11, "nom commentaire", "commentaireeeeetestt");
-        PublicationService ps = new PublicationService();
-        CommentaireService cs= new CommentaireService();
-      // ps.ajouterPublication(p);
-      cs.ajouterCommentaire(c);
+
+        UserService userService = new UserService();
+       // User user = userService.GetUserByMail("hasen@hasenhhh.hsds", "aze");
+        //user.setNom("addddddzee");
+        //userService.UpdateUser(user);
+        User user = userService.GetUserByCin(1);
+        userService.GetUserByCin(1);
+         User user1 = userService.GetUserByCin(12);
+        userService.GetUserByCin(12);
         
-        // cs.modifierCommentaire(c,2);
-         
-       // ps.modifierPublication("soudani","wissal","xxxx","azerty",1);
         
-       // ps.supprimerPublication(8);
-     // cs.supprimerCommentaire(3);
-       System.out.println(cs.afficherCommentaire());
-      //System.out.println(ps.afficherPublication());
+        
+        
+        
+        //register host
+        /* User user=new User(1,"hassen","mabrouk","hassen@hassen.has","aze",new Date(1999, 1, 1),12,Role.Host,Etat.approved,"okk","hhhh");
+        userService.register(user);
+         //register guest
+        User user1=new User(2,"hassen","mabrouk","hasen@hasen.hasss","aze",new Date(1999, 1, 1),12,Role.Guest,Etat.approved,"okk","hhhh");
+        userService.register(user1);*/
+     //    User user2=new User(39,"hassen","mabrouk","hasen@hasenhhh.hsds","aze",new Date(1999, 1, 1),12,Role.Admin,Etat.approved,"okk","hhhh");
+       // userService.register(user2);
+       
+
     }
     
        
     
 }
+    
