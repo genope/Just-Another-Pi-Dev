@@ -3,16 +3,10 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-
-            <file>file:/C:/Users/genop/OneDrive/Desktop/Just-Another-Pi-Dev/src/shared/Shared.java</file>
-            <file>file:/C:/Users/genop/OneDrive/Desktop/Just-Another-Pi-Dev/src/shared/entities/enums/Etat.java</file>
-            <file>file:/C:/Users/genop/OneDrive/Desktop/Just-Another-Pi-Dev/src/shared/login_register_design/Login_form.java</file>
-            <file>file:/C:/Users/genop/OneDrive/Desktop/Just-Another-Pi-Dev/src/shared/main/Main.java</file>
-            <file>file:/C:/Users/genop/OneDrive/Desktop/Just-Another-Pi-Dev/src/shared/entities/User.java</file>
-            <file>file:/C:/Users/genop/OneDrive/Desktop/Just-Another-Pi-Dev/src/shared/connexion/MaConnexion.java</file>
-            <file>file:/C:/Users/genop/OneDrive/Desktop/Just-Another-Pi-Dev/src/shared/entities/enums/Role.java</file>
-            <file>file:/C:/Users/genop/OneDrive/Desktop/Just-Another-Pi-Dev/src/shared/services/UserService.java</file
-
+            <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/GUI/AffichageProduitController.java</file>
+            <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/GUI/PanierAffichageController.java</file>
+            <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/GUI/CardProduit2Controller.java</file>
+            <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/entities/PanierDetails.java</file>
         </group>
     </open-files>
 </project-private>

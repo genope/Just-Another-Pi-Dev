@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="681.0" prefWidth="1128.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.GUI.PanierAffichageController">
+   <children>
+      <ImageView fitHeight="681.0" fitWidth="1128.0" pickOnBounds="true">
+         <image>
+            <Image url="@../resources/AtHome-NightSky-1080x810-1.jpg" />
+         </image></ImageView>
+      <Pane layoutX="33.0" layoutY="270.0" prefHeight="395.0" prefWidth="1065.0">
+         <children>
+            <ScrollPane prefHeight="395.0" prefWidth="1065.0" stylesheets="@../style/Produits.css">
+               <content>
+                  <GridPane fx:id="grid">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                  </GridPane>
+               </content>
+            </ScrollPane>
+         </children>
+      </Pane>
+      <Pane layoutX="292.0" layoutY="22.0" prefHeight="250.0" prefWidth="801.0">
+         <children>
+            <ImageView fx:id="ivProd" fitHeight="150.0" fitWidth="200.0" layoutX="52.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
+            <Button fx:id="btnSupr" layoutX="678.0" layoutY="177.0" mnemonicParsing="false" text="Supprimer" />
+            <TextField fx:id="tfRef" layoutX="481.0" layoutY="177.0" promptText="ref" />
+            <TextField fx:id="totall" layoutX="481.0" layoutY="140.0" />
+            <Label alignment="CENTER" layoutX="384.0" layoutY="140.0" prefHeight="26.0" prefWidth="66.0" text="Total" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+            </Label>
+         </children>
+      </Pane>
+      <Pane prefHeight="279.0" prefWidth="250.0" />
+   </children>
+</AnchorPane>
