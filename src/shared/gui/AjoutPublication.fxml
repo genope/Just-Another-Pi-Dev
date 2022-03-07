@@ -127,6 +127,5 @@
       </HBox>
       <ImageView fx:id="imageview" fitHeight="150.0" fitWidth="222.0" layoutX="686.0" layoutY="633.0" pickOnBounds="true" preserveRatio="true" />
       <TableView fx:id="list" layoutX="797.0" layoutY="197.0" onKeyPressed="#index3" onMouseClicked="#indexx" prefHeight="428.0" prefWidth="621.0" style="-fx-background-color: F9EBEA;" />
-      <TextField fx:id="id_guest" layoutX="1216.0" layoutY="153.0" />
    </children>
 </AnchorPane>

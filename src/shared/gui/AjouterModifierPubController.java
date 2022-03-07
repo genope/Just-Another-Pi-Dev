@@ -65,18 +65,66 @@ String path;
     private TextField id_guest;
     @FXML
     private Button afficherbtn;
+    @FXML
+    private Button Supprimerbtn;
     
     /**
      * Initializes the controller class.
      */
     
     private void setChosenPub(Publication p){
+        PublicationService pubService = new PublicationService();
         id.setText(String.valueOf(p.getId()));
         nom.setText(p.getNom());
         description.setText(p.getDescription());
         adresse.setText(p.getAdresse());
 //        Image image =new image(p.getImage(),112,100,false,true);
 //        imageview.setImage(image);
+Supprimerbtn.setOnMouseClicked((MouseEvent event2)
+                        -> {
+            pubService.supprimerPublication(p.getId());
+            
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("Votre publication est supprimée avec succés !");
+                alert.showAndWait();
+                grid3.getChildren().clear();
+                PublicationService rs= new PublicationService();
+        int column = 0;
+        int row = 1;
+        try {
+            for (int i = 0; i < rs.afficherPublication().size(); i++) {
+                FXMLLoader fxmlLoader = new FXMLLoader();
+                fxmlLoader.setLocation(getClass().getResource("pub.fxml"));
+                VBox cardvbox = fxmlLoader.load();
+
+               PubController RecController = fxmlLoader.getController();
+                RecController.setData(rs.afficherPublication().get(i), myListener);
+
+                if (column == 1) {
+                    column = 0;
+                    row++;
+                }
+
+                grid3.add(cardvbox, column++, row); //(child,column,row)
+                //set grid width
+                grid3.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid3.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid3.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                grid3.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid3.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid3.setMaxHeight(Region.USE_PREF_SIZE);
+
+                grid3.setMargin(cardvbox, new Insets(10));
+                
+            }
+            } catch (IOException e) {
+            e.printStackTrace();
+        }
+        });
     
             }
     @Override
@@ -302,5 +350,6 @@ String path;
         }
         
     }
-    
+
+   
 }

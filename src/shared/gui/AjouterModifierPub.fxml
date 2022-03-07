@@ -16,8 +16,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="AnchorPane" prefHeight="759.0" prefWidth="1211.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="shared.gui.AjouterModifierPubController">
+<AnchorPane id="AnchorPane" prefHeight="759.0" prefWidth="1211.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.gui.AjouterModifierPubController">
    <children>
       <HBox layoutY="10.0" prefHeight="120.0" prefWidth="1211.0" styleClass="white-background">
          <stylesheets>
@@ -104,7 +103,7 @@
                   </ImageView>
                </graphic>
             </Button>
-            <Button fx:id="Ajouterpubbtn" contentDisplay="RIGHT" layoutX="54.0" layoutY="554.0" mnemonicParsing="false" onAction="#AjouterPublication" prefHeight="40.0" prefWidth="284.0" style="-fx-background-color: CBC7C6;" styleClass="search-button" stylesheets="@../../css/style.css" text="Ajouter votre publication" textFill="#751961">
+            <Button fx:id="Ajouterpubbtn" contentDisplay="RIGHT" layoutX="54.0" layoutY="521.0" mnemonicParsing="false" onAction="#AjouterPublication" prefHeight="40.0" prefWidth="284.0" style="-fx-background-color: CBC7C6;" styleClass="search-button" stylesheets="@../../css/style.css" text="Ajouter votre publication" textFill="#751961">
                <font>
                   <Font name="Harlow Solid Italic" size="21.0" />
                </font>
@@ -119,7 +118,7 @@
             <ImageView fx:id="imageview" fitHeight="132.0" fitWidth="180.0" layoutX="248.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true" />
          </children>
       </Pane>
-      <Button fx:id="Modifierbtn" contentDisplay="RIGHT" layoutX="666.0" layoutY="680.0" mnemonicParsing="false" onAction="#ModifierPublication" prefHeight="54.0" prefWidth="284.0" style="-fx-background-color: CBC7C6;" styleClass="search-button" stylesheets="@../../css/style.css" text="Modifier votre publication" textFill="#751961">
+      <Button fx:id="Modifierbtn" contentDisplay="RIGHT" layoutX="606.0" layoutY="651.0" mnemonicParsing="false" onAction="#ModifierPublication" prefHeight="54.0" prefWidth="291.0" style="-fx-background-color: CBC7C6;" styleClass="search-button" stylesheets="@../../css/style.css" text="Modifier votre publication" textFill="#751961">
          <font>
             <Font name="Harlow Solid Italic" size="21.0" />
          </font>
@@ -131,14 +130,26 @@
             </ImageView>
          </graphic>
       </Button>
-      <ScrollPane layoutX="687.0" layoutY="135.0" prefHeight="541.0" prefWidth="510.0">
+      <ScrollPane layoutX="687.0" layoutY="135.0" prefHeight="492.0" prefWidth="510.0">
          <content>
-            <GridPane fx:id="grid3" onMousePressed="#click2">
+            <GridPane fx:id="grid3">
               <rowConstraints>
                 <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
               </rowConstraints>
             </GridPane>
          </content>
       </ScrollPane>
+      <Button fx:id="Supprimerbtn" contentDisplay="RIGHT" layoutX="920.0" layoutY="651.0" mnemonicParsing="false" prefHeight="57.0" prefWidth="199.0" style="-fx-background-color: CBC7C6;" styleClass="search-button" stylesheets="@../../css/style.css" text="Supprimer" textFill="#751961">
+         <font>
+            <Font name="Harlow Solid Italic" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="43.0" fitWidth="47.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/icons8-supprimer-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
    </children>
 </AnchorPane>

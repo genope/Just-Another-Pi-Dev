@@ -7,11 +7,13 @@ package shared.gui;
 
 import java.io.IOException;
 import java.net.URL;
+import java.util.Calendar;
 import java.util.ResourceBundle;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.geometry.Insets;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
@@ -23,6 +25,7 @@ import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import org.controlsfx.control.Rating;
+import shared.entities.Commentaire;
 import shared.entities.Publication;
 import static shared.gui.AffichagePublicationController.selectedItem;
 import shared.services.CommentaireService;
@@ -78,6 +81,8 @@ public class PubController  {
     private ImageView zero;
     @FXML
     private GridPane gridd;
+    @FXML
+    private Label note;
     
     
     
@@ -156,6 +161,31 @@ public class PubController  {
             } catch (IOException e) {
             e.printStackTrace();
         }
+        AjouterCommentairebtn.setOnMouseClicked((MouseEvent event3)
+                        -> {
+            Commentaire c= new Commentaire();
+        
+        c.setNom(nomc.getText());       
+        c.setComment(comment.getText());
+        c.setDate_com(new java.sql.Date(Calendar.getInstance().getTime().getTime()));
+        c.setId_publication(Integer.parseInt(id.getText()));
+        c.setId_guest(Integer.parseInt(id_guest.getText()));
+        c.setNote(Character.getNumericValue(note.getText().charAt(0)));
+            cs.ajouterCommentaire(c);
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+                alert.setTitle("Information Dialog");
+                alert.setHeaderText(null);
+                alert.setContentText("Votre commentaire est ajouté avec succés !");
+                alert.showAndWait();
+                
+                comment.clear();
+                Rating.setRating(0);
+                
+            
+        
+        }) 
+                ;
+        
        
        
        
