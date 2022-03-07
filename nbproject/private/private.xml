@@ -3,10 +3,20 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/gui/comment.fxml</file>
+            <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/gui/AdminPublicationController.java</file>
+            <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/gui/AjouterCommentaireController.java</file>
             <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/Shared.java</file>
+            <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/gui/AffichagePublicationController.java</file>
+            <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/gui/pub.fxml</file>
+            <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/gui/PubController.java</file>
             <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/services/PublicationService.java</file>
-            <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/main/Main.java</file>
-            <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/entities/Commentaire.java</file>
+            <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/css/style.css</file>
+            <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/services/CommentaireService.java</file>
+            <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/gui/CommentController.java</file>
+            <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/gui/AdminDetailPubController.java</file>
+            <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/gui/DetailPublicationController.java</file>
+            <file>file:/C:/Users/Fatma/Documents/GitHub/Just-Another-Pi-Dev/src/shared/gui/AjoutPublicationController.java</file>
         </group>
     </open-files>
 </project-private>

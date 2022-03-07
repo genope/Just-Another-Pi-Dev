@@ -38,6 +38,26 @@ public class Publication {
        
     }
 
+    public Publication(String nom, String description, String image, String adresse, int region_id, Date datecreation) {
+        this.nom = nom;
+        this.description = description;
+        this.image = image;
+        this.adresse = adresse;
+        this.region_id = region_id;
+        this.datecreation = datecreation;
+    }
+
+    public Publication(int id_guest, String nom, String description, String image, String adresse, int region_id, Date datecreation) {
+        this.id_guest = id_guest;
+        this.nom = nom;
+        this.description = description;
+        this.image = image;
+        this.adresse = adresse;
+        this.region_id = region_id;
+        this.datecreation = datecreation;
+    }
+    
+
     public Publication(int id, int id_guest, String nom, String description, String image, String adresse, int region_id) {
         this.id = id;
         this.id_guest = id_guest;
@@ -93,7 +113,7 @@ public class Publication {
         return adresse;
     }
 
-    public void setAddrese(String addrese) {
+    public void setAdresse(String adresse) {
         this.adresse = adresse;
     }
 
@@ -119,7 +139,7 @@ public class Publication {
     
      @Override
     public String toString() {
-        return "Personne{" + "id=" + id + ", id_guest=" + id_guest + ", nom=" + nom + ", description=" + description + ", image=" + image + ", adresse=" + adresse + ", region_id=" + region_id + ",  datecreation=" + datecreation +  '}';
+        return "Publication{" + "id=" + id + ", id_guest=" + id_guest + ", nom=" + nom + ", description=" + description + ", image=" + image + ", adresse=" + adresse + ", region_id=" + region_id + ",  datecreation=" + datecreation +  '}';
     }
 
     

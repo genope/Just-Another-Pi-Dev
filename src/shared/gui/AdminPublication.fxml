@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="532.0" prefWidth="890.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.gui.AdminPublicationController">
+   <children>
+      <TableView fx:id="list" layoutX="275.0" layoutY="217.0" onKeyPressed="#index3" onMousePressed="#index" prefHeight="317.0" prefWidth="601.0" />
+      <Button fx:id="supprimerbtn" contentDisplay="RIGHT" layoutX="701.0" layoutY="131.0" mnemonicParsing="false" onAction="#SupprimerPublication" prefHeight="52.0" prefWidth="175.0" style="-fx-background-color: CBC7C6;" styleClass="search-button" stylesheets="@../../css/style.css" text="Supprimer" textFill="#751961">
+         <font>
+            <Font name="Harlow Solid Italic" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="38.0" fitWidth="59.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/icons8-supprimer-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <VBox layoutX="10.0" layoutY="10.0" prefHeight="560.0" prefWidth="250.0" style="-fx-background-color: FFD6C0;" styleClass="right-bar" stylesheets="@../../css/style.css">
+         <children>
+            <HBox alignment="CENTER" prefHeight="110.0" prefWidth="200.0">
+               <children>
+                  <ImageView fitHeight="103.0" fitWidth="256.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/274655871_644899390150467_3999031082468919934_n.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
+            <Pane prefHeight="57.0" prefWidth="435.0" VBox.vgrow="ALWAYS" />
+         </children>
+      </VBox>
+      <HBox layoutX="260.0" layoutY="10.0" prefHeight="100.0" prefWidth="617.0" style="-fx-background-color: FFD6C0;" />
+      <Pane layoutX="297.0" layoutY="10.0" prefHeight="100.0" prefWidth="554.0">
+         <children>
+            <Label layoutX="110.0" layoutY="19.0" text="Liste des publications" textFill="#751961" textOverrun="WORD_ELLIPSIS">
+               <font>
+                  <Font name="MV Boli" size="36.0" />
+               </font>
+               <effect>
+                  <Lighting>
+                     <bumpInput>
+                        <Shadow />
+                     </bumpInput>
+                     <light>
+                        <Light.Distant />
+                     </light>
+                  </Lighting>
+               </effect>
+            </Label>
+         </children>
+      </Pane>
+   </children>
+</AnchorPane>

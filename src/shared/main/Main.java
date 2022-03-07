@@ -22,7 +22,12 @@ public class Main {
     public static void main(String[] args) {
         
         MaConnexion m = MaConnexion.getInstance();
-        System.out.println("test");
+        PublicationService ps = new PublicationService();
+    CommentaireService cs= new CommentaireService();
+   // System.out.println(ps.filtrerRegion("MONASTIR"));
+    Commentaire c=new Commentaire(15,14725836,11, "nom commentaire", "commentaireeeeetestt",2);
+    //cs.ajouterCommentaire(c);
+        System.out.println(cs.GEtMoyRating(11));
          }
     
 }

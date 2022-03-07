@@ -18,10 +18,27 @@ public class Commentaire {
     private String nom;
     private String comment;
     private Date date_com;
+    private int note;
+
+    public Commentaire(int id, int id_guest, int id_publication, String nom, String comment, int note) {
+        this.id = id;
+        this.id_guest = id_guest;
+        this.id_publication = id_publication;
+        this.nom = nom;
+        this.comment = comment;
+        this.note = note;
+    }
     
     
     public Commentaire() {
         
+    }
+
+    public Commentaire(int id_guest, String nom, String comment, Date date_com) {
+        this.id_guest = id_guest;
+        this.nom = nom;
+        this.comment = comment;
+        this.date_com = date_com;
     }
 
     public Commentaire(int id, int id_guest, int id_publication, String nom, String comment, Date date_com) {
@@ -39,6 +56,24 @@ public class Commentaire {
         this.id_publication = id_publication;
         this.nom = nom;
         this.comment = comment;
+    }
+
+    public void setNote(int note) {
+        this.note = note;
+    }
+
+    public int getNote() {
+        return note;
+    }
+
+    public Commentaire(int id, int id_guest, int id_publication, String nom, String comment, Date date_com, int note) {
+        this.id = id;
+        this.id_guest = id_guest;
+        this.id_publication = id_publication;
+        this.nom = nom;
+        this.comment = comment;
+        this.date_com = date_com;
+        this.note = note;
     }
 
     public int getId() {
@@ -88,12 +123,23 @@ public class Commentaire {
     public void setDate_com(Date date_com) {
         this.date_com = date_com;
     }
+    
+
+//    @Override
+//    public String toString() {
+//        return "Commentaire{ id_guest=" + id_guest + ",  nom=" + nom + ", comment=" + comment + ", date_com=" + date_com + '}';
+//    }
+//    
+
+//    @Override
+//    public String toString() {
+//        return "Commentaire{" + "id=" + id + ", id_guest=" + id_guest + ", id_publication=" + id_publication + ", nom=" + nom + ", comment=" + comment + ", date_com=" + date_com + '}';
+//    }
 
     @Override
     public String toString() {
-        return "Commentaire{" + "id=" + id + ", id_guest=" + id_guest + ", id_publication=" + id_publication + ", nom=" + nom + ", comment=" + comment + ", date_com=" + date_com + '}';
+        return "Commentaire{ id_guest=" + id_guest + ", nom=" + nom + ", comment=" + comment + ", date_com=" + date_com + ", note=" + note + '}';
     }
-    
     
     
     

@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" fx:id="cardcomment" prefHeight="78.0" prefWidth="265.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="shared.gui.CommentController">
+   <children>
+      <HBox layoutX="7.0" layoutY="8.0" onMousePressed="#click2" prefHeight="68.0" prefWidth="255.0" style="-fx-background-color: #E9967A;" styleClass="chosen-fruit-card">
+         <stylesheets>
+            <URL value="@../../css/style.css" />
+            <URL value="@../../css/style1.css" />
+         </stylesheets>
+         <children>
+            <Pane prefHeight="68.0" prefWidth="258.0">
+               <children>
+                  <Label fx:id="nom_guest" layoutX="25.0" prefHeight="17.0" prefWidth="97.0" text="Label" textFill="#fff0e9">
+                     <font>
+                        <Font name="Bodoni MT Bold" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="description" layoutX="11.0" layoutY="9.0" prefHeight="34.0" prefWidth="182.0" text="Label">
+                     <font>
+                        <Font name="Rockwell" size="11.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="date" layoutX="113.0" layoutY="-2.0" prefHeight="22.0" prefWidth="104.0" text="Label" textFill="#682655">
+                     <font>
+                        <Font name="Pristina" size="13.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="Three" fitHeight="22.0" fitWidth="152.0" layoutX="24.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../images/3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="five" fitHeight="22.0" fitWidth="151.0" layoutX="14.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../images/5.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="one" fitHeight="22.0" fitWidth="147.0" layoutX="14.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../images/111.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="two" fitHeight="22.0" fitWidth="173.0" layoutX="14.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../images/222222.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="zero" fitHeight="22.0" fitWidth="200.0" layoutX="122.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../images/0000000.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="four" fitHeight="22.0" fitWidth="200.0" layoutX="124.0" layoutY="43.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../images/'4.jpg" />
+                     </image>
+                  </ImageView>
+                  <Label fx:id="note" layoutX="217.0" layoutY="6.0" text="Label" visible="false" />
+                  <Label fx:id="id" layoutX="217.0" layoutY="1.0" text="Label" visible="false" />
+                  <Label fx:id="nomc" layoutX="225.0" layoutY="1.0" text="Label" visible="false" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

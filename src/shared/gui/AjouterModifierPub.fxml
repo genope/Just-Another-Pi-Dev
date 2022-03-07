@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="759.0" prefWidth="1211.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="shared.gui.AjouterModifierPubController">
+   <children>
+      <HBox layoutY="10.0" prefHeight="120.0" prefWidth="1211.0" styleClass="white-background">
+         <stylesheets>
+            <URL value="@../../css/style1.css" />
+            <URL value="@../../css/style.css" />
+         </stylesheets>
+         <children>
+            <HBox prefHeight="136.0" prefWidth="245.0" styleClass="logo">
+               <children>
+                  <ImageView fitHeight="127.0" fitWidth="240.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/274655871_644899390150467_3999031082468919934_n.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Pane prefHeight="120.0" prefWidth="961.0">
+               <children>
+                  <Label layoutX="220.0" layoutY="25.0" text="Les   expériences   partagées " textFill="#61112e">
+                     <font>
+                        <Font name="Edwardian Script ITC" size="50.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="id_guest" layoutX="798.0" layoutY="83.0" />
+                  <Button fx:id="afficherbtn" layoutX="721.0" layoutY="83.0" mnemonicParsing="false" onAction="#AfficherPubparuser" text="Afficher" />
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+      <VBox layoutX="-5.0" layoutY="130.0" prefHeight="630.0" prefWidth="250.0" styleClass="menu">
+         <stylesheets>
+            <URL value="@../../css/style1.css" />
+            <URL value="@../../css/style.css" />
+         </stylesheets>
+      </VBox>
+      <Pane layoutX="245.0" layoutY="130.0" prefHeight="630.0" prefWidth="480.0">
+         <children>
+            <HBox alignment="CENTER" layoutX="78.0" layoutY="25.0" prefHeight="40.0" prefWidth="235.0" style="-fx-background-color: F3F0EF;" styleClass="free-delivery-card" stylesheets="@../../css/style.css">
+               <children>
+                  <TextField fx:id="id" alignment="CENTER" prefHeight="33.0" prefWidth="190.0" promptText="Identifiant" styleClass="transparent">
+                     <font>
+                        <Font name="Bodoni MT" size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="78.0" layoutY="84.0" prefHeight="52.0" prefWidth="235.0" style="-fx-background-color: F3F0EF;" styleClass="free-delivery-card" stylesheets="@../../css/style.css">
+               <children>
+                  <TextField fx:id="nom" alignment="CENTER" promptText="Nom de la publication" styleClass="transparent">
+                     <font>
+                        <Font name="Bodoni MT" size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="71.0" layoutY="158.0" prefHeight="120.0" prefWidth="249.0" style="-fx-background-color: F3F0EF;" styleClass="free-delivery-card" stylesheets="@../../css/style.css">
+               <children>
+                  <TextField fx:id="description" alignment="CENTER" promptText="Description" styleClass="transparent">
+                     <font>
+                        <Font name="Bodoni MT" size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="78.0" layoutY="301.0" prefHeight="52.0" prefWidth="235.0" style="-fx-background-color: F3F0EF;" styleClass="free-delivery-card" stylesheets="@../../css/style.css">
+               <children>
+                  <TextField fx:id="adresse" alignment="CENTER" promptText="Adresse" styleClass="transparent">
+                     <font>
+                        <Font name="Bodoni MT" size="16.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <ComboBox fx:id="region" layoutX="89.0" layoutY="368.0" prefHeight="40.0" prefWidth="214.0" promptText="Choisir une region" style="-fx-background-color: FDEDEC;" styleClass="comboBox" stylesheets="@../../css/style.css" />
+            <Button fx:id="selectimg" contentDisplay="RIGHT" layoutX="22.0" layoutY="424.0" mnemonicParsing="false" onAction="#addimage" prefHeight="52.0" prefWidth="207.0" style="-fx-background-color: F3F0EF;" styleClass="search-button" stylesheets="@../../css/style.css" text="Select image" textFill="#e162c5">
+               <font>
+                  <Font name="Bodoni MT Italic" size="18.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/icons8-image-48.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <Button fx:id="Ajouterpubbtn" contentDisplay="RIGHT" layoutX="54.0" layoutY="554.0" mnemonicParsing="false" onAction="#AjouterPublication" prefHeight="40.0" prefWidth="284.0" style="-fx-background-color: CBC7C6;" styleClass="search-button" stylesheets="@../../css/style.css" text="Ajouter votre publication" textFill="#751961">
+               <font>
+                  <Font name="Harlow Solid Italic" size="21.0" />
+               </font>
+               <graphic>
+                  <ImageView fitHeight="40.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/icons8-ajouter-une-propriété-100.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <ImageView fx:id="imageview" fitHeight="132.0" fitWidth="180.0" layoutX="248.0" layoutY="416.0" pickOnBounds="true" preserveRatio="true" />
+         </children>
+      </Pane>
+      <Button fx:id="Modifierbtn" contentDisplay="RIGHT" layoutX="666.0" layoutY="680.0" mnemonicParsing="false" onAction="#ModifierPublication" prefHeight="54.0" prefWidth="284.0" style="-fx-background-color: CBC7C6;" styleClass="search-button" stylesheets="@../../css/style.css" text="Modifier votre publication" textFill="#751961">
+         <font>
+            <Font name="Harlow Solid Italic" size="21.0" />
+         </font>
+         <graphic>
+            <ImageView fitHeight="40.0" fitWidth="51.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/icons8-modifier-le-calendrier-64.png" />
+               </image>
+            </ImageView>
+         </graphic>
+      </Button>
+      <ScrollPane layoutX="687.0" layoutY="135.0" prefHeight="541.0" prefWidth="510.0">
+         <content>
+            <GridPane fx:id="grid3" onMousePressed="#click2">
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+   </children>
+</AnchorPane>

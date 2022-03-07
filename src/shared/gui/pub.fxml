@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import org.controlsfx.control.Rating?>
+
+<VBox fx:id="cardvbox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="598.0" prefWidth="387.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.gui.PubController">
+   <children>
+      <VBox alignment="CENTER" onMousePressed="#click" prefHeight="640.0" prefWidth="419.0" style="-fx-background-color: #FADADA;" styleClass="add-btn">
+         <stylesheets>
+            <URL value="@../../css/style1.css" />
+            <URL value="@../../css/style.css" />
+         </stylesheets>
+         <children>
+            <Pane onMousePressed="#click" prefHeight="623.0" prefWidth="619.0">
+               <children>
+                  <Label fx:id="nom" layoutX="124.0" layoutY="2.0" prefHeight="17.0" prefWidth="131.0" text="nom" textFill="#86307b">
+                     <font>
+                        <Font name="Script MT Bold" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fx:id="imagepub" fitHeight="115.0" fitWidth="306.0" layoutX="41.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="adresse" layoutX="50.0" layoutY="141.0" prefHeight="24.0" prefWidth="287.0" text="Adresse" textFill="#794c46">
+                     <font>
+                        <Font name="NSimSun" size="14.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="description" layoutX="26.0" layoutY="163.0" prefHeight="55.0" prefWidth="337.0" text="Description">
+                     <font>
+                        <Font name="Monotype Corsiva" size="13.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="region" layoutX="203.0" layoutY="224.0" text="region" textFill="#55d7ff">
+                     <font>
+                        <Font name="System Bold Italic" size="16.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="222.0" layoutY="308.0" prefHeight="25.0" prefWidth="68.0" text="Publiée le :" textFill="#ffa781">
+                     <font>
+                        <Font name="Pristina" size="15.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="date" layoutX="274.0" layoutY="306.0" prefHeight="25.0" prefWidth="99.0" textFill="#832801">
+                     <font>
+                        <Font name="Pristina" size="18.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="3.0" layoutY="320.0" prefHeight="17.0" prefWidth="115.0" text="Commentaires:">
+                     <font>
+                        <Font name="Stencil" size="12.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="id" layoutX="23.0" layoutY="57.0" prefHeight="17.0" prefWidth="25.0" text="id" visible="false" />
+                  <ScrollPane layoutX="31.0" layoutY="337.0" prefHeight="103.0" prefWidth="317.0">
+                     <content>
+                        <GridPane fx:id="gridd">
+                          <rowConstraints>
+                            <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                          </rowConstraints>
+                        </GridPane>
+                     </content>
+                  </ScrollPane>
+                  <Label layoutX="48.0" layoutY="445.0" text="Redigez votre commentaire" textFill="#f57505" />
+                  <ImageView fitHeight="35.0" fitWidth="44.0" layoutX="9.0" layoutY="436.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/redigez%20commentaire.png" />
+                     </image>
+                  </ImageView>
+                  <TextField fx:id="comment" layoutX="30.0" layoutY="469.0" prefHeight="63.0" prefWidth="327.0" style="-fx-background-color: #FFFFF0;" styleClass="add-btn">
+                     <stylesheets>
+                        <URL value="@../../css/style1.css" />
+                        <URL value="@../../css/style.css" />
+                     </stylesheets>
+                  </TextField>
+                  <Rating fx:id="Rating" layoutX="102.0" layoutY="530.0" prefHeight="35.0" prefWidth="165.0" rating="0.0" />
+                  <Button fx:id="AjouterCommentairebtn" layoutX="97.0" layoutY="571.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="165.0" styleClass="chosen-fruit-card" stylesheets="@../../css/style.css" text="Ajouter votre commentaire" />
+                  <Label fx:id="id_guest" layoutX="279.0" layoutY="270.0" text="id_guest" visible="false" />
+                  <Label fx:id="nomc" layoutX="226.0" layoutY="261.0" text="nomc" visible="false" />
+                  <Label layoutX="46.0" layoutY="267.0" prefHeight="24.0" prefWidth="115.0" text="Note moyenne " textFill="#aea10b">
+                     <font>
+                        <Font name="Baskerville Old Face" size="17.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="35.0" fitWidth="44.0" layoutX="86.0" layoutY="219.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/icons8-lieu-dans-le-monde-entier-64.png" />
+                     </image>
+                  </ImageView>
+                  <Label layoutX="135.0" layoutY="226.0" prefHeight="15.0" prefWidth="68.0" text="Situé à :">
+                     <font>
+                        <Font name="Centaur" size="18.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="35.0" fitWidth="48.0" layoutX="186.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/icons8-date-64.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="three" fitHeight="35.0" fitWidth="200.0" layoutX="151.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../images/3.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="zero" fitHeight="35.0" fitWidth="193.0" layoutX="155.0" layoutY="262.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../images/0000000.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="one" fitHeight="35.0" fitWidth="190.0" layoutX="161.0" layoutY="261.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../images/111.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="two" fitHeight="42.0" fitWidth="200.0" layoutX="156.0" layoutY="256.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../images/222222.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="four" fitHeight="34.0" fitWidth="200.0" layoutX="150.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../images/'4.jpg" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="five" fitHeight="42.0" fitWidth="165.0" layoutX="151.0" layoutY="260.0" pickOnBounds="true" preserveRatio="true" visible="false">
+                     <image>
+                        <Image url="@../../images/5.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </VBox>
+   </children>
+</VBox>

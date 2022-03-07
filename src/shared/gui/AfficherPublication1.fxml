@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.String?>
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<AnchorPane id="AnchorPane" prefHeight="731.0" prefWidth="1201.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/8.0.171" fx:controller="shared.gui.AfficherPublication1Controller">
+   <children>
+      <HBox prefHeight="120.0" prefWidth="1201.0" styleClass="white-background">
+         <stylesheets>
+            <URL value="@../../css/style1.css" />
+            <URL value="@../../css/style.css" />
+         </stylesheets>
+         <children>
+            <HBox prefHeight="120.0" prefWidth="235.0" styleClass="logo">
+               <children>
+                  <ImageView fitHeight="119.0" fitWidth="222.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/274655871_644899390150467_3999031082468919934_n.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <Pane prefHeight="120.0" prefWidth="946.0">
+               <children>
+                  <Label layoutX="220.0" layoutY="25.0" text="Les   expériences   partagées " textFill="#61112e">
+                     <font>
+                        <Font name="Edwardian Script ITC" size="50.0" />
+                     </font>
+                  </Label>
+                  <Button fx:id="AjouterPubbtn" layoutX="696.0" layoutY="71.0" mnemonicParsing="false" onAction="#AjouterPublication" prefHeight="35.0" prefWidth="250.0" style="-fx-background-color: #E8F8F5; -fx-border-color: F39B4D;" text="       Ajoutez votre expérience" textFill="#bf228b">
+                     <stylesheets>
+                        <URL value="@../../css/style1.css" />
+                        <URL value="@../../css/style.css" />
+                     </stylesheets>
+                     <styleClass>
+                        <String fx:value="round-layout" />
+                        <String fx:value="add-btn" />
+                     </styleClass>
+                     <font>
+                        <Font name="Harlow Solid Italic" size="19.0" />
+                     </font>
+                  </Button>
+                  <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="707.0" layoutY="78.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/icons8-ajouter-une-propriété-100.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </HBox>
+      <VBox layoutY="120.0" prefHeight="612.0" prefWidth="235.0" styleClass="menu">
+         <stylesheets>
+            <URL value="@../../css/style1.css" />
+            <URL value="@../../css/style.css" />
+         </stylesheets>
+      </VBox>
+      <ScrollPane layoutX="249.0" layoutY="125.0" prefHeight="602.0" prefWidth="968.0">
+         <content>
+            <GridPane fx:id="grid">
+              <rowConstraints>
+                <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+              </rowConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+   </children>
+   <stylesheets>
+      <URL value="@../../css/style1.css" />
+      <URL value="@../../css/style.css" />
+   </stylesheets>
+</AnchorPane>
