@@ -26,8 +26,9 @@ public class User {
     private Etat etat;
     private String adress_host;
     private String image_cin;
+    private String image_profile;
 
-    public User(int cin, String nom, String prenom, String email, String password, Date ddn, int number, Role role, Etat etat, String adress_host, String image_cin) {
+    public User(int cin, String nom, String prenom, String email, String password, Date ddn, int number, Role role, Etat etat, String adress_host, String image_cin ,String image_profile) {
         this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
@@ -37,6 +38,7 @@ public class User {
         this.number = number;
         this.role = role;
         this.etat = etat;
+        this.image_profile =image_profile ;
         if (Role.Host.equals(role)) {
             this.adress_host = adress_host;
             this.image_cin = image_cin;
@@ -46,9 +48,49 @@ public class User {
         }
     }
 
+    public User() {
+    }
+
+    public User(int number) {
+        this.number = number;
+    }
+
+    public String getImage_profile() {
+        return image_profile;
+    }
+
+    public void setImage_profile(String image_profile) {
+        this.image_profile = image_profile;
+    }
+
+    public User(String nom, String prenom, String password, Date ddn, int number, String adress_host,int cin,String email,Role role) {
+        this.nom = nom;
+        this.prenom = prenom;
+        this.password = password;
+        this.ddn = ddn;
+        this.number = number;
+        this.cin=cin;
+        this.email=email;
+        this.role = role;
+        if (Role.Host.equals(role)) {
+            this.adress_host = adress_host;
+        }else{
+            this.adress_host = null;
+        
+        }
+    }
+    
+
+    public User(int cin, String email, String image_profile) {
+        this.cin = cin;
+        this.email = email;
+        this.image_profile = image_profile;
+    }
+    
+
     @Override
     public String toString() {
-        return "User{" + "cin=" + cin + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", password=" + password + ", ddn=" + ddn + ", number=" + number + ", role=" + role + ", etat=" + etat + ", adress_host=" + adress_host + ", image_cin=" + image_cin + '}';
+        return "User{" + "cin=" + cin + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", password=" + password + ", ddn=" + ddn + ", number=" + number + ", role=" + role + ", etat=" + etat + ", adress_host=" + adress_host + ", image_cin=" + image_cin +",image_profile"+ '}';
     }
 
     public int getCin() {
