@@ -6,7 +6,6 @@
 package shared.connexion;
 
 import java.sql.*;
-import java.util.*;
 public class MaConnexion {
     
     public String url="jdbc:mysql://localhost:3306/Shared";

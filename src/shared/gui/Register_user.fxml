@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXButton?>
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXPasswordField?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Group?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+
+<AnchorPane id="AnchorPane" prefHeight="625.0" prefWidth="1238.0" styleClass="mainFxmlClass" stylesheets="@Style/controls.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.gui.Register_pageGuestController">
+   <children>
+      <ImageView fitHeight="794.0" fitWidth="1404.0" layoutY="-7.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/bg_image.jpg" />
+         </image>
+      </ImageView>
+      <ImageView fitHeight="76.0" fitWidth="127.0" layoutX="632.0" layoutY="27.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../resources/logo.png" />
+         </image>
+      </ImageView>
+      <TabPane fx:id="tabpane" layoutX="440.0" layoutY="143.0" prefHeight="597.0" prefWidth="468.0" styleClass="tabpane" stylesheets="@Style/controls.css" tabClosingPolicy="UNAVAILABLE">
+         <tabs>
+            <Tab fx:id="tabGuest" text="GUEST">
+               <content>
+                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                     <children>
+                        <JFXTextField fx:id="cinGuest" focusColor="#ffa781" labelFloat="true" layoutX="67.0" layoutY="16.0" prefHeight="26.0" prefWidth="332.0" promptText="Cin*" styleClass="label1" stylesheets="@Style/controls.css" unFocusColor="WHITE" />
+                        <JFXTextField fx:id="LastnameGuest" focusColor="#ffa781" labelFloat="true" layoutX="67.0" layoutY="115.0" prefHeight="0.0" prefWidth="332.0" promptText="Last Name*" styleClass="label1" stylesheets="@Style/controls.css" unFocusColor="WHITE" />
+                        <JFXTextField fx:id="telNumberGuest" focusColor="#ffa781" labelFloat="true" layoutX="67.0" layoutY="286.0" prefHeight="26.0" prefWidth="332.0" promptText="Phone Number*" styleClass="label1" stylesheets="@../../../../aze/src/shared/gui/Style/controls.css" unFocusColor="WHITE" />
+                        <JFXDatePicker fx:id="ddnGuest" defaultColor="#ffab76" layoutX="67.0" layoutY="344.0" overLay="true" prefHeight="31.0" prefWidth="371.0" promptText="Birthday*" styleClass="label1" stylesheets="@../../../../aze/src/shared/gui/Style/controls.css" />
+                        <Button fx:id="register_guest" layoutX="152.0" layoutY="508.0" mnemonicParsing="false" onMouseClicked="#registerguest" prefHeight="38.0" prefWidth="164.0" styleClass="button1" stylesheets="@Style/controls.css" text="Register" />
+                        <JFXTextField fx:id="nameGuest" focusColor="#ffa781" labelFloat="true" layoutX="67.0" layoutY="65.0" prefHeight="31.0" prefWidth="331.0" promptText="Name*" styleClass="label1" stylesheets="@Style/controls.css" unFocusColor="WHITE" />
+                        <JFXTextField fx:id="EmailGuest" focusColor="#ffa781" labelFloat="true" layoutX="67.0" layoutY="168.0" prefHeight="26.0" prefWidth="332.0" promptText="Email*" styleClass="label1" stylesheets="@../../../../aze/src/shared/gui/Style/controls.css" unFocusColor="WHITE" />
+                        <JFXPasswordField fx:id="passwordGuest" focusColor="#ffa781" labelFloat="true" layoutX="67.0" layoutY="227.0" prefHeight="31.0" prefWidth="334.0" promptText="Password*" styleClass="label1" stylesheets="@Style/controls.css" unFocusColor="WHITE" />
+                        <JFXButton fx:id="profilePic_guest" layoutX="126.0" layoutY="440.0" onAction="#uploadProfilePicGuest" onMouseClicked="#uploadID" prefHeight="44.0" prefWidth="217.0" styleClass="buttonH" stylesheets="@Style/controls.css" text="Upload your Picture" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+            <Tab fx:id="tabHost" text="HOST">
+               <content>
+                  <AnchorPane prefHeight="600.0" prefWidth="461.0">
+                     <children>
+                        <JFXTextField fx:id="cinHost" focusColor="#ffa781" labelFloat="true" layoutX="67.0" layoutY="16.0" prefHeight="26.0" prefWidth="332.0" promptText="Cin*" styleClass="label1" stylesheets="@../../../../aze/src/shared/gui/Style/controls.css" unFocusColor="WHITE" />
+                        <JFXTextField fx:id="lastNameHost" focusColor="#ffa781" labelFloat="true" layoutX="67.0" layoutY="115.0" prefHeight="26.0" prefWidth="332.0" promptText="Last Name*" styleClass="label1" stylesheets="@../../../../aze/src/shared/gui/Style/controls.css" unFocusColor="WHITE" />
+                        <JFXTextField fx:id="telNumberHost" focusColor="#ffa781" labelFloat="true" layoutX="67.0" layoutY="291.0" prefHeight="26.0" prefWidth="332.0" promptText="Phone Number*" styleClass="label1" stylesheets="@../../../../aze/src/shared/gui/Style/controls.css" unFocusColor="WHITE" />
+                        <JFXDatePicker fx:id="ddnHost" defaultColor="#ffab76" layoutX="67.0" layoutY="344.0" prefHeight="31.0" prefWidth="371.0" promptText="Birthday*" showWeekNumbers="true" styleClass="label1" stylesheets="@../../../../aze/src/shared/gui/Style/controls.css" />
+                        <JFXTextField fx:id="telNumberHost1" focusColor="#ffa781" labelFloat="true" layoutX="67.0" layoutY="399.0" prefHeight="26.0" prefWidth="332.0" promptText="Address*" styleClass="label1" stylesheets="@../../../../aze/src/shared/gui/Style/controls.css" unFocusColor="WHITE" />
+                        <Button fx:id="register_host" layoutX="152.0" layoutY="508.0" mnemonicParsing="false" onMouseClicked="#registerhost" prefHeight="38.0" prefWidth="164.0" styleClass="button1" stylesheets="@Style/controls.css" text="Register" />
+                        <JFXButton fx:id="id_host" layoutX="14.0" layoutY="455.0" onMouseClicked="#uploadID" prefHeight="44.0" prefWidth="214.0" styleClass="buttonH" stylesheets="@Style/controls.css" text="Upload your ID card " />
+                        <JFXTextField fx:id="nameHost" focusColor="#ffa781" labelFloat="true" layoutX="67.0" layoutY="65.0" prefHeight="26.0" prefWidth="332.0" promptText="Name*" styleClass="label1" stylesheets="@../../../../aze/src/shared/gui/Style/controls.css" unFocusColor="WHITE" />
+                        <JFXTextField fx:id="emailHost" focusColor="#ffa781" labelFloat="true" layoutX="67.0" layoutY="168.0" prefHeight="26.0" prefWidth="332.0" promptText="Email*" styleClass="label1" stylesheets="@../../../../aze/src/shared/gui/Style/controls.css" unFocusColor="WHITE" />
+                        <JFXPasswordField fx:id="passwordHost" focusColor="#ffa781" labelFloat="true" layoutX="67.0" layoutY="227.0" prefHeight="35.0" prefWidth="334.0" promptText="Password*" styleClass="label1" stylesheets="@Style/controls.css" unFocusColor="WHITE" />
+                        <JFXButton fx:id="profilePic_host" layoutX="236.0" layoutY="455.0" onAction="#uploadProfilePicHost" onMouseClicked="#uploadID" prefHeight="44.0" prefWidth="217.0" styleClass="buttonH" stylesheets="@Style/controls.css" text="Upload your Picture" />
+                     </children>
+                  </AnchorPane>
+               </content>
+            </Tab>
+         </tabs>
+      </TabPane>
+      <Group layoutX="482.0" layoutY="102.0">
+         <children>
+            <Pane fx:id="slidingPane" layoutY="-2.0" prefHeight="53.0" prefWidth="426.0">
+               <children>
+                  <Label fx:id="lblHost" layoutX="-13.0" layoutY="7.0" onMouseClicked="#openGuestTab" prefHeight="39.0" prefWidth="198.0" styleClass="lbl_user" stylesheets="@Style/controls.css" text="Join Us As a Host" />
+                  <Label fx:id="lblGuest" layoutX="214.0" layoutY="8.0" onMouseClicked="#openHostTab" prefHeight="39.0" prefWidth="198.0" styleClass="lbl_user" stylesheets="@Style/controls.css" text="Join Us As a Guest" />
+                  <Label fx:id="lblStatus" layoutX="214.0" layoutY="8.0" prefHeight="39.0" prefWidth="198.0" styleClass="lbl_status" stylesheets="@Style/controls.css" text="Join Us As a Guest" />
+               </children>
+            </Pane>
+         </children>
+      </Group>
+      <HBox alignment="CENTER_RIGHT" layoutX="1260.0" layoutY="16.0" prefHeight="53.0" prefWidth="85.0" styleClass="FontAwesomeIcon" stylesheets="@Style/controls.css">
+         <children>
+            <FontAwesomeIcon fill="#ffa781" glyphName="MINUS" onMouseClicked="#mini" size="1.5em" text="">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </FontAwesomeIcon>
+            <FontAwesomeIcon fill="#ffa781" glyphName="CIRCLE" onMouseClicked="#max">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </FontAwesomeIcon>
+            <FontAwesomeIcon fill="#ffa781" glyphName="CLOSE" onMouseClicked="#close" size="2em">
+               <HBox.margin>
+                  <Insets bottom="5.0" left="10.0" right="5.0" top="5.0" />
+               </HBox.margin>
+            </FontAwesomeIcon>
+         </children>
+      </HBox>
+      <Hyperlink layoutX="25.0" layoutY="27.0" onAction="#redirect_login" styleClass="Fpss" stylesheets="@Style/controls.css" text="Already Have Account ? Login." />
+   </children>
+</AnchorPane>
