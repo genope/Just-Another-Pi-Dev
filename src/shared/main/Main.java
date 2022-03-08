@@ -1,26 +1,44 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package shared.main;
 
-import java.sql.Date;
-import shared.connexion.MaConnexion;
-import shared.entities.Commentaire;
-import shared.entities.Publication;
-import shared.services.CommentaireService;
-import shared.services.PublicationService;
 
-
-
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Application;
+import static javafx.application.Application.launch;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 /**
  *
- * @author user
+ * @author genop
  */
-public class Main {    
-    public static void main(String[] args) {
 
-         }
+public class Main extends Application {
+    
+    @Override
+    public void start(Stage primaryStage) {
+ 
+        try {
+            Parent root =FXMLLoader.load(getClass().getResource("../gui/login_page.fxml"));
+            Scene scene = new Scene(root);
+            scene.getStylesheets().add(getClass().getResource("../gui/Style/controls.css").toExternalForm());
+           primaryStage.initStyle(StageStyle.UNDECORATED);
+            primaryStage.setScene(scene);
+            primaryStage.show();
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+
+    /**
+     * @param args the command line arguments
+     */
+    public static void main(String[] args) {
+        launch(args);
+    }
+    
 }
