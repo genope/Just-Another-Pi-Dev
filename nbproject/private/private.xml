@@ -3,17 +3,29 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/Shared.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Logements.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/main/Main.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/HorecaServices.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Chat.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/LogementsServices.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/ChatServices.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/connexion/MaConnexion.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/enums/TypeLogements.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/NewFXMain.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/OffreServices.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/UIController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/DahshbordHost.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/cardoffres.css</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/CardOffresController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/ModifierOffresController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/DashboardAdmin.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/DashboardAdminController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Offres.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Horeca.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/Shared.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/DahshbordHostController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/FalseOffres.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/AjouterOffreController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/TestController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/SupprimerCard.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/DashboardHostController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/Styles/cardoffres.css</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/FalseOffresController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/GererOffresController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/AjouterOffre.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/HostCardsController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/Modifier.java</file>
         </group>
     </open-files>
 </project-private>

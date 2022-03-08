@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import shared.connexion.MaConnexion;
 import shared.entities.*;
-import shared.entities.enums.TypeLogements;
 
 /**
  *
@@ -25,7 +24,7 @@ public class ChatServices {
         this.mc = MaConnexion.getInstance().getCnx();
     }
       
-     public void ajoutLogement(Chat chat){
+     public void ajoutChat(Chat chat){
         
         String req="insert into chat(id_user1,id_user2,message,dateEnvoi) Values(?,?,?,?)";
         
@@ -73,10 +72,13 @@ public class ChatServices {
             return chat;
           
         }
+//             public List<Chat> getMyMessage(){
+//                
+//             }
              
              
              
-             public void suuprimerChat(int o){
+             public void suuprimerMsg(int o){
         
         String req="DELETE FROM `chat` WHERE id_chat=?";
         

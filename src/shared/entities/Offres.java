@@ -6,6 +6,8 @@
 package shared.entities;
 
 import java.sql.Date;
+import shared.entities.enums.CategorieOffres;
+import shared.entities.enums.TypeOffres;
 
 public class Offres {
     
@@ -14,14 +16,16 @@ public class Offres {
     private int idhost;
     private String nom;
     private String description;
-   // private String File;
+    private String File;
     private Date datedebut;
     private Date datefin;
     private float prix;
     private boolean etat;
     private String ville;
+    private TypeOffres type; 
+    private CategorieOffres categ;
 
-    public Offres(int idhost,String nom, String description, Date datedebut, Date datefin, float prix, boolean etat ,String ville) {
+    public Offres(int idhost,String nom, String description, Date datedebut, Date datefin, float prix, boolean etat ,String ville,CategorieOffres categ,String image) {
         this.idhost=idhost;
         this.nom = nom;
         this.description = description;
@@ -30,12 +34,11 @@ public class Offres {
         this.prix = prix;
         this.etat = etat;
         this.ville=ville;
+        this.categ=categ;
+        this.File=image;
     }
-    
-    
-    
-        public Offres(String nom, String description, Date datedebut, Date datefin, float prix, boolean etat ,String ville) {
-        
+        public Offres(int idhost,String nom, String description, Date datedebut, Date datefin, float prix, boolean etat ,String ville,CategorieOffres categ) {
+        this.idhost=idhost;
         this.nom = nom;
         this.description = description;
         this.datedebut = datedebut;
@@ -43,16 +46,58 @@ public class Offres {
         this.prix = prix;
         this.etat = etat;
         this.ville=ville;
+        this.categ=categ;
     }
+        public Offres(int idhost,String nom, String description, Date datedebut, Date datefin, float prix, boolean etat ,String ville,String image) {
+        this.idhost=idhost;
+        this.nom = nom;
+        this.description = description;
+        this.datedebut = datedebut;
+        this.datefin = datefin;
+        this.prix = prix;
+        this.etat = etat;
+        this.ville=ville;
+        this.File=image;
+    }
+        
+    public Offres(String description, Date datedebut, Date datefin, float prix,String image) {
+
+        this.description = description;
+        this.datedebut = datedebut;
+        this.datefin = datefin;
+        this.prix = prix;
+        this.File=image;
+    }
+      public Offres(String description, Date datedebut, Date datefin, float prix) {
+
+        this.description = description;
+        this.datedebut = datedebut;
+        this.datefin = datefin;
+        this.prix = prix;
+    }
+
+    @Override
+    public String toString() {
+        return "{" + "id=" + id + ", idhost=" + idhost + ", nom=" + nom + ", description=" + description + ", datedebut=" + datedebut + ", datefin=" + datefin + ", prix=" + prix + ", etat=" + etat + ", ville=" + ville + ", typeOff=" + type + ", categ=" + categ + ", image="+this.File+'}';
+    }
+    
+    
+    
+
 
     public Offres() {
         
     }
 
-    @Override
-    public String toString() {
-        return "{ id="+this.id+", id_host="+this.idhost + ", nom=" + nom + ", description=" + description + ", datedebut=" + datedebut + ", datefin=" + datefin + ", prix=" + prix + ", etat=" + etat + ", ville="+this.ville;
+    public void setFile(String File) {
+        this.File = File;
     }
+
+    public String getFile() {
+        return File;
+    }
+
+
 
     public String getNom() {
         return nom;
@@ -124,6 +169,22 @@ public class Offres {
 
     public int getIdhost() {
         return idhost;
+    }
+
+    public TypeOffres getTypeOff() {
+        return type;
+    }
+
+    public CategorieOffres getCateg() {
+        return categ;
+    }
+
+    public void setTypeOff(TypeOffres type) {
+        this.type = type;
+    }
+
+    public void setCateg(CategorieOffres categ) {
+        this.categ = categ;
     }
     
     

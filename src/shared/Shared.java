@@ -11,10 +11,11 @@ import java.sql.Date;
 import java.text.SimpleDateFormat;
 import shared.connexion.MaConnexion;
 import shared.entities.*;
-import static shared.entities.enums.TypeLogements.*;
+import shared.entities.enums.CategorieOffres;
+import static shared.entities.enums.CategorieOffres.*;
+import static shared.entities.enums.TypeOffres.*;
 import shared.services.ChatServices;
-import shared.services.HorecaServices;
-import shared.services.LogementsServices;
+import shared.services.OffreServices;
 /**
  *
  * @author user
@@ -29,37 +30,51 @@ public class Shared {
     
         MaConnexion m = MaConnexion.getInstance();
        
-         Logements log=new Logements(110405018,"iheb", "hhhh", new Date(2021, 02, 07), new Date(2021, 02, 07), 15f, true, "bizerte", Maison);
+        // Logements log=new Logements(110405018,"iheb", "hhhh", new Date(2021, 02, 07), new Date(2021, 02, 07), 15f, true, "bizerte");
          
-         Logements logg=new Logements("l3ej", "hhhh", new Date(2021, 02, 07), new Date(2021, 02, 07), 15f, true, "bizerte", Maison);
+         //Logements logg=new Logements("l3ej", "hhhh", new Date(2021, 02, 07), new Date(2021, 02, 07), 15f, true, "bizerte");
          
-       Horeca hor=new Horeca(110405018,"l3ej", "jjjj", new Date(2021, 02, 07), new Date(2021, 02, 07), 0, true, "tunis", new Date(2021, 02, 07), new Date(2021, 02, 07));
+       //Horeca hor=new Horeca(110405018,"l3ej", "jjjj", new Date(2021, 02, 07), new Date(2021, 02, 07), 0, true, "tunis", new Date(2021, 02, 07), new Date(2021, 02, 07));
+       Offres of=new Offres(110405018, "l3ej", "le3j",new Date(2021, 02, 07) , new Date(2021, 02, 07), 15f, false, "bizerte", Chambre,"hhhh");
        
+       Offres off=new Offres(110405018, "Restaurant ", "Laico",new Date(2021, 02, 07) , new Date(2021, 02, 07), 15f, true, "bizerte","jjjj");
        
-       
-       Horeca horr=new Horeca("hhhhhh", "jjjj", new Date(2021, 02, 07), new Date(2021, 02, 07), 0, true, "tunis", new Date(2021, 02, 07), new Date(2021, 02, 07));
+      
+        OffreServices offreService=new OffreServices();
+        //offreService.modifierOffreById(9, off);
+       // System.out.println( offreService.getAllMyOffres(110405018));
+//        System.out.println("Nombre totales des offres = "+offreService.nombreOffres()); 
+//        System.out.println("Nombre d'offres par host = "+offreService.getNbrMyOffres(110405018));
+//        System.out.println("Nombre de différent type d'offre par host = "+offreService.getNbrMyLogements(110405018,Horeca));
+    // offreService.ajoutOffre(of);
+       // System.out.println(offreService.getAllOffres(Maison));
+     
+       // System.out.println(offreService.getAllMaisons());
+       // System.out.println(offreService.getAllOffresById(9));      
+              System.out.println(offreService.getAllOffresById2(110405018));    
+            //offreService.modifierOffreById(7, of);
+      // Horeca horr=new Horeca("hhhhhh", "jjjj", new Date(2021, 02, 07), new Date(2021, 02, 07), 0, true, "tunis", new Date(2021, 02, 07), new Date(2021, 02, 07));
        // System.out.println(log);
       
-        LogementsServices logService=new LogementsServices();
-        HorecaServices horService = new HorecaServices();
+    
         
     //   SimpleDateFormat formatter= new SimpleDateFormat("yyyy-MM-dd 'at' HH:mm:ss ");
       //  Date date = new Date(System.currentTimeMillis());
         // System.out.println(formatter.format(date));
         
-       Chat c1=new Chat(110405018, 110405018, "bonjour");
+       
         
         
-        
-        
-        ChatServices chat=new ChatServices();
+
+            ChatServices chat=new ChatServices();
         
         //logService.modifierLogementById(15, logg);
         
      //   horService.modifierHorecatById(4, horr);
-        System.out.println(horService.getHorecaById(4));  
+       // System.out.println(horService.getHorecaById(4));  
       //  horService.ajoutHoreca(hor);
-        //chat.ajoutLogement(c1);
+    // logService.ajoutLogement(log);
+       // chat.ajoutLogement(c1);
         //chat.suuprimerChat(4);
      //   System.out.println(chat.getChat(4));
         // chat.ajoutLogement(c1);
