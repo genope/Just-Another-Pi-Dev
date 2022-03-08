@@ -8,7 +8,7 @@ package shared.connexion;
 import java.sql.*;
 public class MaConnexion {
     
-    public String url="jdbc:mysql://localhost:3306/shared";
+    public String url="jdbc:mysql://localhost:3306/Shared";
     public String user="root";
     public String pwd="";
     public static MaConnexion conx;
@@ -17,7 +17,7 @@ public class MaConnexion {
     private MaConnexion(){
         try {
             cnx=DriverManager.getConnection(url, user, pwd);
-            System.out.println("Connexion etablie");
+            System.out.println("Connexion etablie : => "+cnx.toString());
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
