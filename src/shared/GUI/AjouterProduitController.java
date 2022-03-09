@@ -122,7 +122,7 @@ public class AjouterProduitController implements Initializable {
     private InputStream input;
     Image image;
     private List<Produit> Prodss = new ArrayList<>();
-    private MyListener myListener;
+    private MyListenerProd myListener;
     String oldRef;
 
     /**
@@ -185,7 +185,7 @@ public class AjouterProduitController implements Initializable {
         ProduitService prods = new ProduitService();
         if (prods.getAllProdL().size() > 0) {
             //setChosenProd(prods.getAllProdL().get(0));
-            myListener = new MyListener() {
+            myListener = new MyListenerProd() {
                 @Override
                 public void onClickListener(Produit produit) {
                     try {

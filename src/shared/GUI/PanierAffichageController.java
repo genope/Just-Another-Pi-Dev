@@ -42,7 +42,7 @@ public class PanierAffichageController implements Initializable {
     private TextField tfRef;
     @FXML
     private GridPane grid;
-    private MyListener myListener;
+    private MyListenerProd myListener;
     @FXML
     private Label totall;
     private Suppression sup;

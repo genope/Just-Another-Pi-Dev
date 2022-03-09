@@ -24,7 +24,7 @@ import shared.entities.Produit;
  * @author l3ej
  */
 public class CardProduit3Controller implements Initializable {
-    MyListener mylistener;
+    MyListenerProd mylistener;
     private Produit produit;
     @FXML
     private Label ref_prodLab;
@@ -49,7 +49,7 @@ public class CardProduit3Controller implements Initializable {
         // TODO
     }
 
-    public void AddProduit(Produit produit,MyListener mylistener) throws SQLException, IOException{
+    public void AddProduit(Produit produit,MyListenerProd mylistener) throws SQLException, IOException{
         produit.getImage().getBinaryStream();
         this.produit=produit;
         this.mylistener = mylistener;

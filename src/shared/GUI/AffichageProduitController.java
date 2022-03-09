@@ -64,7 +64,7 @@ import shared.services.ProduitService;
  */
 public class AffichageProduitController implements Initializable {
 
-    private MyListener myListener;
+    private MyListenerProd myListener;
     @FXML
     private VBox chosenOffreCard;
     private Label LabelDateD;
@@ -179,7 +179,7 @@ public class AffichageProduitController implements Initializable {
             //setChosenOffre(prods.getAllProdL().get(0));
 
             setChosenOffre(prods.getAllProdL().get(0));
-            myListener = new MyListener() {
+            myListener = new MyListenerProd() {
                 @Override
                 public void onClickListener(Produit produit) {
                     try {

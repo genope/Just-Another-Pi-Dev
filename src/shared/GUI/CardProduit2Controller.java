@@ -43,7 +43,7 @@ public class CardProduit2Controller implements Initializable {
     private Label tfquantite;
     private Produit produit;
     private PanierDetails panierdetails;
-    MyListener mylistener;
+    MyListenerProd mylistener;
     @FXML
     private Button removebtn;
     private Suppression sup;
@@ -55,7 +55,7 @@ public class CardProduit2Controller implements Initializable {
         // TODO
     }
 
-    public void AddProduit(Produit produit,MyListener mylistener, Suppression s) throws SQLException, IOException{
+    public void AddProduit(Produit produit,MyListenerProd mylistener, Suppression s) throws SQLException, IOException{
         PanierDetailsService pandet = new PanierDetailsService();
         produit.getImage().getBinaryStream();
         this.produit=produit;
@@ -77,7 +77,7 @@ public class CardProduit2Controller implements Initializable {
 //
     }
 
-    public void AddProddd(Produit produit, MyListener mylistener, PanierDetails panierdetails,Suppression s) throws SQLException, IOException{
+    public void AddProddd(Produit produit, MyListenerProd mylistener, PanierDetails panierdetails,Suppression s) throws SQLException, IOException{
         this.produit = produit;
         this.mylistener = mylistener;
         this.panierdetails= panierdetails;

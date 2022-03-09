@@ -44,7 +44,7 @@ public class CardProduitController implements Initializable {
     private Label LabelPrix;
     @FXML
     private Label labelNom;
-    MyListener mylistener;
+    MyListenerProd mylistener;
     /**
      * Initializes the controller class.
      */
@@ -66,7 +66,7 @@ public class CardProduitController implements Initializable {
                 return list;
 	}
     
-    public void AddProduit(Produit produit,MyListener mylistener) throws SQLException, IOException{
+    public void AddProduit(Produit produit,MyListenerProd mylistener) throws SQLException, IOException{
         //produit.getImage().getBinaryStream();
         this.produit=produit;
         this.mylistener = mylistener;

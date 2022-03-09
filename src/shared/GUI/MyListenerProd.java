@@ -12,6 +12,6 @@ import shared.entities.Produit;
  *
  * @author user
  */
-public interface MyListener {
+public interface MyListenerProd {
     public void onClickListener(Produit produit);
 }
