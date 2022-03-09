@@ -109,7 +109,7 @@ public class ProfileAdminController implements Initializable {
                     Image imge = new Image(new FileInputStream("C:\\xampp\\htdocs\\uploads\\images\\" + userSession.getUser().getImage_profile()));
                     HostPic.setFill(new ImagePattern(imge));
                     cir2.setFill(new ImagePattern(imge));
-                } catch (FileNotFoundException ex) {
+                }   catch (FileNotFoundException ex) {
                     System.out.println(ex.getMessage());
                 }
             }

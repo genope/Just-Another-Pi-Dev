@@ -19,13 +19,13 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="820.0" prefWidth="1194.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.GUI.TestController">
+<AnchorPane id="AnchorPane" prefHeight="691.0" prefWidth="1223.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.GUI.TestController">
    <children>
-      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="820.0" prefWidth="1250.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="797.0" prefWidth="1171.0" AnchorPane.bottomAnchor="23.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="52.0" AnchorPane.topAnchor="0.0">
          <children>
-            <BorderPane layoutX="6.0" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+            <BorderPane layoutX="6.0" prefHeight="820.0" prefWidth="1171.0" AnchorPane.bottomAnchor="-23.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                <left>
-                  <VBox prefHeight="810.0" prefWidth="430.0" styleClass="right-bar" stylesheets="@Styles/style.css" BorderPane.alignment="TOP_LEFT">
+                  <VBox prefHeight="820.0" prefWidth="383.0" style="-fx-background-color: #05071F;" styleClass="right-bar" stylesheets="@Styles/style.css" BorderPane.alignment="TOP_LEFT">
                      <children>
                         <HBox alignment="CENTER" prefHeight="85.0" prefWidth="423.0">
                            <children>
@@ -41,7 +41,7 @@
                               </Label>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" stylesheets="@Styles/style.css" VBox.vgrow="NEVER">
+                        <HBox alignment="CENTER" prefHeight="63.0" prefWidth="323.0" stylesheets="@Styles/style.css" VBox.vgrow="NEVER">
                            <VBox.margin>
                               <Insets left="30.0" right="30.0" />
                            </VBox.margin>
@@ -54,7 +54,10 @@
                                     <Font name="Cambria" size="18.0" />
                                  </font>
                               </TextField>
-                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" stylesheets="@Styles/style.css" text="Search" textFill="WHITE" />
+                              <Button mnemonicParsing="false" prefHeight="40.0" prefWidth="100.0" styleClass="search-button" stylesheets="@Styles/style.css" text="Search" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets right="15.0" />
+                                 </HBox.margin></Button>
                            </children>
                            <styleClass>
                               <String fx:value="search-box" />
@@ -62,7 +65,7 @@
                            </styleClass>
                         </HBox>
                         <Pane prefHeight="57.0" prefWidth="435.0" stylesheets="@Styles/style.css" VBox.vgrow="ALWAYS" />
-                        <VBox fx:id="chosenOffreCard" alignment="CENTER" prefHeight="535.0" prefWidth="100.0" stylesheets="@Styles/style.css">
+                        <VBox fx:id="chosenOffreCard" alignment="CENTER" prefHeight="345.0" prefWidth="330.0" stylesheets="@Styles/style.css">
                            <VBox.margin>
                               <Insets left="50.0" right="50.0" />
                            </VBox.margin>
@@ -71,12 +74,12 @@
                                  <children>
                                     <Label prefHeight="48.0" prefWidth="338.0" text="Name User" textFill="WHITE">
                                        <font>
-                                          <Font name="Cambria" size="36.0" />
+                                          <Font name="Cambria" size="29.0" />
                                        </font>
                                     </Label>
                                     <Label fx:id="LabelN" prefHeight="57.0" prefWidth="171.0" text="S+2" textFill="WHITE">
                                        <font>
-                                          <Font name="Cambria" size="36.0" />
+                                          <Font name="Cambria" size="27.0" />
                                        </font>
                                     </Label>
                                  </children>
@@ -84,7 +87,7 @@
                                     <Insets left="20.0" top="30.0" />
                                  </VBox.margin>
                               </HBox>
-                              <ImageView fx:id="fruitImg" fitHeight="170.0" fitWidth="285.0" pickOnBounds="true" preserveRatio="true">
+                              <ImageView fx:id="fruitImg" fitHeight="128.0" fitWidth="197.0" pickOnBounds="true" preserveRatio="true">
                                  <image>
                                     <Image url="@../../ressources/maisons-laprise-prefab-realisation-lap0532-quebec.jpg" />
                                  </image>
@@ -96,15 +99,15 @@
                                  <children>
                                     <Label prefHeight="30.0" prefWidth="194.0" text="Date Début" textFill="WHITE">
                                        <font>
-                                          <Font name="Cambria" size="24.0" />
+                                          <Font name="Cambria" size="20.0" />
                                        </font>
                                        <HBox.margin>
-                                          <Insets left="15.0" />
+                                          <Insets left="10.0" />
                                        </HBox.margin>
                                     </Label>
                                     <Label fx:id="LabelDateD" prefHeight="53.0" prefWidth="167.0" text="Date Début" textFill="WHITE">
                                        <font>
-                                          <Font name="Cambria" size="24.0" />
+                                          <Font name="Cambria" size="21.0" />
                                        </font>
                                     </Label>
                                  </children>
@@ -116,7 +119,7 @@
                                  <children>
                                     <Label prefHeight="30.0" prefWidth="162.0" text="Date Fin" textFill="WHITE">
                                        <font>
-                                          <Font name="Cambria" size="24.0" />
+                                          <Font name="Cambria" size="20.0" />
                                        </font>
                                        <HBox.margin>
                                           <Insets left="15.0" />
@@ -124,7 +127,7 @@
                                     </Label>
                                     <Label fx:id="LabelDateF" prefHeight="53.0" prefWidth="167.0" text="Date Fin" textFill="WHITE">
                                        <font>
-                                          <Font name="Cambria" size="24.0" />
+                                          <Font name="Cambria" size="20.0" />
                                        </font>
                                     </Label>
                                  </children>
@@ -161,7 +164,7 @@
                               </HBox>
                               <Button mnemonicParsing="false" prefHeight="50.0" prefWidth="270.0" styleClass="add-btn" stylesheets="@Styles/style.css" text="Réserver" textFill="#828282">
                                  <VBox.margin>
-                                    <Insets bottom="20.0" top="30.0" />
+                                    <Insets bottom="25.0" top="30.0" />
                                  </VBox.margin>
                                  <font>
                                     <Font name="System Bold" size="18.0" />
@@ -183,9 +186,9 @@
                <center>
                   <VBox prefHeight="686.0" prefWidth="880.0" stylesheets="@Styles/style.css" BorderPane.alignment="CENTER">
                      <children>
-                        <Pane prefHeight="78.0" prefWidth="880.0" styleClass="right-bar">
+                        <Pane prefHeight="78.0" prefWidth="880.0" style="-fx-background-color: #05071F;" styleClass="right-bar">
                            <children>
-                              <Label layoutX="333.0" layoutY="14.0" prefHeight="49.0" prefWidth="215.0" text="Shared" textFill="#878787">
+                              <Label layoutX="264.0" layoutY="15.0" prefHeight="49.0" prefWidth="215.0" text="Shared" textFill="#f16c31">
                                  <font>
                                     <Font name="Cambria Bold" size="40.0" />
                                  </font>

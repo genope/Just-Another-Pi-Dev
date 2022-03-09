@@ -12,8 +12,6 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
 import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
@@ -45,17 +43,19 @@ import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javax.swing.JFrame;
-import javax.swing.JOptionPane;
-import static shared.GUI.HostCardsController.setPrimarySatge;
 import shared.entities.Offres;
 import shared.services.OffreServices;
+import shared.services.UserSession;
+
+
 
 /**
  * FXML Controller class
  *
  * @author user
  */
+
+
 public class GererOffresController implements Initializable {
 
     @FXML
@@ -98,7 +98,7 @@ public class GererOffresController implements Initializable {
     Stage window;
     Scene fxmlFile;
     static Stage primarySatge;
-
+ UserSession connectedUser=new UserSession();
     public static void setPrimarySatge(Stage primarySatge) {
         GererOffresController.primarySatge = primarySatge;
     }
@@ -214,9 +214,9 @@ public class GererOffresController implements Initializable {
     public void initialize(URL url, ResourceBundle rb) {
         OffreServices offre = new OffreServices();
 
-        for (int i = 0; i < offre.getAllMyOffres(110405018).size(); i++) {
+        for (int i = 0; i < offre.getAllMyOffres(connectedUser.getUser().getCin()).size(); i++) {
 
-            productSearchModelLObservableList.add(offre.getAllMyOffres(110405018).get(i));
+            productSearchModelLObservableList.add(offre.getAllMyOffres(connectedUser.getUser().getCin()).get(i));
         }
 
         FilteredList<Offres> filteredData = new FilteredList<>(productSearchModelLObservableList, b -> true);
@@ -260,8 +260,8 @@ public class GererOffresController implements Initializable {
         addListenerOffre();
         int column = 1;
         int row = 0;
-
-        for (int i = 0; i < offre.getAllOffresById2(110405018).size(); i++) {
+       
+        for (int i = 0; i < offre.getAllOffresById2(connectedUser.getUser().getCin()).size(); i++) {
 
            
 
@@ -279,7 +279,7 @@ public class GererOffresController implements Initializable {
                         modifierr(offre);
 
                     }
-                };
+                }; 
                 FXMLLoader cards = new FXMLLoader();
                 cards.setLocation(getClass().getResource("HostCards.fxml"));
 
@@ -287,14 +287,14 @@ public class GererOffresController implements Initializable {
 
                 HostCardsController offreservice = cards.getController();
 
-                offreservice.setData(offre.getAllOffresById2(110405018).get(i), sup, modif);
+                offreservice.setData(offre.getAllOffresById2(connectedUser.getUser().getCin()).get(i), sup, modif);
 
                 //       offreservice.setData(offre, supp);
                 if (column == 3) {
                     column = 1;
                     row++;
 
-                }
+                }  
                 grid.add(anchorPane, column++, row); //(child,column,row)
                 //set grid width
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
@@ -310,7 +310,7 @@ public class GererOffresController implements Initializable {
 
 ////                  
             } catch (IOException ex) {
-                Logger.getLogger(GererOffresController.class.getName()).log(Level.SEVERE, null, ex);
+                System.out.println(ex.getMessage());
             }
         }
 
@@ -318,7 +318,7 @@ public class GererOffresController implements Initializable {
 
     public void showProdTable() {
 
-        list = offresS.getAllOffresById2(110405018);
+        list = offresS.getAllOffresById2(connectedUser.getUser().getCin());
         dateDcol.setCellValueFactory(new PropertyValueFactory<Offres, Date>("datedebut"));
         dateFcol.setCellValueFactory(new PropertyValueFactory<Offres, Date>("datefin"));
         typecol.setCellValueFactory(new PropertyValueFactory<Offres, String>("description"));

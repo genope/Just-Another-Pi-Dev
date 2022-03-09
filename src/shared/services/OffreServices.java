@@ -157,7 +157,7 @@ public class OffreServices {
   
     public List<Offres> getAllOffres(CategorieOffres categorie){
      List<Offres> Offres = new ArrayList<>();
-        String req="SELECT * FROM `offres` where categ=?";
+        String req="SELECT * FROM `offres` where categ=? and etat='1'";
          try {
             ste=mc.prepareStatement(req);
             ste.setString(1,categorie.toString());
@@ -301,7 +301,7 @@ public class OffreServices {
     }    
             public List<Offres> getAllHorecaById(){
      List<Offres> Horecas = new ArrayList<>();
-        String req="SELECT * FROM `offres` where type='Horeca'";
+        String req="SELECT * FROM `offres` where type='Horeca' and type='1'";
          try {
             ste=mc.prepareStatement(req);
             ResultSet rs=ste.executeQuery();

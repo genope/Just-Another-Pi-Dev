@@ -44,12 +44,18 @@ import shared.entities.enums.CategorieOffres;
 import shared.services.OffreServices;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
+import shared.services.UserService;
+import shared.services.UserSession;
+
+
 
 /**
  * FXML Controller class
  *
  * @author user
  */
+
+      
 public class AjouterOffreController implements Initializable {
 
     @FXML
@@ -84,12 +90,13 @@ public class AjouterOffreController implements Initializable {
     private ImageView img;
     private RenderedImage src;
     private BufferedImage dst;
-
+    UserSession connectedUser=new UserSession();
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+      
         Categ.getItems().add("Maison");
         Categ.getItems().add("Appartement");
         Categ.getItems().add("Chambre");
@@ -269,7 +276,7 @@ public class AjouterOffreController implements Initializable {
 //        OutputStream out = new FileOutputStream(new File(path));
 //        out.write(data);
 //        out.close();
-            Offres of = new Offres(110405018, nom, description, datedebut, dateFin, prix, false, ville, categ, path);
+            Offres of = new Offres(connectedUser.getUser().getCin(), nom, description, datedebut, dateFin, prix, false, ville, categ, path);
 
             OffreServices offresService = new OffreServices();
             //     System.out.println("hh");
