@@ -19,9 +19,9 @@
         <URL value="@ajouteroffre.css" />
     </stylesheets>
    <children>
-      <AnchorPane layoutX="-10.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="691.0" prefWidth="871.0" AnchorPane.topAnchor="2.0">
+      <AnchorPane layoutX="-10.0" layoutY="2.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="691.0" prefWidth="826.0" AnchorPane.topAnchor="2.0">
          <children>
-            <ImageView fitHeight="1110.0" fitWidth="871.0" layoutX="4.0" layoutY="-199.0" pickOnBounds="true" preserveRatio="true">
+            <ImageView fitHeight="1045.0" fitWidth="826.0" layoutX="4.0" layoutY="-199.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../ressources/274697309_473397927584165_7752479607029858879_n.jpg" />
                </image>
@@ -58,13 +58,13 @@
                   <String fx:value="input2" />
                </styleClass></JFXDatePicker>
             <Separator layoutX="452.0" layoutY="125.0" opacity="0.46" orientation="VERTICAL" prefHeight="370.0" prefWidth="49.0" />
-            <JFXTextArea fx:id="txtdescrip" layoutX="512.0" layoutY="176.0" onKeyReleased="#testDescri" prefHeight="229.0" prefWidth="331.0" style="-fx-border-color: #ff8a2b; -fx-border-radius: 20;" styleClass="label1" stylesheets="@Styles/cardoffres.css" />
+            <JFXTextArea fx:id="txtdescrip" layoutX="512.0" layoutY="176.0" onKeyReleased="#testDescri" prefHeight="229.0" prefWidth="298.0" style="-fx-border-color: #ff8a2b; -fx-border-radius: 20;" styleClass="label1" stylesheets="@Styles/cardoffres.css" />
             <Label layoutX="516.0" layoutY="145.0" stylesheets="@Styles/style-AjoutOffre.css" text="Description" textFill="#ddd9d9">
                <font>
                   <Font size="14.0" />
                </font>
             </Label>
-            <JFXButton layoutX="517.0" layoutY="430.0" onAction="#addimage" prefHeight="20.0" prefWidth="321.0" style="-fx-background-radius: 30;" styleClass="button1" stylesheets="@Styles/cardoffres.css" text="Ajouter photo" />
+            <JFXButton layoutX="517.0" layoutY="430.0" onAction="#addimage" prefHeight="44.0" prefWidth="298.0" style="-fx-background-radius: 30;" styleClass="button1" stylesheets="@Styles/cardoffres.css" text="Ajouter photo" />
             <JFXTextField fx:id="txtnom" focusColor="#ffbe62" layoutX="152.0" layoutY="140.0" onKeyReleased="#testNomm" prefHeight="31.0" prefWidth="281.0" promptText="Exemple s+2 / Voiture ..." stylesheets="@Styles/cardoffres.css" unFocusColor="#ff8a2b">
                <styleClass>
                   <String fx:value="input2" />

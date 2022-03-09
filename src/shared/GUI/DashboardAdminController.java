@@ -17,33 +17,34 @@ import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.layout.Region;
+import shared.API.SendMsg;
 import shared.entities.Offres;
 import shared.services.OffreServices;
+import shared.services.UserService;
+import shared.services.UserSession;
+import com.twilio.Twilio;
+import com.twilio.rest.api.v2010.account.Message;
+import com.twilio.type.PhoneNumber;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.image.Image;
+import static shared.gui.ForgetPasswordController.ACCOUNT_SID;
+import static shared.gui.ForgetPasswordController.AUTH_TOKEN;
 
+ 
 /**
  * FXML Controller class
  *
  * @author user
  */
+
 public class DashboardAdminController implements Initializable {
 
   
     @FXML
     private GridPane grid;
-    @FXML
-    private Button btnOverview;
-    @FXML
-    private Button btnOrders;
-    @FXML
-    private Button btnCustomers;
-    @FXML
-    private Button btnMenus;
-    @FXML
-    private Button btnPackages;
-    @FXML
-    private Button btnSettings;
-    @FXML
-    private Button btnSignout;
     @FXML
     private Pane pnlCustomer;
     @FXML
@@ -56,13 +57,38 @@ public class DashboardAdminController implements Initializable {
     
     private Offres offre;
     private ApprouveOffre approuve;
-           
-            
+    UserSession userConnected=new UserSession();
+    UserService userS=new UserService();
+      public static final String ACCOUNT_SID =System.getenv("TWILIO_ACCOUNT_SID");
+              ;
+    public static final String AUTH_TOKEN = System.getenv("TWILIO_AUTH_TOKEN");
+    
     
     
       private void Appro(Offres offre) {
-        OffreServices offree = new OffreServices();
-        offree.ApprouverOf(offre.getId());
+         
+ 
+//            Image imge = new Image(new FileInputStream("C:\\Users\\user\\Documents\\NetBeansProjects\\Shared\\src\\ressources\\"+offre.getFile()));
+//      
+//            String msg="Hello Mr/Mrs "+userS.GetUserByCin(offre.getIdhost()).getNom()+" "+"you offer wich you posted recentely has been approuved and posted in our application ";
+//            System.out.println(userS.GetUserByCin(offre.getIdhost()).getNom());
+//            Twilio.init(ACCOUNT_SID, AUTH_TOKEN);
+//            com.twilio.rest.api.v2010.account.Message messages = com.twilio.rest.api.v2010.account.Message.creator(new PhoneNumber("+216"+String.valueOf(userS.GetUserByCin(offre.getIdhost()).getNumber())),
+//                    new PhoneNumber("+19108308627"), msg ).create();
+//            
+//            
+            
+            
+            
+            OffreServices offree = new OffreServices();
+            offree.ApprouverOf(offre.getId());
+            
+            String a=userS.GetUserByCin(offre.getIdhost()).getEmail();
+            
+            // SendMsg mail=new SendMsg();
+      
+        
+  
                 
     }
     /**
@@ -75,9 +101,6 @@ public class DashboardAdminController implements Initializable {
          
     }    
 
-    @FXML
-    private void handleClicks(ActionEvent event) {
-    }
     
     public void afficher(){
          int column = 1;

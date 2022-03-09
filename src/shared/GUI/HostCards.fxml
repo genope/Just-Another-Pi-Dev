@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane id="AnchorPane" prefHeight="422.0" prefWidth="322.0" styleClass="AnchorPane1" stylesheets="@Styles/cardoffres.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.GUI.HostCardsController">
+<AnchorPane id="AnchorPane" prefHeight="371.0" prefWidth="322.0" styleClass="AnchorPane1" stylesheets="@Styles/cardoffres.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.GUI.HostCardsController">
    <children>
-      <VBox prefHeight="424.0" prefWidth="322.0" styleClass="VBox" stylesheets="@Styles/cardoffres.css">
+      <VBox prefHeight="372.0" prefWidth="322.0" styleClass="VBox" stylesheets="@Styles/cardoffres.css">
          <children>
             <HBox prefHeight="57.0" prefWidth="265.0">
                <children>
@@ -41,12 +41,12 @@
                   </Label>
                </children>
             </VBox>
-            <ImageView fx:id="hostimg" fitHeight="175.0" fitWidth="320.0" pickOnBounds="true" preserveRatio="true" styleClass="image">
+            <ImageView fx:id="hostimg" fitHeight="153.0" fitWidth="237.0" pickOnBounds="true" preserveRatio="true" styleClass="image">
                <image>
                   <Image url="@../../ressources/maisons-laprise-prefab-realisation-lap0532-quebec.jpg" />
                </image>
                <VBox.margin>
-                  <Insets left="30.0" />
+                  <Insets left="50.0" />
                </VBox.margin>
             </ImageView>
             <HBox prefHeight="72.0" prefWidth="320.0">
@@ -63,7 +63,7 @@
                   </Label>
                </children>
             </HBox>
-            <HBox prefHeight="100.0" prefWidth="320.0">
+            <HBox prefHeight="100.0" prefWidth="304.0">
                <children>
                   <Button mnemonicParsing="false" onAction="#modifieroffre" prefHeight="31.0" prefWidth="99.0" styleClass="button8" text="Modifier" textFill="WHITE">
                      <HBox.margin>
@@ -80,4 +80,7 @@
          </children>
       </VBox>
    </children>
+   <padding>
+      <Insets left="-30.0" />
+   </padding>
 </AnchorPane>

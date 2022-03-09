@@ -14,7 +14,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
@@ -25,14 +24,12 @@ import shared.services.UserSession;
  *
  * @author user
  */
-public class MenuHostController implements Initializable {
+public class MenuGusestController implements Initializable {
 
     @FXML
-    private Button btnOverview;
+    private Button ApprouveOffres;
     @FXML
     private Button btnOrders;
-    @FXML
-    private Button btnCustomers;
     @FXML
     private Button btnMenus;
     @FXML
@@ -41,100 +38,21 @@ public class MenuHostController implements Initializable {
     private Pane pnlCustomer;
     @FXML
     private GridPane grid;
+    @FXML
+    private Label labelnom;
 
-    
-    
-     UserSession connectedUser=new UserSession();
-    @FXML
-    private ImageView imgUser;
-    @FXML
-    private Label NameUs;
     /**
      * Initializes the controller class.
      */
-   
-    
+    UserSession userS=new UserSession();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
-           grid.getChildren().clear();
-           NameUs.setText(connectedUser.getUser().getNom()+" "+connectedUser.getUser().getPrenom());
-             try {
-            // TODO
-            FXMLLoader cards = new FXMLLoader();
-            cards.setLocation(getClass().getResource("DahshbordHost.fxml"));
-
-            AnchorPane anchorPane = cards.load();
-
-            grid.add(anchorPane, 1, 1);
-                
-            GridPane.setMargin(anchorPane, new javafx.geometry.Insets(10));
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }    
-
-    @FXML
-    private void Dashboard(ActionEvent event) {
-         grid.getChildren().clear();
-             try {
-            // TODO
-            FXMLLoader cards = new FXMLLoader();
-            cards.setLocation(getClass().getResource("DahshbordHost.fxml"));
-
-            AnchorPane anchorPane = cards.load();
-
-            grid.add(anchorPane, 1, 1);
-
-            GridPane.setMargin(anchorPane, new javafx.geometry.Insets(10));
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-
-    @FXML
-    private void AjouterOffre(ActionEvent event) {
-                 grid.getChildren().clear();
-             try {
-            // TODO
-            FXMLLoader cards = new FXMLLoader();
-            cards.setLocation(getClass().getResource("AjouterOffre.fxml"));
-
-            AnchorPane anchorPane = cards.load();
-
-            grid.add(anchorPane, 1, 1);
-
-            GridPane.setMargin(anchorPane, new javafx.geometry.Insets(10));
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-
-    @FXML
-    private void ListeOffre(ActionEvent event) {
-                 grid.getChildren().clear();
-             try {
-            // TODO
-            FXMLLoader cards = new FXMLLoader();
-            cards.setLocation(getClass().getResource("GererOffres.fxml"));
-
-            AnchorPane anchorPane = cards.load();
-
-            grid.add(anchorPane, 1, 1);
-
-            GridPane.setMargin(anchorPane, new javafx.geometry.Insets(10));
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-        }
-    }
-
-    @FXML
-    private void ProfileHost(ActionEvent event) {
-           
+        labelnom.setText(userS.getUser().getNom()+" "+userS.getUser().getPrenom());
         grid.getChildren().clear();
              try {
             // TODO
             FXMLLoader cards = new FXMLLoader();
-            cards.setLocation(getClass().getResource("ProfileHost.fxml"));
+            cards.setLocation(getClass().getResource("ProfileGuest.fxml"));
 
             AnchorPane anchorPane = cards.load();
 
@@ -145,8 +63,47 @@ public class MenuHostController implements Initializable {
             System.out.println(ex.getMessage());
         }
     }
-}
+      
 
-   
+    @FXML
+    private void DashboardAdmin(ActionEvent event) {
+    }
+
+    @FXML
+    private void listeoffresGuest(ActionEvent event) {
+             grid.getChildren().clear();
+             try {
+            // TODO
+            FXMLLoader cards = new FXMLLoader();
+            cards.setLocation(getClass().getResource("test.fxml"));
+
+            AnchorPane anchorPane = cards.load();
+
+            grid.add(anchorPane, 1, 1);
+
+            GridPane.setMargin(anchorPane, new javafx.geometry.Insets(10));
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void ProfileGuest(ActionEvent event) {
+               grid.getChildren().clear();
+             try {
+            // TODO
+            FXMLLoader cards = new FXMLLoader();
+            cards.setLocation(getClass().getResource("ProfileGuest.fxml"));
+
+            AnchorPane anchorPane = cards.load();
+
+            grid.add(anchorPane, 1, 1);
+
+            GridPane.setMargin(anchorPane, new javafx.geometry.Insets(10));
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
     
-
+}

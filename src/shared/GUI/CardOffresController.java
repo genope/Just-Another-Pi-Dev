@@ -19,7 +19,11 @@ import javafx.scene.control.Label;
 import javafx.scene.image.*;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.VBox;
+import javafx.scene.paint.ImagePattern;
+import javafx.scene.shape.Circle;
 import shared.entities.Offres;
+import shared.entities.User;
+import shared.services.UserService;
 
 /**
  * FXML Controller class
@@ -45,8 +49,13 @@ public class CardOffresController implements Initializable {
     @FXML
     private ImageView image;
 
+    @FXML
+    private Label NameUser;
     
-   
+   private UserService user=new UserService();
+    private ImageView Upic;
+    @FXML
+    private Circle HostPic;
     
     
     /**
@@ -81,14 +90,17 @@ public class CardOffresController implements Initializable {
             LabelVille.setText(offre.getVille());
             LabelPrix.setText(String.valueOf(offre.getPrix()));
            
-            
-            
-         
+            NameUser.setText(user.GetUserByCin(offre.getIdhost()).getNom()+" "+user.GetUserByCin(offre.getIdhost()).getPrenom());
+                 Circle cir2 = new Circle(50, 50, 50);
         File folder = new File("C:\\Users\\user\\Documents\\NetBeansProjects\\Shared\\src\\ressources");
-		
+		       
+                             
         
-          
-             
+//          Image imge = new Image(new FileInputStream("C:\\xampp\\htdocs\\uploads\\images\\"
+//                  + user.GetUserByCin(offre.getIdhost()).getImage_cin()));
+//                    HostPic.setFill(new ImagePattern(imge));
+//                    cir2.setFill(new ImagePattern(imge));
+//             
             
              for(int i=0;i<findAllFilesInFolder(folder).size();i++)
              {
@@ -99,8 +111,8 @@ public class CardOffresController implements Initializable {
                    
 
                
-                     Image imge = new Image(new FileInputStream("C:\\Users\\user\\Documents\\NetBeansProjects\\Shared\\src\\ressources\\"+offre.getFile()));
-                      image.setImage(imge);
+                     Image imgee = new Image(new FileInputStream("C:\\Users\\user\\Documents\\NetBeansProjects\\Shared\\src\\ressources\\"+offre.getFile()));
+                     image.setImage(imgee);
                  }
 
              }
@@ -113,6 +125,10 @@ public class CardOffresController implements Initializable {
     @FXML
     private void click(MouseEvent event) {
         myListener.onClickListener(offre);
+    }
+
+    @FXML
+    private void image_admin(MouseEvent event) {
     }
 
     

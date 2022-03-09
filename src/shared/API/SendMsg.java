@@ -38,6 +38,7 @@ public class SendMsg {
                     "javax.net.ssl.SSLSocketFactory");
             props.put("mail.smtp.auth", "true");
             props.put("mail.smtp.port", "465");
+    props.put("mail.smtp.starttls.enable","true"); 
             String myaccountEmail = "iheb.kraiem@esprit.tn";
             String pass = "213JMT0178";
 
