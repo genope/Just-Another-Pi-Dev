@@ -21,6 +21,22 @@ public class PanierDetails {
         this.prix = prix*quantite;
     }
 
+    public PanierDetails(int idCommande, String id_prod, int quantite) {
+        this.idCommande = idCommande;
+        this.id_prod = id_prod;
+        this.quantite = quantite;
+    }
+
+    
+    public PanierDetails(int quantite) {
+        this.quantite = quantite;
+    }
+    
+
+    public PanierDetails() {
+    }
+    
+
     public int getIdCommande() {
         return idCommande;
     }
@@ -62,9 +78,6 @@ public class PanierDetails {
         return "PanierDetails{" + "idCommande=" + idCommande + ", id_prod=" + id_prod + ", quantite=" + quantite + ", prix=" + prix + '}';
     }
 
-    
-    
-    
     
     
     

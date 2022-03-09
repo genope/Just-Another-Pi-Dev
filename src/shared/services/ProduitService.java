@@ -216,8 +216,6 @@ public class ProduitService {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());        
             }
-        
-        
         return even;
     }
     
@@ -244,7 +242,63 @@ public class ProduitService {
         } catch (SQLException ex) {
             Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
         }
-        System.out.println(Allprod);
         return Allprod;
     }
+    
+    public List<Produit> getProdJoinss(){
+        List<Produit> Allprod = new ArrayList();
+        PanierDetailsService pandet = new PanierDetailsService();
+        try {
+            String sql = "select * from Produit  join PanierDetails on Produit.ref_prod=PanierDetails.idProduit ";
+            ste= mc.prepareStatement(sql);
+            ResultSet rs = ste.executeQuery();
+            while (rs.next()){
+            Produit prodAff = new Produit(
+                        rs.getString("ref_prod"),
+                        rs.getString("designation"),
+                        rs.getString("description"),
+                        rs.getDouble("prix"),
+                        rs.getBlob("image"),
+                        rs.getInt("qte_stock"),
+                        rs.getString("nomCategorie"),
+                        rs.getString("region")
+                        );
+            Allprod.add(prodAff);
+            PanierDetailsService panserv= new PanierDetailsService();
+                    rs.getDouble("quantite");
+                    pandet=panserv;
+            
+            }
+            
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        return Allprod;
+    }
+    ///Fonction zeyda lel test
+    public Produit getPanierDetails(String ref){
+        Produit even= new Produit();
+        String sql = "select * from Produit where ref_prod = ?";
+        try {
+            ste = mc.prepareStatement(sql);
+            ste.setString(1, ref);
+            ResultSet rs = ste.executeQuery();
+            while (rs.next()){
+               Produit prodAff = new Produit(
+                        rs.getString("ref_prod"),
+                        rs.getString("designation"),
+                        rs.getString("description"),
+                        rs.getDouble("prix"),
+                        rs.getBlob("image"),
+                        rs.getInt("qte_stock"),
+                        rs.getString("nomCategorie"),
+                        rs.getString("region")
+                        );
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());        
+            }
+        return even;
+    }
+    
 }

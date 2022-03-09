@@ -37,6 +37,7 @@ public class CategorieProduit {
         this.idCategorie = idCategorie;
         this.nomCategorie = nomCategorie;
     }
+    
 
     public CategorieProduit(String nomCategorie) {
         this.nomCategorie = nomCategorie;

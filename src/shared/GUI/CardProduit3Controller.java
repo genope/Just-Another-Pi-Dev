@@ -13,60 +13,61 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.HBox;
 import javax.imageio.ImageIO;
 import shared.entities.Produit;
-
-
 
 /**
  * FXML Controller class
  *
  * @author l3ej
  */
-public class CardProduitController implements Initializable {
-    
+public class CardProduit3Controller implements Initializable {
+    MyListener mylistener;
     private Produit produit;
     @FXML
-    private ImageView IvProd;
+    private Label ref_prodLab;
     @FXML
-    private Label labelDescription;
+    private Label designationLab;
     @FXML
-    private Label labelregion;
+    private Label descriptionLab;
     @FXML
-    private Label LabelPrix;
+    private Label quantiteLab;
     @FXML
-    private Label labelNom;
-    MyListener mylistener;
+    private Label CategorieLab;
+    @FXML
+    private Label regionLab;
+    @FXML
+    private Button prixLab;
+
     /**
      * Initializes the controller class.
      */
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }   
-    
+    }    
     
     public void AddProduit(Produit produit,MyListener mylistener) throws SQLException, IOException{
         produit.getImage().getBinaryStream();
         this.produit=produit;
         this.mylistener = mylistener;
-        labelNom.setText(produit.getDesignation());
-        labelDescription.setText(produit.getDescription());
-        LabelPrix.setText(String.valueOf(produit.getPrix()));
-        labelregion.setText(produit.getNomCategorie());
-        IvProd.setImage(SwingFXUtils.toFXImage(ImageIO.read(produit.getImage().getBinaryStream()), null));
-        
-
+        ref_prodLab.setText(produit.getRef_prod());
+        descriptionLab.setText(produit.getDescription());
+        designationLab.setText(produit.getDesignation());
+        prixLab.setText(String.valueOf(produit.getPrix()));
+        CategorieLab.setText(produit.getNomCategorie());
+        quantiteLab.setText(String.valueOf(produit.getQte_stock()));
+        regionLab.setText(produit.getRegion());
+       
         
     }
-
 
     @FXML
     private void click(MouseEvent event) {
         mylistener.onClickListener(produit);
     }
+    
     
 }

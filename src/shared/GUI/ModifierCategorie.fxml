@@ -15,15 +15,12 @@
    <children>
       <TableView fx:id="tableCat" layoutX="29.0" layoutY="108.0" prefHeight="275.0" prefWidth="285.0">
         <columns>
-          <TableColumn fx:id="idCat" prefWidth="75.0" text="Id" />
-          <TableColumn fx:id="nameCat" prefWidth="209.0" text="Nom" />
+          <TableColumn fx:id="nameCat" prefWidth="284.0" text="Nom" />
         </columns>
       </TableView>
-      <Label alignment="CENTER" layoutX="29.0" layoutY="67.0" prefHeight="33.0" prefWidth="111.0" text="Nom categories" />
-      <TextField fx:id="tfCatName" layoutX="140.0" layoutY="70.0" />
+      <Label alignment="CENTER" layoutX="29.0" layoutY="40.0" prefHeight="33.0" prefWidth="111.0" text="Nom categorie" />
+      <TextField fx:id="tfCatName" layoutX="140.0" layoutY="44.0" />
       <Button fx:id="ajouterCatbtn" alignment="CENTER" layoutX="338.0" layoutY="30.0" mnemonicParsing="false" onMouseClicked="#ajouterCat" prefHeight="26.0" prefWidth="111.0" text="Ajouter" />
       <Button fx:id="SupprCatbtn" disable="true" layoutX="338.0" layoutY="70.0" mnemonicParsing="false" onMouseClicked="#SupprCatEntry" prefHeight="26.0" prefWidth="111.0" text="Supprimer" />
-      <Label alignment="CENTER" contentDisplay="CENTER" layoutX="29.0" layoutY="30.0" prefHeight="26.0" prefWidth="111.0" text="ID" />
-      <TextField fx:id="tfIdCat" layoutX="140.0" layoutY="30.0" />
    </children>
 </AnchorPane>

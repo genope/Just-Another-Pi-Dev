@@ -7,7 +7,6 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Separator?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -17,18 +16,27 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane id="AnchorPane" prefHeight="720.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.GUI.AffichageProduitController">
+<AnchorPane id="AnchorPane" prefHeight="800.0" prefWidth="1400.0" style="-fx-background-color: #02030A;" stylesheets="@../style/Produits.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.GUI.AffichageProduitController">
    <children>
-      <ImageView fitHeight="720.0" fitWidth="1206.0" pickOnBounds="true">
+      <ImageView fitHeight="791.0" fitWidth="1342.0" opacity="0.1" pickOnBounds="true">
          <image>
             <Image url="@../resources/AtHome-NightSky-1080x810-1.jpg" />
          </image>
       </ImageView>
+      <Pane layoutX="51.0" layoutY="123.0" prefHeight="719.0" prefWidth="314.0" style="-fx-background-color: transparent; -fx-border-color: #FFAB76; -fx-border-radius: 20;">
+         <children>
+            <Button fx:id="btnAddtoPan" layoutX="18.0" layoutY="623.0" mnemonicParsing="false" onAction="#AjouterAuPanier" prefHeight="50.0" prefWidth="270.0" styleClass="button4" stylesheets="@../style/Produits.css" text="Ajouter au panier">
+               <font>
+                  <Font name="System Bold" size="18.0" />
+               </font>
+            </Button>
+         </children></Pane>
       <HBox prefHeight="720.0" prefWidth="414.0">
          <children>
-            <VBox prefHeight="720.0" prefWidth="420.0" styleClass="right-bar">
+            <VBox prefHeight="792.0" prefWidth="414.0" styleClass="right-bar">
                <children>
                   <HBox alignment="CENTER" prefHeight="65.0" prefWidth="200.0" VBox.vgrow="NEVER">
                      <VBox.margin>
@@ -39,14 +47,14 @@
                         <String fx:value="shadow" />
                      </styleClass>
                      <children>
-                        <HBox alignment="CENTER" prefHeight="99.0" prefWidth="354.0">
+                        <HBox alignment="CENTER" prefHeight="107.0" prefWidth="354.0">
                            <children>
-                              <Label prefHeight="49.0" prefWidth="102.0" text="Liste" textFill="WHITE">
+                              <Label alignment="BOTTOM_CENTER" prefHeight="49.0" prefWidth="102.0" stylesheets="@../style/Produits.css" text="Liste" textFill="#ffab76">
                                  <font>
                                     <Font name="Cambria Bold" size="40.0" />
                                  </font>
                               </Label>
-                              <Label text="Produit" textFill="WHITE">
+                              <Label alignment="BOTTOM_CENTER" text="Produit" textFill="#ffab76">
                                  <font>
                                     <Font name="Cambria" size="40.0" />
                                  </font>
@@ -55,43 +63,50 @@
                         </HBox>
                      </children>
                   </HBox>
-                  <Pane prefHeight="12.0" prefWidth="414.0" VBox.vgrow="ALWAYS" />
+                  <Pane prefHeight="0.0" prefWidth="414.0" VBox.vgrow="ALWAYS" />
                   <VBox fx:id="chosenOffreCard" alignment="CENTER" prefHeight="498.0" prefWidth="280.0" style="-fx-background-color: transparent; -fx-border-radius: 20; -fx-background-radius: 20;" stylesheets="@../style/Produits.css">
                      <VBox.margin>
                         <Insets left="50.0" right="50.0" />
                      </VBox.margin>
                      <children>
-                        <HBox prefHeight="60.0" prefWidth="335.0">
+                        <HBox prefHeight="100.0" prefWidth="200.0">
                            <children>
-                              <Label fx:id="nomProduit" alignment="CENTER" contentDisplay="CENTER" prefHeight="48.0" prefWidth="338.0" text="Name User" textFill="WHITE">
-                                 <font>
-                                    <Font name="Cambria" size="36.0" />
-                                 </font>
-                              </Label>
+                              <Pane prefHeight="66.0" prefWidth="40.0" />
+                              <Pane prefHeight="50.0" prefWidth="289.0" style="-fx-border-color: white; -fx-border-radius: 20;">
+                                 <children>
+                                    <Label fx:id="nomProduit" alignment="CENTER" contentDisplay="CENTER" layoutX="-31.0" layoutY="9.0" prefHeight="48.0" prefWidth="338.0" text="Nom Produit" textFill="WHITE">
+                                       <font>
+                                          <Font name="SansSerif Regular" size="25.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </Pane>
+                              <Pane prefHeight="66.0" prefWidth="36.0" />
                            </children>
-                           <VBox.margin>
-                              <Insets left="20.0" top="30.0" />
-                           </VBox.margin>
                         </HBox>
                         <ImageView fx:id="ivpro" fitHeight="170.0" fitWidth="285.0" pickOnBounds="true" preserveRatio="true">
                            <VBox.margin>
                               <Insets top="20.0" />
                            </VBox.margin>
                         </ImageView>
-                        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
+                        <HBox alignment="CENTER" prefHeight="119.0" prefWidth="314.0">
                            <children>
-                              <TextArea fx:id="tfdescr" prefHeight="200.0" prefWidth="200.0" promptText="Description" style="-fx-background-color: transparent;" />
+                              <Label fx:id="tfdescr" prefHeight="90.0" prefWidth="177.0" text="Label" textFill="#fffbfb" />
                            </children>
                            <VBox.margin>
                               <Insets top="20.0" />
                            </VBox.margin>
                         </HBox>
                         <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
+                           <children>
+                              <Separator prefHeight="0.0" prefWidth="118.0" style="-fx-background-color: orange;" />
+                           </children></HBox>
+                        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
                            <VBox.margin>
                               <Insets top="10.0" />
                            </VBox.margin>
                            <children>
-                              <Label fx:id="LabelV" prefHeight="30.0" prefWidth="179.0" text="Ville" textFill="WHITE">
+                              <Label fx:id="LabelV" contentDisplay="CENTER" prefHeight="30.0" prefWidth="123.0" text="Ville" textFill="WHITE">
                                  <font>
                                     <Font name="Cambria" size="24.0" />
                                  </font>
@@ -99,76 +114,79 @@
                                     <Insets left="25.0" />
                                  </HBox.margin>
                               </Label>
-                              <Label fx:id="LabelP" prefHeight="53.0" prefWidth="167.0" text="Prix" textFill="WHITE">
+                              <Label fx:id="LabelP" contentDisplay="CENTER" prefHeight="53.0" prefWidth="167.0" text="Prix" textFill="WHITE">
                                  <font>
                                     <Font name="Cambria" size="24.0" />
                                  </font>
                               </Label>
                            </children>
                         </HBox>
-                        <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
-                           <VBox.margin>
-                              <Insets bottom="20.0" top="20.0" />
-                           </VBox.margin>
-                           <children>
-                              <Separator prefHeight="0.0" prefWidth="118.0" />
-                              <Separator prefHeight="0.0" prefWidth="118.0" />
-                           </children>
-                        </HBox>
                         <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
                            <children>
-                              <TextField fx:id="quantite" prefHeight="46.0" prefWidth="171.0" promptText="Quantité" />
+                              <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
+                                 <children>
+                                    <Separator prefHeight="0.0" prefWidth="118.0" />
+                                 </children>
+                              </HBox>
                            </children></HBox>
-                        <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0" />
                      </children>
                   </VBox>
-                  <Pane prefHeight="21.0" prefWidth="414.0" VBox.vgrow="ALWAYS">
+                  <Pane prefHeight="12.0" prefWidth="419.0" VBox.vgrow="ALWAYS">
                      <children>
-                        <Button fx:id="btnAddtoPan" layoutX="65.0" layoutY="15.0" mnemonicParsing="false" onAction="#AjouterAuPanier" prefHeight="50.0" prefWidth="270.0" styleClass="add-btn" text="ADD TO CART" textFill="#828282">
-                           <font>
-                              <Font name="System Bold" size="18.0" />
-                           </font>
-                        </Button>
+                        <TextField fx:id="quantite" layoutX="122.0" layoutY="14.0" prefHeight="46.0" prefWidth="171.0" promptText="Quantité" />
                      </children></Pane>
                </children>
             </VBox>
          </children>
       </HBox>
-      <VBox layoutX="414.0" prefHeight="720.0" prefWidth="792.0">
+      <VBox layoutX="414.0" layoutY="40.0" prefHeight="727.0" prefWidth="990.0">
          <children>
-            <Pane prefHeight="78.0" prefWidth="880.0" styleClass="right-bar">
+            <Pane prefHeight="78.0" prefWidth="880.0" styleClass="right-bar" />
+            <HBox alignment="CENTER" prefHeight="682.0" prefWidth="970.0" VBox.vgrow="ALWAYS">
                <children>
-                  <Label layoutX="333.0" layoutY="14.0" prefHeight="49.0" prefWidth="215.0" text="Shared" textFill="WHITE">
-                     <font>
-                        <Font name="Cambria Bold" size="40.0" />
-                     </font>
-                  </Label>
-                  <Button fx:id="btnPanier" layoutX="166.0" layoutY="19.0" mnemonicParsing="false" onAction="#AllerPanier" text="Panier" />
+                  <Pane prefHeight="640.0" prefWidth="899.0">
+                     <children>
+                        <ScrollPane fx:id="scroll" prefHeight="603.0" prefWidth="888.0" stylesheets="@../style/Produits.css">
+                           <content>
+                              <GridPane fx:id="grid" prefHeight="54.0" prefWidth="74.0">
+                                 <columnConstraints>
+                                    <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                                 </columnConstraints>
+                              </GridPane>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </Pane>
                </children>
-            </Pane>
-            <HBox prefHeight="100.0" prefWidth="200.0" styleClass="hbox">
+            </HBox>
+            <HBox prefHeight="93.0" prefWidth="815.0" styleClass="hbox">
                <children>
-                  <Pane prefHeight="84.0" prefWidth="96.0" />
-                  <Pane prefHeight="60.0" prefWidth="662.0" HBox.hgrow="ALWAYS">
+                  <Pane prefHeight="72.0" prefWidth="950.0" HBox.hgrow="ALWAYS">
                      <HBox.margin>
                         <Insets />
                      </HBox.margin>
                      <children>
-                        <ComboBox fx:id="choisirCateg" layoutY="6.0" prefWidth="150.0" promptText="ComCategorie" />
-                        <Button layoutX="14.0" layoutY="44.0" mnemonicParsing="false" onAction="#ConfirmerCateg2" onMousePressed="#ConfirmerCateg2" prefHeight="31.0" prefWidth="100.0" text="Confirmer" />
-                        <TextField fx:id="LowPrix" layoutX="180.0" layoutY="28.0" prefHeight="33.0" prefWidth="118.0" promptText="Prixinf" styleClass="transparent">
+                        <ComboBox fx:id="choisirCateg" layoutY="26.0" opacity="0.0" prefWidth="150.0" promptText="ComCategorie" />
+                        <Pane fx:id="btnPann" layoutX="486.0" layoutY="16.0" onMousePressed="#AllerPanier" prefHeight="56.0" prefWidth="238.0" style="-fx-background-color: white; -fx-background-radius: 10;">
+                           <children>
+                              <Label fx:id="btnPanier" alignment="TOP_CENTER" layoutX="14.0" layoutY="14.0" prefHeight="31.0" prefWidth="159.0" text="Aller au panier">
+                                 <font>
+                                    <Font size="19.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </Pane>
+                        <ImageView fx:id="Panierr" fitHeight="83.0" fitWidth="118.0" layoutX="655.0" layoutY="2.0" onMouseClicked="#AllerPanier2" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../resources/ajouter-au-panier.png" />
+                           </image>
+                        </ImageView>
+                        <Circle fill="#ffab76" layoutX="727.0" layoutY="73.0" radius="16.0" stroke="BLACK" strokeType="INSIDE" />
+                        <Label fx:id="PanSize" alignment="CENTER" layoutX="720.0" layoutY="64.0" prefHeight="18.0" prefWidth="16.0" text="1" textFill="WHITE">
                            <font>
-                              <Font name="Cambria" size="18.0" />
+                              <Font name="System Bold" size="14.0" />
                            </font>
-                        </TextField>
-                        <Button layoutX="539.0" layoutY="22.0" mnemonicParsing="false" prefHeight="33.0" prefWidth="93.0" styleClass="search-button" text="Search" textFill="WHITE" />
-                        <Pane layoutX="537.0" layoutY="19.0" prefHeight="40.0" prefWidth="93.0" />
-                        <TextField fx:id="Highprix" layoutX="314.0" layoutY="28.0" prefHeight="33.0" prefWidth="102.0" promptText="prixSup" styleClass="transparent">
-                           <font>
-                              <Font name="Cambria" size="18.0" />
-                           </font>
-                        </TextField>
-                        <TextField fx:id="reff" layoutX="368.0" layoutY="6.0" opacity="0.0" prefHeight="3.0" prefWidth="143.0" />
+                        </Label>
                      </children>
                   </Pane>
                </children>
@@ -176,23 +194,8 @@
                   <Insets left="20.0" right="20.0" top="40.0" />
                </VBox.margin>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="552.0" prefWidth="850.0" VBox.vgrow="ALWAYS">
-               <children>
-                  <ScrollPane fx:id="scroll" prefHeight="541.0" prefWidth="792.0" stylesheets="@../style/Produits.css">
-                     <HBox.margin>
-                        <Insets top="10.0" />
-                     </HBox.margin>
-                     <content>
-                        <GridPane fx:id="grid" prefHeight="54.0" prefWidth="74.0">
-                           <columnConstraints>
-                              <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                           </columnConstraints>
-                        </GridPane>
-                     </content>
-                  </ScrollPane>
-               </children>
-            </HBox>
          </children>
       </VBox>
+      <TextField fx:id="reff" layoutX="22.0" layoutY="761.0" opacity="0.0" prefHeight="17.0" prefWidth="16.0" />
    </children>
 </AnchorPane>
