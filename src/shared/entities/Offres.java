@@ -6,32 +6,26 @@
 package shared.entities;
 
 import java.sql.Date;
+import shared.entities.enums.CategorieOffres;
+import shared.entities.enums.TypeOffres;
 
 public class Offres {
+
     private int id;
-    private int id_user;
+    private int idhost;
     private String nom;
     private String description;
-   // private String File;
+    private String File;
     private Date datedebut;
     private Date datefin;
     private float prix;
     private boolean etat;
     private String ville;
+    private TypeOffres type;
+    private CategorieOffres categ;
 
-    public Offres(String nom, String description, Date datedebut, Date datefin, float prix, boolean etat,String ville) {
-        this.nom = nom;
-        this.description = description;
-        this.datedebut = datedebut;
-        this.datefin = datefin;
-        this.prix = prix;
-        this.etat = etat; 
-        this.ville=ville;
-   }
-
-    public Offres( int id_user, String nom, String description, Date datedebut, Date datefin, float prix, boolean etat, String ville) {
-//        this.id = id;
-        this.id_user = id_user;
+    public Offres(int idhost, String nom, String description, Date datedebut, Date datefin, float prix, boolean etat, String ville, CategorieOffres categ, String image) {
+        this.idhost = idhost;
         this.nom = nom;
         this.description = description;
         this.datedebut = datedebut;
@@ -39,30 +33,66 @@ public class Offres {
         this.prix = prix;
         this.etat = etat;
         this.ville = ville;
+        this.categ = categ;
+        this.File = image;
     }
-    
 
-    public Offres() {
+    public Offres(int idhost, String nom, String description, Date datedebut, Date datefin, float prix, boolean etat, String ville, CategorieOffres categ) {
+        this.idhost = idhost;
+        this.nom = nom;
+        this.description = description;
+        this.datedebut = datedebut;
+        this.datefin = datefin;
+        this.prix = prix;
+        this.etat = etat;
+        this.ville = ville;
+        this.categ = categ;
+    }
+
+    public Offres(int idhost, String nom, String description, Date datedebut, Date datefin, float prix, boolean etat, String ville, String image) {
+        this.idhost = idhost;
+        this.nom = nom;
+        this.description = description;
+        this.datedebut = datedebut;
+        this.datefin = datefin;
+        this.prix = prix;
+        this.etat = etat;
+        this.ville = ville;
+        this.File = image;
+    }
+
+    public Offres(String description, Date datedebut, Date datefin, float prix, String image) {
+
+        this.description = description;
+        this.datedebut = datedebut;
+        this.datefin = datefin;
+        this.prix = prix;
+        this.File = image;
+    }
+
+    public Offres(String description, Date datedebut, Date datefin, float prix) {
+
+        this.description = description;
+        this.datedebut = datedebut;
+        this.datefin = datefin;
+        this.prix = prix;
     }
 
     @Override
     public String toString() {
-        return "id_host = "+ id_user +  "id ="+ id +", nom=" + nom + ", description=" + description + ", datedebut=" + datedebut + ", datefin=" + datefin + ", prix=" + prix + ", etat=" + etat + ", ville=" + ville ;
+        return "{" + "id=" + id + ", idhost=" + idhost + ", nom=" + nom + ", description=" + description + ", datedebut=" + datedebut + ", datefin=" + datefin + ", prix=" + prix + ", etat=" + etat + ", ville=" + ville + ", typeOff=" + type + ", categ=" + categ + ", image=" + this.File + '}';
     }
 
-    public int getId() {
-        return id;
+    public Offres() {
+
     }
 
-    public void setId(int id) {
-        this.id = id;
-    }
-    public void setVille(String ville) {
-        this.ville = ville;
+    public void setFile(String File) {
+        this.File = File;
     }
 
-    public String getVille() {
-        return ville;
+    public String getFile() {
+        return File;
     }
 
     public String getNom() {
@@ -113,14 +143,43 @@ public class Offres {
         this.etat = etat;
     }
 
-    public int getId_user() {
-        return id_user;
+    public int getId() {
+        return id;
     }
 
-    public void setId_user(int id_user) {
-        this.id_user = id_user;
+    public String getVille() {
+        return ville;
     }
-    
-    
-    
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public void setVille(String ville) {
+        this.ville = ville;
+    }
+
+    public void setIdhost(int idhost) {
+        this.idhost = idhost;
+    }
+
+    public int getIdhost() {
+        return idhost;
+    }
+
+    public TypeOffres getTypeOff() {
+        return type;
+    }
+
+    public CategorieOffres getCateg() {
+        return categ;
+    }
+
+    public void setTypeOff(TypeOffres type) {
+        this.type = type;
+    }
+
+    public void setCateg(CategorieOffres categ) {
+        this.categ = categ;
+    }
 }
