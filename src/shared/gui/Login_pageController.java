@@ -105,7 +105,7 @@ public class Login_pageController implements Initializable {
                             if (!remember_me.isSelected()) {
                                 userService.Deleteinfo(path, path, path);
                                 UserService.userSession.setUserCin(user.getCin());
-                                Parent root = FXMLLoader.load(getClass().getResource("ProfileGuest.fxml"));
+                                Parent root = FXMLLoader.load(getClass().getResource("MenuGusest.fxml"));
                                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                 Scene scene = new Scene(root);
                                 stage.setScene(scene);
@@ -114,7 +114,7 @@ public class Login_pageController implements Initializable {
                             } else if (remember_me.isSelected()) {
                                 userService.createiniFile(path, emailtxt.getText(), passwordtxt.getText());
                                 UserService.userSession.setUserCin(user.getCin());
-                                Parent root = FXMLLoader.load(getClass().getResource("ProfileGuest.fxml"));
+                                Parent root = FXMLLoader.load(getClass().getResource("MenuGusest.fxml"));
                                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                 Scene scene = new Scene(root);
                                 stage.setScene(scene);
@@ -125,7 +125,7 @@ public class Login_pageController implements Initializable {
                             if (!remember_me.isSelected()) {
                                 userService.Deleteinfo(path, path, path);
                                 UserService.userSession.setUserCin(user.getCin());
-                                Parent root = FXMLLoader.load(getClass().getResource("ProfileHost.fxml"));
+                                Parent root = FXMLLoader.load(getClass().getResource("MenuHost.fxml"));
                                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                 Scene scene = new Scene(root);
                                 stage.setScene(scene);
@@ -135,7 +135,7 @@ public class Login_pageController implements Initializable {
                                 userService.createiniFile(path, emailtxt.getText(), passwordtxt.getText());
                                 UserService.userSession.setUserCin(user.getCin());
                                 System.out.println(UserSession.userString);
-                                Parent root = FXMLLoader.load(getClass().getResource("ProfileHost.fxml"));
+                                Parent root = FXMLLoader.load(getClass().getResource("MenuHost.fxml"));
                                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                 Scene scene = new Scene(root);
                                 stage.setScene(scene);
@@ -149,7 +149,7 @@ public class Login_pageController implements Initializable {
                                 UserService.userSession = new UserSession();
                                 UserService.userSession.setUserCin(user.getCin());
                                 System.out.println(UserService.userSession.getUser());
-                                Parent root = FXMLLoader.load(getClass().getResource("ProfileAdmin.fxml"));
+                                Parent root = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
                                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                 Scene scene = new Scene(root);
                                 stage.setScene(scene);
@@ -159,7 +159,7 @@ public class Login_pageController implements Initializable {
                                 userService.createiniFile(path, emailtxt.getText(), passwordtxt.getText());
                                 UserService.userSession = new UserSession();
                                 UserService.userSession.setUserCin(user.getCin());
-                                Parent root = FXMLLoader.load(getClass().getResource("ProfileAdmin.fxml"));
+                                Parent root = FXMLLoader.load(getClass().getResource("MenuAdmin.fxml"));
                                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                 Scene scene = new Scene(root);
                                 stage.setScene(scene);

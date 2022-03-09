@@ -8,19 +8,25 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 
 <AnchorPane id="AnchorPane" onMousePressed="#click" prefHeight="318.0" prefWidth="149.0" styleClass="AnchorPane1" stylesheets="@Styles/cardoffres.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.GUI.CardOffresController">
    <children>
-      <VBox fx:id="vbox1" prefHeight="423.0" prefWidth="300.0" styleClass="VBox" stylesheets="@cardoffres.css">
+      <VBox fx:id="vbox1" prefHeight="399.0" prefWidth="284.0" styleClass="VBox" stylesheets="@cardoffres.css">
          <children>
             <HBox prefHeight="63.0" prefWidth="320.0">
                <children>
-                  <Label prefHeight="47.0" prefWidth="163.0" styleClass="label1" stylesheets="@Styles/cardoffres.css" text="Label">
+                  <Circle fx:id="HostPic" fill="DODGERBLUE" onMouseClicked="#image_admin" radius="23.0" stroke="BLACK" strokeType="INSIDE">
+                     <HBox.margin>
+                        <Insets left="15.0" right="-10.0" top="15.0" />
+                     </HBox.margin>
+                  </Circle>
+                  <Label fx:id="NameUser" prefHeight="47.0" prefWidth="69.0" styleClass="label1" stylesheets="@Styles/cardoffres.css" text="Label">
                      <padding>
                         <Insets left="25.0" top="20.0" />
                      </padding>
                      <HBox.margin>
-                        <Insets />
+                        <Insets right="25.0" />
                      </HBox.margin>
                   </Label>
                   <Label fx:id="LabelNom" styleClass="label1" stylesheets="@Styles/cardoffres.css" text="S+2">
@@ -34,7 +40,7 @@
                <children>
                   <Label fx:id="LabelDateDebut" styleClass="label1" stylesheets="@Styles/cardoffres.css" text="Date debut">
                      <VBox.margin>
-                        <Insets left="20.0" />
+                        <Insets left="20.0" top="5.0" />
                      </VBox.margin>
                   </Label>
                   <Label fx:id="LabelDateFin" styleClass="label1" stylesheets="@Styles/cardoffres.css" text="Date Fin">
@@ -44,22 +50,22 @@
                   </Label>
                </children>
             </VBox>
-            <ImageView fx:id="image" fitHeight="165.0" fitWidth="226.0" pickOnBounds="true" preserveRatio="true" styleClass="image">
+            <ImageView fx:id="image" fitHeight="139.0" fitWidth="213.0" pickOnBounds="true" preserveRatio="true" styleClass="image">
                <image>
                   <Image url="@../../ressources/maisons-laprise-prefab-realisation-lap0532-quebec.jpg" />
                </image>
                <VBox.margin>
-                  <Insets left="30.0" />
+                  <Insets left="50.0" />
                </VBox.margin>
             </ImageView>
             <HBox prefHeight="68.0" prefWidth="320.0">
                <children>
                   <Label fx:id="LabelVille" prefHeight="27.0" prefWidth="125.0" styleClass="label1" stylesheets="@Styles/cardoffres.css" text="Bizerte">
                      <HBox.margin>
-                        <Insets left="20.0" top="20.0" />
+                        <Insets left="20.0" right="-10.0" top="20.0" />
                      </HBox.margin>
                   </Label>
-                  <Label styleClass="label1" stylesheets="@Styles/cardoffres.css" text="Prix en DT ">
+                  <Label prefHeight="27.0" prefWidth="92.0" styleClass="label1" stylesheets="@Styles/cardoffres.css" text="Prix en DT ">
                      <HBox.margin>
                         <Insets top="20.0" />
                      </HBox.margin>
@@ -76,7 +82,7 @@
                   <Insets left="15.0" />
                </VBox.margin>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="131.0" styleClass="button0" stylesheets="@Styles/cardoffres.css" text="Réserver" textFill="WHITE">
+            <Button mnemonicParsing="false" prefHeight="31.0" prefWidth="123.0" styleClass="button0" stylesheets="@Styles/cardoffres.css" text="Réserver" textFill="WHITE">
                <VBox.margin>
                   <Insets left="150.0" top="-30.0" />
                </VBox.margin>

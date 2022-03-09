@@ -5,25 +5,19 @@
  */
 package shared.GUI;
 
-import java.io.IOException;
 import java.net.URL;
-import java.util.Observable;
 import java.util.ResourceBundle;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.layout.AnchorPane;
-import javafx.scene.layout.GridPane;
 import javafx.scene.layout.Pane;
-import javafx.scene.layout.VBox;
-import shared.entities.enums.TypeOffres;
 import shared.services.OffreServices;
+import shared.services.UserSession;
+
+
 
 /**
  * FXML Controller class
@@ -54,23 +48,29 @@ public class DahshbordHostController implements Initializable {
     int c = 0;
     @FXML
     private PieChart piechart;
+    @FXML
+    private Label nameUser;
 
     /**
      * Initializes the controller class.
      */
+    
+     UserSession connectedUser=new UserSession();
     @Override
     public void initialize(URL url, ResourceBundle rb) {
+        nameUser.setText(connectedUser.getUser().getNom()+" "+connectedUser.getUser().getPrenom());
+        
         OffreServices offreService = new OffreServices();
-        TotalOffres.setText(String.valueOf(offreService.getNbrMyOffres(110405018)));
+        TotalOffres.setText(String.valueOf(offreService.getNbrMyOffres(connectedUser.getUser().getCin())));
 
-        TotalLogs.setText(String.valueOf(offreService.getNbrLogemts(110405018)));
-        MoysTra.setText(String.valueOf(offreService.getNbrMoyTransports(110405018)));
-        Hore.setText(String.valueOf(offreService.getNbrMyHoreca(110405018)));
+        TotalLogs.setText(String.valueOf(offreService.getNbrLogemts(connectedUser.getUser().getCin())));
+        MoysTra.setText(String.valueOf(offreService.getNbrMoyTransports(connectedUser.getUser().getCin())));
+        Hore.setText(String.valueOf(offreService.getNbrMyHoreca(connectedUser.getUser().getCin())));
 
         ObservableList<PieChart.Data> list = FXCollections.observableArrayList(
-                new PieChart.Data("Logement",offreService.getAllMyOffres(110405018).size()),
-                new PieChart.Data("Moyen De Transport", offreService.getNbrMoyTransports(110405018)),
-                new PieChart.Data("Horeca", offreService.getNbrMyHoreca(110405018))
+                new PieChart.Data("Logement",offreService.getAllMyOffres(connectedUser.getUser().getCin()).size()),
+                new PieChart.Data("Moyen De Transport", offreService.getNbrMoyTransports(connectedUser.getUser().getCin())),
+                new PieChart.Data("Horeca", offreService.getNbrMyHoreca(connectedUser.getUser().getCin()))
         );
 
 //        for (int i = 0; i < offreService.getAllOffresById2(110405018).size(); i++) {
