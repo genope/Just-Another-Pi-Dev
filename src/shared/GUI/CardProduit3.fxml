@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+
+<AnchorPane id="AnchorPane" onMousePressed="#click" prefHeight="58.0" prefWidth="950.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.GUI.CardProduit3Controller">
+   <children>
+      <HBox alignment="CENTER_LEFT" layoutY="3.0" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="58.0" prefWidth="950.0" spacing="80.0" style="-fx-background-color: #02030A; -fx-background-radius: 5; -fx-background-insets: 0;">
+         <children>
+            <Label fx:id="ref_prodLab" alignment="CENTER" prefHeight="16.0" prefWidth="119.0" text="Ref Produit" textFill="WHITE" />
+            <Label fx:id="designationLab" prefHeight="16.0" prefWidth="88.0" text="Designation" textFill="WHITE" />
+            <Label fx:id="descriptionLab" prefHeight="16.0" prefWidth="86.0" text="Description" textFill="#b7c3d7" />
+            <Button fx:id="prixLab" mnemonicParsing="false" prefHeight="28.0" prefWidth="123.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" text="prix" textFill="WHITE">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Button>
+            <Label fx:id="quantiteLab" prefHeight="16.0" prefWidth="115.0" text="Quantite" textFill="#b7c3d7">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="CategorieLab" prefHeight="16.0" prefWidth="122.0" text="Categorie" textFill="#b7c3d7">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+            <Label fx:id="regionLab" prefHeight="16.0" prefWidth="108.0" text="Region" textFill="#b7c3d7">
+               <HBox.margin>
+                  <Insets />
+               </HBox.margin>
+            </Label>
+         </children>
+         <effect>
+            <DropShadow blurType="GAUSSIAN" height="5.0" radius="2.0" width="5.0" />
+         </effect>
+      </HBox>
+   </children>
+</AnchorPane>

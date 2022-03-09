@@ -2,7 +2,10 @@ package shared;
 
 
 
+import com.mashape.unirest.http.exceptions.UnirestException;
+import java.io.UnsupportedEncodingException;
 import java.sql.Date;
+import shared.API.YoutubeAPI;
 import shared.connexion.MaConnexion;
 import shared.entities.CategorieProduit;
 import shared.entities.Evenement;
@@ -24,7 +27,7 @@ import shared.services.PanierService;
 public class Shared {
 
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnsupportedEncodingException, UnirestException {
 
         
         MaConnexion m = MaConnexion.getInstance();
@@ -53,14 +56,21 @@ public class Shared {
 //        panserv.supprimerPanier(11);
 //        System.out.println(panserv.ListPanier());
         
-        PanierDetailsService pandes = new PanierDetailsService();
-        PanierDetails pande = new PanierDetails("canne15",3,30,2.00);
+//        PanierDetailsService pandes = new PanierDetailsService();
+//        PanierDetails pande = new PanierDetails("canne15",3,30,2.00);
         
-        pandes.ajouterPanierDetails(pande);
+//        pandes.ajouterPanierDetails(pande);
         
-        System.out.println(pandes.ListPanierDetails());
+       // System.out.println(pandes.ListPanierDetails());
+//        System.out.println(pandes.ListPanierDetailsUser(11));
           
 
+//        System.out.println(pandes.getPanDetByrefPr("canne15"));
+//        ProduitService prods = new ProduitService();
+//        
+//        System.out.println(prods.getProdJoin());
+        
+    
     }
     
        

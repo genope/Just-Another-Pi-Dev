@@ -35,7 +35,7 @@ public class UIController implements Initializable {
 
             AnchorPane anchorPane = cards.load();
 
-            grid.add(anchorPane, 1, 1);
+            grid.add(anchorPane, 0, 0);
 
             GridPane.setMargin(anchorPane, new javafx.geometry.Insets(10));
         } catch (IOException ex){
@@ -52,7 +52,7 @@ public class UIController implements Initializable {
 
             AnchorPane anchorPane = cards.load();
 
-            grid.add(anchorPane, 1, 1);
+            grid.add(anchorPane, 0, 0);
 
             GridPane.setMargin(anchorPane, new javafx.geometry.Insets(10));
         } catch (IOException ex){
@@ -69,7 +69,7 @@ public class UIController implements Initializable {
 
             AnchorPane anchorPane = cards.load();
 
-            grid.add(anchorPane, 1, 1);
+            grid.add(anchorPane, 0, 0);
 
             GridPane.setMargin(anchorPane, new javafx.geometry.Insets(10));
         } catch (IOException ex){

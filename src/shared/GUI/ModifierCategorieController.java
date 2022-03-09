@@ -31,7 +31,6 @@ import shared.services.ProduitService;
  */
 public class ModifierCategorieController implements Initializable {
 
-    @FXML
     private TableColumn<CategorieProduit, Integer> idCat;
     @FXML
     private TableColumn<CategorieProduit, String> nameCat;
@@ -44,7 +43,6 @@ public class ModifierCategorieController implements Initializable {
     private TableView<CategorieProduit> tableCat;
     @FXML
     private TextField tfCatName;
-    @FXML
     private TextField tfIdCat;
 
     /**
@@ -63,7 +61,7 @@ public class ModifierCategorieController implements Initializable {
         String nomCategorie = tfCatName.getText();
         int idCategorie = Integer.parseInt(tfIdCat.getText());
         
-        CategorieProduit cat = new CategorieProduit(idCategorie, nomCategorie);
+        CategorieProduit cat = new CategorieProduit(nomCategorie);
         CategorieServices cats = new CategorieServices();
         cats.AjouterCategorieProd(cat);
         showCategorieTable();
@@ -73,7 +71,7 @@ public class ModifierCategorieController implements Initializable {
     
     public void showCategorieTable(){
         ObservableList<CategorieProduit> list = getProduitList();
-        idCat.setCellValueFactory(new PropertyValueFactory<CategorieProduit, Integer>("idCategorie"));
+        //idCat.setCellValueFactory(new PropertyValueFactory<CategorieProduit, Integer>("idCategorie"));
         nameCat.setCellValueFactory(new PropertyValueFactory<CategorieProduit, String>("nomCategorie"));
         tableCat.setItems(list);
     }
@@ -90,12 +88,12 @@ public class ModifierCategorieController implements Initializable {
         tableCat.getSelectionModel().selectedItemProperty().addListener((obs,oldSelection,newSelection) -> {
             if (newSelection != null){
                 SupprCatbtn.setDisable(false);
-                tfIdCat.setText(String.valueOf(newSelection.getIdCategorie()));
+                //tfIdCat.setText(String.valueOf(newSelection.getIdCategorie()));
                 tfCatName.setText(newSelection.getNomCategorie());
             }
             else {
-                tfIdCat.setText("");
-                tfIdCat.setText(String.valueOf(newSelection.getIdCategorie()));
+                //tfIdCat.setText("");
+                //tfIdCat.setText(String.valueOf(newSelection.getIdCategorie()));
                 tfCatName.setText("");
                 tfCatName.setText(newSelection.getNomCategorie());
                 SupprCatbtn.setDisable(true);

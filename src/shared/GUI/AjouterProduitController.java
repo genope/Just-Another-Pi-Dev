@@ -12,14 +12,23 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.CopyOption;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import java.util.function.ToDoubleBiFunction;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.embed.swing.SwingFXUtils;
@@ -37,15 +46,22 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.effect.InnerShadow;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.GridPane;
+import javafx.scene.layout.Region;
+import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import shared.entities.Produit;
 import shared.services.ProduitService;
 import shared.connexion.MaConnexion;
@@ -69,6 +85,8 @@ public class AjouterProduitController implements Initializable {
     File fileOut;
 
     private static Stage pStage;
+    @FXML
+    private GridPane grids;
 
     public AjouterProduitController() {
         mc = MaConnexion.getInstance().getCnx();
@@ -96,22 +114,6 @@ public class AjouterProduitController implements Initializable {
     @FXML
     private Button GPimagesss;
     @FXML
-    private TableView<Produit> GPtable;
-    @FXML
-    private TableColumn<Produit, String> GPcolRef_prod;
-    @FXML
-    private TableColumn<Produit, String> GPcolDesignation;
-    @FXML
-    private TableColumn<Produit, String> GPcolDescription;
-    @FXML
-    private TableColumn<Produit, Double> GPcolPrix;
-    @FXML
-    private TableColumn<Produit, Integer> GPcolquantite;
-    @FXML
-    private TableColumn<Produit, String> GPcolCategorie;
-    @FXML
-    private TableColumn<Produit, String> GPcolRegion;
-    @FXML
     private Button modifCatbtn;
     @FXML
     private ComboBox<String> GPcombocategorie;
@@ -119,6 +121,10 @@ public class AjouterProduitController implements Initializable {
     private ImageView ivProduit;
     private InputStream input;
     Image image;
+    private List<Produit> Prodss = new ArrayList<>();
+    private MyListener myListener;
+    String oldRef;
+
     /**
      * Initializes the controller class.
      */
@@ -151,8 +157,16 @@ public class AjouterProduitController implements Initializable {
         GPregion.getItems().add("ZAGHOUAN");
 
         Connection mc = MaConnexion.getInstance().getCnx();
-        showProdTable();
-        addListenerProduit();
+        try {
+            try {
+                showCardProds();
+            } catch (IOException ex) {
+                Logger.getLogger(AjouterProduitController.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex.getMessage());
+        }
+        //addListenerProduit();
         populateCategorie();
 
     }
@@ -165,16 +179,56 @@ public class AjouterProduitController implements Initializable {
         return pStage;
     }
 
-    public void showProdTable() {
-        ObservableList<Produit> list = getProduitList();
-        GPcolRef_prod.setCellValueFactory(new PropertyValueFactory<Produit, String>("ref_prod"));
-        GPcolDesignation.setCellValueFactory(new PropertyValueFactory<Produit, String>("designation"));
-        GPcolDescription.setCellValueFactory(new PropertyValueFactory<Produit, String>("description"));
-        GPcolPrix.setCellValueFactory(new PropertyValueFactory<Produit, Double>("prix"));
-        GPcolquantite.setCellValueFactory(new PropertyValueFactory<Produit, Integer>("qte_stock"));
-        GPcolCategorie.setCellValueFactory(new PropertyValueFactory<Produit, String>("nomCategorie"));
-        GPcolRegion.setCellValueFactory(new PropertyValueFactory<Produit, String>("region"));
-        GPtable.setItems(list);
+    
+    public void showCardProds() throws SQLException, IOException{
+        grids.getChildren().clear();
+        ProduitService prods = new ProduitService();
+        if (prods.getAllProdL().size() > 0) {
+            //setChosenProd(prods.getAllProdL().get(0));
+            myListener = new MyListener() {
+                @Override
+                public void onClickListener(Produit produit) {
+                    try {
+                        setChosenProd(produit);
+                        System.out.println("test");
+                    } catch (SQLException ex) {
+                        System.out.println(ex.getMessage());
+                    } catch (IOException ex) {
+                        System.out.println(ex.getMessage());
+                    }
+                }
+            };
+        }
+        int column = 0;
+        int row = 0;
+        try {
+            for (int i = 0; i < prods.getAllProdL().size(); i++) {
+                System.out.println(prods.getAllProd().get(i));
+                FXMLLoader cards = new FXMLLoader();
+                cards.setLocation(getClass().getResource("CardProduit3.fxml"));
+                AnchorPane anchorPane = cards.load();
+                CardProduit3Controller ProduitServ = cards.getController();
+                ProduitServ.AddProduit(prods.getAllProdL().get(i), myListener);
+                if (column == 1) {
+                    column = 0;
+                    row++;
+                }
+                grids.add(anchorPane, column++, row);
+                grids.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grids.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grids.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                grids.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grids.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grids.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new javafx.geometry.Insets(10));
+            }
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+        
     }
 
     private ObservableList<Produit> getProduitList() {
@@ -187,12 +241,12 @@ public class AjouterProduitController implements Initializable {
     //String Image = "";
 
     @FXML
-    private void ajouterProduit(ActionEvent event) throws SQLException {
+    private void ajouterProduit(ActionEvent event) throws SQLException, IOException {
+        if(validtext(GPref_prod) & (validnumber(GPprix)) & (validnumber(GPquantite)) & validtextSpace(GPdesignation)){
         String ref_prod = GPref_prod.getText();
         String Designation = GPdesignation.getText();
         String Description = GPdescription.getText();
         Double Prix = Double.parseDouble(GPprix.getText());
-        //String Image = GPimage.getText();
         Integer Qte_stock = Integer.parseInt(GPquantite.getText());
         String nomCategorie = GPcombocategorie.getValue().toString();
         String region = getRegion();
@@ -207,19 +261,21 @@ public class AjouterProduitController implements Initializable {
             } else {
                 try {
                     FileInputStream fin = new FileInputStream(file);
-
+                    byte[] data = new byte[(int) file.length()];
+                    String fileName = file.getName();
+                    String path = fileName;
+                    fin.read(data);
+                    fin.close();
                     int len = (int) file.length();
                     System.out.println("2");
                     String sql = "insert into `Produit` (ref_prod, designation, description, prix, image, qte_stock, nomCategorie, region) Values(?,?,?,?,?,?,?,?)";
-                    System.out.println("2.5");
                     ste = mc.prepareStatement(sql);
-                    System.out.println("3");
                     ste.setString(1, ref_prod);
                     ste.setString(2, Designation);
                     ste.setString(3, Description);
                     ste.setDouble(4, Prix);
                     //ste.setString(5, Image);
-                    ste.setBlob(5, fin);
+                    ste.setString(5, path);
                     ste.setInt(6, Qte_stock);
                     ste.setString(7, nomCategorie);
                     ste.setString(8, region);
@@ -236,12 +292,8 @@ public class AjouterProduitController implements Initializable {
 
             }
         }
-//        Produit P = new Produit(ref_prod, Designation, Description, Prix, Image, Qte_stock, nomCategorie, region); 
-//        ProduitService prodserv = new ProduitService();
-//        prodserv.ajouterProduit(P);
-
-        showProdTable();
-
+        showCardProds();
+        }
     }
 
     private void showAlert(Alert.AlertType alertType, Window owner, String message, String title) {
@@ -256,7 +308,7 @@ public class AjouterProduitController implements Initializable {
     }
 
     @FXML
-    private void modifProduit(MouseEvent event) throws SQLException {
+    private void modifProduit(MouseEvent event) throws SQLException, IOException {
         Window owner = (Stage) GPref_prod.getScene().getWindow();
         String ref_prod = GPref_prod.getText();
         String designation = GPdesignation.getText();
@@ -265,49 +317,38 @@ public class AjouterProduitController implements Initializable {
         String nomCategorie = GPcombocategorie.getValue();
         Integer quantite = Integer.parseInt(GPquantite.getText());
         String region = GPregion.getValue();
-        String oldRef_prod = GPtable.getSelectionModel().getSelectedItem().ref_prod;
+        //String oldRef_prod = GPtable.getSelectionModel().getSelectedItem().ref_prod;
         try {
             FileInputStream fin = new FileInputStream(file);
 
-                String sql = "Update Produit set ref_prod=?, designation =?, description=?, prix=?, image=?, qte_stock=?, nomCategorie=?, region=?  where ref_prod= ?";
-                    System.out.println("2.5");
+                String sql = "Update Produit set  designation =?, description=?, prix=?, image=?, qte_stock=?, nomCategorie=?, region=?  where ref_prod= ?";
                     ste = mc.prepareStatement(sql);
-                    System.out.println("3");
-                    ste.setString(1, ref_prod);
-                    ste.setString(2, designation);
-                    ste.setString(3, description);
-                    ste.setDouble(4, prix);
-                    //ste.setString(5, Image);
-                    ste.setBlob(5, fin);
-                    ste.setInt(6, quantite);
-                    ste.setString(7, nomCategorie);
-                    ste.setString(8, region);
+                    ste.setString(8, ref_prod);
+                    ste.setString(1, designation);
+                    ste.setString(2, description);
+                    ste.setDouble(3, prix);
+                    ste.setBlob(4, fin);
+                    ste.setInt(5, quantite);
+                    ste.setString(6, nomCategorie);
+                    ste.setString(7, region);
                     int res = ste.executeUpdate();
                     if (res > 0) {
-                        showAlert(Alert.AlertType.INFORMATION, owner, "Produit Ajouté", "Succès");
-                        System.out.println(ste);
+                        showAlert(Alert.AlertType.INFORMATION, owner, "Produit Modifié", "Succès");
                     }
         } catch (FileNotFoundException ex) {
             System.out.println("Image not found");
         }
-        //            Produit p = new Produit(ref_prod, designation, description, prix, fin, quantite, nomCategorie, region);
-//            ProduitService prods = new ProduitService();
-//            prods.modifierProduit(p, oldRef_prod);
 
-//            System.out.println(p);
-
-        
-
-        showProdTable();
+        showCardProds();
     }
 
     @FXML
-    private void SupprProd(MouseEvent event) {
-        String ref = GPtable.getSelectionModel().getSelectedItem().ref_prod;
+    private void SupprProd(MouseEvent event) throws SQLException, IOException {
+        String ref = GPref_prod.getText();
         ProduitService prods = new ProduitService();
         prods.supprimerProduit(ref);
-
-        showProdTable();
+//
+        showCardProds();
     }
 
     private void openModalwindow(String resource, String title) throws IOException {
@@ -322,6 +363,16 @@ public class AjouterProduitController implements Initializable {
         window.setTitle(title);
         setPrimaryStage(window);
         window.showAndWait();
+
+    }
+    private void setChosenProd(Produit produit) throws SQLException, IOException {
+        GPdesignation.setText(produit.getDesignation());
+        
+//        ivProduit.setImage(SwingFXUtils.toFXImage(ImageIO.read(produit.getImage().getBinaryStream()), null));
+        GPdescription.setText(produit.getDescription());
+        GPregion.setValue(produit.getRegion());
+        GPprix.setText(String.valueOf(produit.getPrix()));
+        GPref_prod.setText(produit.getRef_prod());
 
     }
 
@@ -409,49 +460,6 @@ public class AjouterProduitController implements Initializable {
         }
 
     }
-
-    private void addListenerProduit() {
-        GPtable.getSelectionModel().selectedItemProperty().addListener((obs, oldSelection, newSelection) -> {
-            if (newSelection != null) {
-                try {
-                    GPbtnSuppr.setDisable(false);
-                    GPbtnModif.setDisable(false);
-                    GPref_prod.setText(newSelection.getRef_prod());
-                    GPdesignation.setText(newSelection.getDesignation());
-                    GPcombocategorie.setValue(newSelection.getNomCategorie());
-                    GPprix.setText(String.valueOf(newSelection.getPrix()));
-                    GPquantite.setText(String.valueOf(newSelection.getQte_stock()));
-                    GPdescription.setText(newSelection.getDescription());
-                    GPregion.setValue(newSelection.getRegion());
-                    try {
-                        ivProduit.setImage(SwingFXUtils.toFXImage(ImageIO.read(newSelection.getImage().getBinaryStream()), null));
-                    } catch (IOException ex) {
-                        System.out.println(ex.getMessage());
-                    }
-                } catch (SQLException ex) {
-                    System.out.println(ex.getMessage());
-                }
-            } else {
-                GPbtnSuppr.setDisable(true);
-                GPbtnModif.setDisable(true);
-                GPref_prod.setText("");
-                GPref_prod.setText(newSelection.getRef_prod());
-                GPdesignation.setText("");
-                GPdesignation.setText(newSelection.getDesignation());
-                GPcombocategorie.setValue("");
-                GPcombocategorie.setValue(newSelection.getNomCategorie());
-                GPprix.setText("");
-                GPprix.setText(String.valueOf(newSelection.getPrix()));
-                GPquantite.setText(String.valueOf(""));
-                GPquantite.setText(String.valueOf(newSelection.getQte_stock()));
-                GPdescription.setText("");
-                GPdescription.setText(newSelection.getDescription());
-                GPregion.setValue("");
-                GPregion.setValue(newSelection.getRegion());
-            }
-        });
-    }
-
     private void populateCategorie() {
         CategorieServices cats = new CategorieServices();
         ObservableList list = cats.getAllCategorieProduitName();
@@ -460,29 +468,119 @@ public class AjouterProduitController implements Initializable {
         GPcombocategorie.setItems(list);
 
     }
-
-    @FXML
     private void imageBrowse(ActionEvent event) {
         try {
-
             FileChooser fc = new FileChooser();
             FileChooser.ExtensionFilter ext1 = new FileChooser.ExtensionFilter("JPG files(*.jpg)", "*.jpg");
             FileChooser.ExtensionFilter ext2 = new FileChooser.ExtensionFilter("JPEG files(*.jpeg)", "*.jpeg");
             FileChooser.ExtensionFilter ext3 = new FileChooser.ExtensionFilter("PNG files(*.png)", "*.png");
             fc.getExtensionFilters().addAll(ext1, ext2, ext3);
-
             file = fc.showOpenDialog(AjouterProduitController.getPrimaryStage());
             BufferedImage bf = ImageIO.read(file);
             image = SwingFXUtils.toFXImage(bf, null);
             ivProduit.setImage(image);
-//            BufferedImage bImage = SwingFXUtils(produit.)
-//            ByteArrayOutputStream s = new ByteArrayOutputStream();
-//            ImageIO.write(image, "png", s);
-//            
         } catch (Exception ex) {
             System.out.println(ex.getMessage());
         }
-
     }
 
+    @FXML
+        private File addimage(ActionEvent event) {
+     
+        Path to1 = null;
+         String  m = null;
+         String path = "\\opt\\lampp\\htdocs\\uploads\\images\\";
+         JFileChooser chooser = new JFileChooser();
+        
+        FileNameExtensionFilter filter = new FileNameExtensionFilter(
+                "JPG & PNG Images", "jpg","jpeg","PNG");
+        chooser.setFileFilter(filter);
+        int returnVal = chooser.showOpenDialog(null);
+        if(returnVal == JFileChooser.APPROVE_OPTION) {
+           m = chooser.getSelectedFile().getAbsolutePath();
+
+            
+           file=chooser.getSelectedFile();
+             String fileName= file.getName();
+             System.out.println(file);
+             
+            
+            if(chooser.getSelectedFile() != null){
+                
+               try {
+                   Path from = Paths.get(chooser.getSelectedFile().toURI());
+                    to1=Paths.get(path+fileName);
+                   CopyOption[] options = new CopyOption[]{
+                       StandardCopyOption.REPLACE_EXISTING,
+                       StandardCopyOption.COPY_ATTRIBUTES
+                   };
+                  Files.copy(from,to1,options);
+                  System.out.println("added1"+to1);
+                   System.out.println(Files.copy(from,to1,options));
+
+               } catch (IOException ex) {
+                   System.out.println();
+               }
+            }
+        }
+            return file;
+        }
+        
+    private boolean validtext(TextField tf){
+        Pattern p = Pattern.compile("[a-zA-Z0-9 ]+");
+        Matcher m = p.matcher(tf.getText());
+        if ((m.find() && m.group().equals(tf.getText()))) {
+            tf.setEffect(null);
+            return true;
+        } else {
+            new animatefx.animation.Shake(tf).play();
+            InnerShadow in = new InnerShadow();
+            in.setColor(Color.web("#f80000"));
+            tf.setEffect(in);
+            return false;
+        }
+    }
+    private boolean validtextSpace(TextField tf){
+        Pattern p = Pattern.compile("[a-zA-Z0-9 ]+");
+        Matcher m = p.matcher(tf.getText());
+        if ((m.find() && m.group().equals(tf.getText()))) {
+            tf.setEffect(null);
+            return true;
+        } else {
+            new animatefx.animation.Shake(tf).play();
+            InnerShadow in = new InnerShadow();
+            in.setColor(Color.web("#f80000"));
+            tf.setEffect(in);
+            return false;
+        }
+    }
+    private boolean validtextArea(TextArea tf){
+        Pattern p = Pattern.compile("[a-zA-Z0-9]+%s");
+        Matcher m = p.matcher(tf.getText());
+        if ((m.find() && m.group().equals(tf.getText()))) {
+            tf.setEffect(null);
+            return true;
+        } else {
+            new animatefx.animation.Shake(tf).play();
+            InnerShadow in = new InnerShadow();
+            in.setColor(Color.web("#f80000"));
+            tf.setEffect(in);
+            return false;
+        }
+    }
+    
+    private boolean validnumber(TextField tf){
+        Pattern p = Pattern.compile("[0-9]+");
+        Matcher m = p.matcher(tf.getText());
+        if ((m.find() && m.group().equals(tf.getText()))) {
+            tf.setEffect(null);
+            return true;
+        } else {
+            new animatefx.animation.Shake(tf).play();
+            InnerShadow in = new InnerShadow();
+            in.setColor(Color.web("#f80000"));
+            tf.setEffect(in);
+            return false;
+        }
+    }
 }

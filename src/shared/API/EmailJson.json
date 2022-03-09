@@ -1,0 +1,40 @@
+{
+   "sender":{
+      "email":"sendinblue@sendinblue.com",
+      "name":"Sendinblue"
+   },
+   "subject":"This is my default subject line",
+   "htmlContent":"<!DOCTYPE html><html><body><h1>My First Heading</h1><p>My first paragraph.</p></body></html>",
+   "messageVersions":[
+     {
+         "to":[
+            {
+               "email":"bob@example.com",
+               "name":"Bob Anderson"
+            },
+            {
+               "email":"anne@example.com",
+               "name":"Anne Smith"
+            }
+         ],
+         "htmlContent":"<!DOCTYPE html><html><body><h1>Modified header!</h1><p>This is still a paragraph</p></body></html>",
+         "subject":"We are happy to be working with you"
+      },
+      {
+         "to":[
+            {
+               "email":"jim@example.com",
+               "name":"Jim Stevens"
+            },
+            {
+               "email":"mark@example.com",
+               "name":"Mark Payton"
+            },
+            {
+               "email":"andrea@example.com",
+               "name":"Andrea Wallace"
+            }
+         ]
+      }
+   ]
+}

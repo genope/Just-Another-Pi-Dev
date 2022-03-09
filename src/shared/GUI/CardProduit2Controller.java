@@ -4,17 +4,27 @@
  */
 package shared.GUI;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.embed.swing.SwingFXUtils;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javax.imageio.ImageIO;
+import shared.entities.PanierDetails;
 import shared.entities.Produit;
+import shared.services.PanierDetailsService;
 
 /**
  * FXML Controller class
@@ -26,13 +36,17 @@ public class CardProduit2Controller implements Initializable {
     @FXML
     private ImageView ivProd;
     @FXML
-    private TextField ref;
+    private Label ref;
     @FXML
-    private TextField tfprix;
+    private Label tfprix;
     @FXML
-    private TextField tfquantite;
+    private Label tfquantite;
     private Produit produit;
+    private PanierDetails panierdetails;
     MyListener mylistener;
+    @FXML
+    private Button removebtn;
+    private Suppression sup;
     /**
      * Initializes the controller class.
      */
@@ -41,15 +55,44 @@ public class CardProduit2Controller implements Initializable {
         // TODO
     }    
     
+    
+    
+    
+    
+    
+    public  List<File> findAllFilesInFolder(File folder) {
+          List<File> list=new ArrayList<>();
+		for (File file : folder.listFiles()) {
+			if (!file.isDirectory()) {
+				list.add(file);
+                                          
+                            
+			} else {
+				findAllFilesInFolder(file);
+			}
+		}
+                return list;
+	}
      
-    public void AddProduit(Produit produit,MyListener mylistener) throws SQLException, IOException{
-        produit.getImage().getBinaryStream();
+    public void AddProduit(Produit produit,MyListener mylistener, Suppression s) throws SQLException, IOException{
+        PanierDetailsService pandet = new PanierDetailsService();
+        //produit.getImage().getBinaryStream();
         this.produit=produit;
         this.mylistener = mylistener;
+        this.sup = s;
         ref.setText(produit.getRef_prod());
         tfprix.setText(String.valueOf(produit.getPrix()));
-        ivProd.setImage(SwingFXUtils.toFXImage(ImageIO.read(produit.getImage().getBinaryStream()), null));
-        
+        //ivProd.setImage(SwingFXUtils.toFXImage(ImageIO.read(produit.getImage().getBinaryStream()), null));
+        tfquantite.setText(String.valueOf(pandet.getPanDetByrefPr(String.valueOf(produit.getRef_prod())).getQuantite()));
+        File folder = new File("\\opt\\lampp\\htdocs\\uploads\\images\\");
+	
+             for(int i=0;i<findAllFilesInFolder(folder).size();i++)
+             {
+                 if(findAllFilesInFolder(folder).get(i).getName().equals(produit.getImage()))
+                 { Image imge = new Image(new FileInputStream("\\opt\\lampp\\htdocs\\uploads\\images\\"+produit.getImage()));
+                      ivProd.setImage(imge);
+                 }
+             }
         
 //        labelNom.setText(produit.getDesignation());
 //        labelDescription.setText(produit.getDescription());
@@ -59,6 +102,36 @@ public class CardProduit2Controller implements Initializable {
 //        
 //
 //        
+    }
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    public void AddProddd(Produit produit, MyListener mylistener, PanierDetails panierdetails,Suppression s) throws SQLException, IOException{
+        this.produit = produit;
+        this.mylistener = mylistener;
+        this.panierdetails= panierdetails;
+        this.sup = s;
+        String qte = String.valueOf(panierdetails.getQuantite());
+        ref.setText(produit.getRef_prod());
+        tfprix.setText(String.valueOf(produit.getPrix()));
+        //ivProd.setImage(SwingFXUtils.toFXImage(ImageIO.read(produit.getImage().getBinaryStream()), null));
+        tfquantite.setText(qte);
+    }
+
+    @FXML
+    private void SupPanDet(ActionEvent event) {
+        sup.supprimer(produit);
     }
     
 }

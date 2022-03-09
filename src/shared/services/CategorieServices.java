@@ -32,11 +32,11 @@ public class CategorieServices {
     }
     
     public void AjouterCategorieProd(CategorieProduit cat){
-    String sql = "insert into CategorieProduit (idCategorie, nomCategorie) Values (?,?)";
+    String sql = "insert into CategorieProduit (nomCategorie) Values (?)";
         try {
             ste=mc.prepareStatement(sql);
-            ste.setInt(1, cat.getIdCategorie());
-            ste.setString(2, cat.getNomCategorie());
+            //ste.setInt(1, cat.getIdCategorie());
+            ste.setString(1, cat.getNomCategorie());
             ste.executeUpdate();
             System.out.println("Categorie de produit ajoutée.");
             
@@ -50,6 +50,20 @@ public class CategorieServices {
         try {
             ste=mc.prepareStatement(sql);
             ste.setInt(1, i);
+            
+            int catdel = ste.executeUpdate();
+            if (catdel > 0)
+                System.out.println("Categorie Produit supprimée");
+        } catch (SQLException ex) {
+           System.out.println(ex.getMessage());        
+        }
+    }
+    public void supprimerCategorieProduitbyname(String nom){
+        String sql = "delete from CategorieProduit where nomCategorie = ?";
+        
+        try {
+            ste=mc.prepareStatement(sql);
+            ste.setString(1, nom);
             
             int catdel = ste.executeUpdate();
             if (catdel > 0)
@@ -82,11 +96,11 @@ public class CategorieServices {
     }
     
     public void modifierCategorieProduit(CategorieProduit catprod, int id){
-        String sql = "update CategorieProduit set idCategorie=?, nomCategorie=?";
+        String sql = "update CategorieProduit set  nomCategorie=?";
         
         try {
             ste=mc.prepareStatement(sql);
-            ste.setInt(1, catprod.getIdCategorie());
+            //ste.setInt(1, catprod.getIdCategorie());
             ste.setString(1, catprod.getNomCategorie());
             
             int catupd = ste.executeUpdate();

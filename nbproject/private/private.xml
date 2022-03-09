@@ -5,8 +5,10 @@
         <group>
             <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/GUI/AffichageProduitController.java</file>
             <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/GUI/PanierAffichageController.java</file>
+            <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/GUI/AjouterProduitController.java</file>
+            <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/services/ProduitService.java</file>
             <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/GUI/CardProduit2Controller.java</file>
-            <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/entities/PanierDetails.java</file>
+            <file>file:/home/l3ej/Desktop/Just-Another-Pi-Dev/src/shared/GUI/CardProduitController.java</file>
         </group>
     </open-files>
 </project-private>
