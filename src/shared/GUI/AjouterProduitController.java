@@ -12,6 +12,11 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
+import java.nio.file.CopyOption;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.sql.Blob;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -55,6 +60,8 @@ import javafx.stage.Stage;
 import javafx.stage.StageStyle;
 import javafx.stage.Window;
 import javax.imageio.ImageIO;
+import javax.swing.JFileChooser;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import shared.entities.Produit;
 import shared.services.ProduitService;
 import shared.connexion.MaConnexion;
@@ -172,7 +179,7 @@ public class AjouterProduitController implements Initializable {
         return pStage;
     }
 
-    
+
     public void showCardProds() throws SQLException, IOException{
         grids.getChildren().clear();
         ProduitService prods = new ProduitService();
@@ -221,7 +228,7 @@ public class AjouterProduitController implements Initializable {
         } catch (IOException ex) {
             System.out.println(ex.getMessage());
         }
-        
+
     }
 
     private ObservableList<Produit> getProduitList() {
@@ -254,7 +261,11 @@ public class AjouterProduitController implements Initializable {
             } else {
                 try {
                     FileInputStream fin = new FileInputStream(file);
-
+                    byte[] data = new byte[(int) file.length()];
+                    String fileName = file.getName();
+                    String path = fileName;
+                    fin.read(data);
+                    fin.close();
                     int len = (int) file.length();
                     String sql = "insert into `Produit` (ref_prod, designation, description, prix, image, qte_stock, nomCategorie, region) Values(?,?,?,?,?,?,?,?)";
                     ste = mc.prepareStatement(sql);
@@ -513,7 +524,7 @@ public class AjouterProduitController implements Initializable {
             return false;
         }
     }
-    
+
     private boolean validnumber(TextField tf){
         Pattern p = Pattern.compile("[0-9]+");
         Matcher m = p.matcher(tf.getText());

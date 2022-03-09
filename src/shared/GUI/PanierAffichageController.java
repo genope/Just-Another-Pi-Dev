@@ -117,7 +117,7 @@ public class PanierAffichageController implements Initializable {
                 prods.getProdJoin().get(i).getPrix();
                 CardProduit2Controller ProduitServ = cards.getController();
                 ProduitServ.AddProduit(prods.getProdJoin().get(i), myListener, sup);
-                
+
                 if (column == 2) {
                     column = 0;
                     row++;
@@ -138,5 +138,5 @@ public class PanierAffichageController implements Initializable {
         }
     }
 
-    
+
 }

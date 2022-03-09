@@ -4,9 +4,13 @@
  */
 package shared.GUI;
 
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.SQLException;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.ResourceBundle;
 import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
@@ -15,6 +19,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javax.imageio.ImageIO;
 import shared.entities.PanierDetails;
@@ -48,8 +53,8 @@ public class CardProduit2Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-     
+    }
+
     public void AddProduit(Produit produit,MyListener mylistener, Suppression s) throws SQLException, IOException{
         PanierDetailsService pandet = new PanierDetailsService();
         produit.getImage().getBinaryStream();
@@ -61,17 +66,17 @@ public class CardProduit2Controller implements Initializable {
         ivProd.setImage(SwingFXUtils.toFXImage(ImageIO.read(produit.getImage().getBinaryStream()), null));
         tfquantite.setText(String.valueOf(pandet.getPanDetByrefPr(String.valueOf(produit.getRef_prod())).getQuantite()));
         //tfquantite.setText(produit.);
-        
+
 //        labelNom.setText(produit.getDesignation());
 //        labelDescription.setText(produit.getDescription());
 //        LabelPrix.setText(String.valueOf(produit.getPrix()));
 //        labelregion.setText(produit.getNomCategorie());
 //        ivProd.setImage(SwingFXUtils.toFXImage(ImageIO.read(produit.getImage().getBinaryStream()), null));
-//        
 //
-//        
+//
+//
     }
-    
+
     public void AddProddd(Produit produit, MyListener mylistener, PanierDetails panierdetails,Suppression s) throws SQLException, IOException{
         this.produit = produit;
         this.mylistener = mylistener;
@@ -88,5 +93,5 @@ public class CardProduit2Controller implements Initializable {
     private void SupPanDet(ActionEvent event) {
         sup.supprimer(produit);
     }
-    
+
 }

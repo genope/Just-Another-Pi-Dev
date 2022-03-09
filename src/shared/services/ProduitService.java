@@ -26,8 +26,8 @@ public class ProduitService {
     public ProduitService() {
         mc = MaConnexion.getInstance().getCnx();
     }
-    
-    
+
+
     public void ajouterProduit(Produit prod) {
         String sql = "insert into Produit (ref_prod, designation, description, prix,image,qte_stock,nomCategorie, region) Values(?,?,?,?,?,?,?,?)";
         try {
@@ -36,7 +36,7 @@ public class ProduitService {
             ste.setString(2, prod.getDesignation());
             ste.setString(3, prod.getDescription());
             ste.setDouble(4, prod.getPrix());
-            ste.setBlob(5, prod.getImage());
+            ste.setString(5, prod.getImage());
             ste.setInt(6, prod.getQte_stock());
             ste.setString(7, prod.getNomCategorie());
             ste.setString(8, prod.getRegion());
@@ -62,27 +62,27 @@ public class ProduitService {
             System.out.println(ex.getMessage());
         }
     }
-    
+
     public List<Produit> afficherProduit() {
         List<Produit> prod = new ArrayList<>();
         String sql = "select * from Produit";
 
         try {
-            
+
             ste = mc.prepareStatement(sql);
             ResultSet rs = ste.executeQuery();
             while (rs.next()) {
-                
+
                 Produit prodAff = new Produit(
                         rs.getString("ref_prod"),
                         rs.getString("designation"),
                         rs.getString("description"),
                         rs.getDouble("prix"),
-                        rs.getBlob("image"),
+                        rs.getString("image"),
                         rs.getInt("qte_stock"),
                         rs.getString("nomCategorie"),
                         rs.getString("region"));
-                        
+
                         prodAff.setId(rs.getInt("id_prod"));
                         System.out.println(prodAff);
                 prod.add(prodAff);
@@ -93,7 +93,7 @@ public class ProduitService {
         }
         return prod;
     }
-    
+
     public void modifierProduit(Produit prod, String oldref){
         String sql = "Update Produit set ref_prod=?, designation =?, description=?, prix=?, image=?, qte_stock=?, nomCategorie=?, region=?  where ref_prod= ?";
         try {
@@ -102,11 +102,11 @@ public class ProduitService {
             ste.setString(2, prod.getDesignation());
             ste.setString(3, prod.getDescription());
             ste.setDouble(4, prod.getPrix());
-            ste.setBlob(5, prod.getImage());
+            ste.setString(5, prod.getImage());
             ste.setInt(6, prod.getQte_stock());
             ste.setString(7, prod.getNomCategorie());
             ste.setString(8, prod.getRegion());
-            
+
             ste.setString(9, oldref);
             int prodUpdated = ste.executeUpdate();
             if (prodUpdated > 0) {
@@ -115,12 +115,12 @@ public class ProduitService {
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
-        
+
     }
     public ObservableList<Produit> getAllProd(){
         ObservableList<Produit> Allprod = FXCollections.observableArrayList();
         String sql = "select * from Produit";
-        
+
         try {
             ste = mc.prepareStatement(sql);
             ResultSet rs = ste.executeQuery();
@@ -130,23 +130,23 @@ public class ProduitService {
                         rs.getString("designation"),
                         rs.getString("description"),
                         rs.getDouble("prix"),
-                        rs.getBlob("image"),
+                        rs.getString("image"),
                         rs.getInt("qte_stock"),
                         rs.getString("nomCategorie"),
                         rs.getString("region")
                         );
                 Allprod.add(prodAff);
-            } 
+            }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());;
         }
         return Allprod;
     }
-    
+
     public List<Produit> getAllProdL(){
         List<Produit> Allprod = new ArrayList();
         String sql = "select * from Produit";
-        
+
         try {
             ste = mc.prepareStatement(sql);
             ResultSet rs = ste.executeQuery();
@@ -156,23 +156,23 @@ public class ProduitService {
                         rs.getString("designation"),
                         rs.getString("description"),
                         rs.getDouble("prix"),
-                        rs.getBlob("image"),
+                        rs.getString("image"),
                         rs.getInt("qte_stock"),
                         rs.getString("nomCategorie"),
                         rs.getString("region")
                         );
                 Allprod.add(prodAff);
-            } 
+            }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());;
         }
         return Allprod;
     }
-    
+
     public List<Produit> getAllProdByPrix(Double Lprix, Double Hprix){
         List<Produit> Allprod = new ArrayList();
         String sql = "select * from Produit";
-        
+
         try {
             ste = mc.prepareStatement(sql);
             ResultSet rs = ste.executeQuery();
@@ -182,13 +182,13 @@ public class ProduitService {
                         rs.getString("designation"),
                         rs.getString("description"),
                         rs.getDouble("prix"),
-                        rs.getBlob("image"),
+                        rs.getString("image"),
                         rs.getInt("qte_stock"),
                         rs.getString("nomCategorie"),
                         rs.getString("region")
                         );
                 Allprod.add(prodAff);
-            } 
+            }
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());;
         }
@@ -207,18 +207,18 @@ public class ProduitService {
                         rs.getString("designation"),
                         rs.getString("description"),
                         rs.getDouble("prix"),
-                        rs.getBlob("image"),
+                        rs.getString("image"),
                         rs.getInt("qte_stock"),
                         rs.getString("nomCategorie"),
                         rs.getString("region")
                         );
             }
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());        
+            System.out.println(ex.getMessage());
             }
         return even;
     }
-    
+
     public List<Produit> getProdJoin(){
         List<Produit> Allprod = new ArrayList();
         try {
@@ -231,20 +231,20 @@ public class ProduitService {
                         rs.getString("designation"),
                         rs.getString("description"),
                         rs.getDouble("prix"),
-                        rs.getBlob("image"),
+                        rs.getString("image"),
                         rs.getInt("qte_stock"),
                         rs.getString("nomCategorie"),
                         rs.getString("region")
                         );
             Allprod.add(prodAff);
             }
-            
+
         } catch (SQLException ex) {
             Logger.getLogger(ProduitService.class.getName()).log(Level.SEVERE, null, ex);
         }
         return Allprod;
     }
-    
+
     public List<Produit> getProdJoinss(){
         List<Produit> Allprod = new ArrayList();
         PanierDetailsService pandet = new PanierDetailsService();
@@ -267,9 +267,9 @@ public class ProduitService {
             PanierDetailsService panserv= new PanierDetailsService();
                     rs.getDouble("quantite");
                     pandet=panserv;
-            
+
             }
-            
+
         } catch (SQLException ex) {
             System.out.println(ex.getMessage());
         }
@@ -296,9 +296,9 @@ public class ProduitService {
                         );
             }
         } catch (SQLException ex) {
-            System.out.println(ex.getMessage());        
+            System.out.println(ex.getMessage());
             }
         return even;
     }
-    
+
 }

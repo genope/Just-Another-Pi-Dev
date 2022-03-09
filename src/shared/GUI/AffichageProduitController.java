@@ -124,7 +124,7 @@ public class AffichageProduitController implements Initializable {
             System.out.println(ex.getMessage());
         }
         showTaillePanier();
-        
+
         //Test();
 
     }
@@ -140,7 +140,7 @@ public class AffichageProduitController implements Initializable {
 
     private void setChosenOffre(Produit produit) throws SQLException, IOException {
         nomProduit.setText(produit.getDesignation());
-        ivpro.setImage(SwingFXUtils.toFXImage(ImageIO.read(produit.getImage().getBinaryStream()), null));
+        //ivpro.setImage(SwingFXUtils.toFXImage(ImageIO.read(produit.getImage().getBinaryStream()), null));
         tfdescr.setText(produit.getDescription());
         LabelV.setText(produit.getRegion());
         LabelP.setText(String.valueOf(produit.getPrix()));
@@ -172,7 +172,7 @@ public class AffichageProduitController implements Initializable {
     }
 
     private void ConfirmerCateg2() throws SQLException, IOException {
-        //grid.getChildren().clear(); //Effacer la table des cartes 
+        //grid.getChildren().clear(); //Effacer la table des cartes
         ProduitService prods = new ProduitService();
 
         if (prods.getAllProdL().size() > 0) {
@@ -200,9 +200,9 @@ public class AffichageProduitController implements Initializable {
                 FXMLLoader cards = new FXMLLoader();
                 cards.setLocation(getClass().getResource("CardProduit.fxml"));
                 AnchorPane anchorPane = cards.load();
+                System.out.println("1");
                 CardProduitController ProduitServ = cards.getController();
                 ProduitServ.AddProduit(prods.getAllProdL().get(i), myListener);
-
                 if (column == 3) {
                     column = 1;
                     row++;
@@ -275,15 +275,15 @@ public class AffichageProduitController implements Initializable {
     //     public void TestStream(){
 //        ProduitService pro = new ProduitService();
 //        List<Produit> list = pro.getAllProdL();
-//         List<String> nomEmployes = 
+//         List<String> nomEmployes =
 //      list.stream().sorted((a,b) -> (int)a.getPrix() -(int) b.getPrix());
 ////              .forEach(e -> System.out.println(e));
 //
 //    for (String nom : nomEmployes) {
 //      System.out.println(nom);
-//    } 
 //    }
-    
+//    }
+
 //    public boolean Valid
 
     @FXML

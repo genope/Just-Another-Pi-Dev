@@ -19,7 +19,7 @@ public class Produit {
     public String designation;
     public String description;
     public double prix;
-    public Blob image;
+    public String image;
     public int qte_stock;
     public String nomCategorie;
     public String region;
@@ -27,7 +27,7 @@ public class Produit {
     public Produit() {
     }
 
-    public Produit(String ref_prod, String designation, String description, double prix, Blob image, int qte_stock, String nomCategorie, String region) {
+    public Produit(String ref_prod, String designation, String description, double prix, String image, int qte_stock, String nomCategorie, String region) {
 
         this.ref_prod = ref_prod;
         this.designation = designation;
@@ -71,11 +71,11 @@ public class Produit {
         this.prix = prix;
     }
 
-    public Blob getImage() {
+    public String getImage() {
         return image;
     }
 
-    public void setImage(Blob image) {
+    public void setImage(String image) {
         this.image = image;
     }
 

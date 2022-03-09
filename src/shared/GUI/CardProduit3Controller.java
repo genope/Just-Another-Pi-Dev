@@ -47,8 +47,8 @@ public class CardProduit3Controller implements Initializable {
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         // TODO
-    }    
-    
+    }
+
     public void AddProduit(Produit produit,MyListener mylistener) throws SQLException, IOException{
         produit.getImage().getBinaryStream();
         this.produit=produit;
@@ -60,14 +60,14 @@ public class CardProduit3Controller implements Initializable {
         CategorieLab.setText(produit.getNomCategorie());
         quantiteLab.setText(String.valueOf(produit.getQte_stock()));
         regionLab.setText(produit.getRegion());
-       
-        
+
+
     }
 
     @FXML
     private void click(MouseEvent event) {
         mylistener.onClickListener(produit);
     }
-    
-    
+
+
 }
