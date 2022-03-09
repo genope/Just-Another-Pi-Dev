@@ -72,7 +72,6 @@ public class UserService {
             }
 
             if (BCrypt.checkpw(password, pass)) {
-                System.out.println("aaaa");
                 requete = "SELECT cin,nom,prenom,datedenaissance,telephone,etat,image_profile FROM user WHERE Email like ?";
                 pst = MaConnexion.getInstance().getCnx().prepareStatement(requete);
                 pst.setString(1, mail);
@@ -94,7 +93,6 @@ public class UserService {
                     );
 
                 }
-                System.out.println(user);
                 if (Role.Host.equals(role)) {
                     requete = "SELECT image_cin,adress_host From user WHERE Email = ?";
                     pst = MaConnexion.getInstance().getCnx().prepareStatement(requete);
@@ -132,7 +130,6 @@ public class UserService {
                 }
 
             } else {
-                System.out.println("aaazzzzzz");
                 return null;
             }
 
@@ -161,7 +158,7 @@ public class UserService {
             pst.setString(2, user.getNom());
             pst.setString(3, user.getPrenom());
             pst.setString(4, user.getEmail());
-            pst.setString(5, BCrypt.hashpw(user.getPassword(), BCrypt.gensalt() ));
+            pst.setString(5, BCrypt.hashpw(user.getPassword(), BCrypt.gensalt()));
             pst.setDate(6, user.getDdn());
             pst.setInt(7, user.getNumber());
             pst.setString(8, user.getRole().toString());
@@ -206,10 +203,9 @@ public class UserService {
         try {
 
             //if password exist
-
             if (!user.getPassword().equals("")) {
 
-              String  requete = "UPDATE  user "
+                String requete = "UPDATE  user "
                         + "set nom=?,prenom=?,"
                         + "password=?,"
                         + "datedenaissance=?,"
@@ -242,7 +238,7 @@ public class UserService {
                     return false;
                 }
             } else {
-               String requete = "UPDATE  user "
+                String requete = "UPDATE  user "
                         + "set nom=?,prenom=?,"
                         + "datedenaissance=?,"
                         + "telephone=?,"
@@ -278,7 +274,6 @@ public class UserService {
             System.out.println(ex.getMessage());
             return false;
         }
-        //return false;
     }
 
     public User GetUserByCin(int cin) {
@@ -295,8 +290,6 @@ public class UserService {
             while (rs.next()) {
                 role = Role.valueOf(rs.getString("role"));
             }
-            //decrypt pass :
-            //pass = decrypt(pass);
 
             requete = "SELECT nom,prenom,email,password,datedenaissance,telephone,etat,image_profile FROM user WHERE cin=?";
             pst = MaConnexion.getInstance().getCnx().prepareStatement(requete);
@@ -409,15 +402,12 @@ public class UserService {
         pst.setString(1, sendMail(mail));
         ResultSet rs;
         rs = pst.executeQuery();
-        System.out.println(m + "" + n + "hehhe");
         while (rs.next()) {
             mail = rs.getString("email");
             passwordF = rs.getString("password");
 
         }
         BCrypt.checkpw(mail, passwordF);
-        System.out.println(passwordF);
-        System.out.println("qqqq");
         return passwordF;
 
     }

@@ -6,8 +6,6 @@ import com.jfoenix.controls.JFXTextField;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.animation.Interpolator;
@@ -32,7 +30,6 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javax.mail.Session;
 import shared.entities.User;
 import shared.entities.enums.Role;
 import shared.services.UserService;
@@ -134,7 +131,6 @@ public class Login_pageController implements Initializable {
                             } else if (remember_me.isSelected()) {
                                 userService.createiniFile(path, emailtxt.getText(), passwordtxt.getText());
                                 UserService.userSession.setUserCin(user.getCin());
-                                System.out.println(UserSession.userString);
                                 Parent root = FXMLLoader.load(getClass().getResource("ProfileHost.fxml"));
                                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                 Scene scene = new Scene(root);
@@ -148,7 +144,6 @@ public class Login_pageController implements Initializable {
                                 userService.Deleteinfo(path, path, path);
                                 UserService.userSession = new UserSession();
                                 UserService.userSession.setUserCin(user.getCin());
-                                System.out.println(UserService.userSession.getUser());
                                 Parent root = FXMLLoader.load(getClass().getResource("ProfileAdmin.fxml"));
                                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                                 Scene scene = new Scene(root);

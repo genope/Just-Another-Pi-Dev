@@ -9,22 +9,16 @@ import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
-import java.awt.Desktop;
-import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileInputStream;
-import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.nio.file.CopyOption;
-import java.nio.file.FileSystems;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javafx.animation.Interpolator;
@@ -32,7 +26,6 @@ import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
 import javafx.animation.Timeline;
 import javafx.animation.TranslateTransition;
-import javafx.embed.swing.SwingFXUtils;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -41,21 +34,17 @@ import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.DatePicker;
 import javafx.scene.control.Label;
 import javafx.scene.control.Tab;
 import javafx.scene.control.TabPane;
 import javafx.scene.control.TextField;
 import javafx.scene.effect.InnerShadow;
-import javafx.scene.image.Image;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
-import javafx.stage.FileChooser;
 import javafx.stage.Stage;
 import javafx.util.Duration;
-import javax.imageio.ImageIO;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import shared.entities.User;
@@ -63,7 +52,6 @@ import shared.entities.enums.Etat;
 import shared.entities.enums.Role;
 import shared.services.UserService;
 import shared.services.UserSession;
-import shared.utils.UploadAPI;
 
 /**
  * FXML Controller class
@@ -182,22 +170,6 @@ public class Register_pageGuestController implements Initializable {
 
     }
 
-//    private void upload_cin(ActionEvent event) {
-//        try{        
-//            FileChooser fc = new FileChooser();
-//            FileChooser.ExtensionFilter ext1 = new FileChooser.ExtensionFilter("JPG files(.jpg)", ".jpg");
-//            FileChooser.ExtensionFilter ext2 = new FileChooser.ExtensionFilter("JPEG files(.jpeg)", ".jpeg");
-//            FileChooser.ExtensionFilter ext3 = new FileChooser.ExtensionFilter("PNG files(.png)", ".png");
-//            //fc.getExtensionFilters().addAll(ext1, ext2, ext3);
-//            
-//  file = fc.showOpenDialog(Register_pageGuestController.getpStage());
-//            BufferedImage bf;
-//            bf = ImageIO.read(file);
-//            Image image = SwingFXUtils.toFXImage(bf, null);
-//        }catch(Exception ex){
-//            System.out.println(ex.getMessage());
-//        }
-//    }
     @FXML
     private void mini(MouseEvent event) {
         Stage s = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -290,13 +262,7 @@ public class Register_pageGuestController implements Initializable {
                         StandardCopyOption.REPLACE_EXISTING,
                         StandardCopyOption.COPY_ATTRIBUTES
                     };
-
-                    System.out.println(to1);
-                    System.out.println("hhhh");
-                    System.out.println(from);
                     Files.copy(from, to1, options);
-                    System.out.println("added");
-                    //  System.out.println(file);
 
                 } catch (IOException ex) {
                     System.out.println(ex.getMessage());
@@ -464,7 +430,6 @@ public class Register_pageGuestController implements Initializable {
                     };
 
                     Files.copy(from3, to13, options3);
-                    //  System.out.println(file);
 
                 } catch (IOException ex) {
                     System.out.println(ex.getMessage());
@@ -505,7 +470,6 @@ public class Register_pageGuestController implements Initializable {
                     };
 
                     Files.copy(from1, to11, options1);
-                    //  System.out.println(file);
 
                 } catch (IOException ex) {
                     System.out.println(ex.getMessage());

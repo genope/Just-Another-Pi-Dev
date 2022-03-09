@@ -19,8 +19,6 @@ import javafx.stage.StageStyle;
  *
  * @author genop
  */
-// #ffa781 : orange
-// #5b0e2d : red
 public class NewFXMain extends Application {
     
     @Override
@@ -30,8 +28,6 @@ public class NewFXMain extends Application {
             Parent root =FXMLLoader.load(getClass().getResource("login_page.fxml"));
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("Style/controls.css").toExternalForm());
-            //primaryStage.setTitle("Hello World!");
-            //remove titlebare
            primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.setScene(scene);
             primaryStage.show();
