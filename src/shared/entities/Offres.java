@@ -10,8 +10,7 @@ import shared.entities.enums.CategorieOffres;
 import shared.entities.enums.TypeOffres;
 
 public class Offres {
-    
-    
+
     private int id;
     private int idhost;
     private String nom;
@@ -22,53 +21,56 @@ public class Offres {
     private float prix;
     private boolean etat;
     private String ville;
-    private TypeOffres type; 
+    private TypeOffres type;
     private CategorieOffres categ;
 
-    public Offres(int idhost,String nom, String description, Date datedebut, Date datefin, float prix, boolean etat ,String ville,CategorieOffres categ,String image) {
-        this.idhost=idhost;
+    public Offres(int idhost, String nom, String description, Date datedebut, Date datefin, float prix, boolean etat, String ville, CategorieOffres categ, String image) {
+        this.idhost = idhost;
         this.nom = nom;
         this.description = description;
         this.datedebut = datedebut;
         this.datefin = datefin;
         this.prix = prix;
         this.etat = etat;
-        this.ville=ville;
-        this.categ=categ;
-        this.File=image;
+        this.ville = ville;
+        this.categ = categ;
+        this.File = image;
     }
-        public Offres(int idhost,String nom, String description, Date datedebut, Date datefin, float prix, boolean etat ,String ville,CategorieOffres categ) {
-        this.idhost=idhost;
+
+    public Offres(int idhost, String nom, String description, Date datedebut, Date datefin, float prix, boolean etat, String ville, CategorieOffres categ) {
+        this.idhost = idhost;
         this.nom = nom;
         this.description = description;
         this.datedebut = datedebut;
         this.datefin = datefin;
         this.prix = prix;
         this.etat = etat;
-        this.ville=ville;
-        this.categ=categ;
+        this.ville = ville;
+        this.categ = categ;
     }
-        public Offres(int idhost,String nom, String description, Date datedebut, Date datefin, float prix, boolean etat ,String ville,String image) {
-        this.idhost=idhost;
+
+    public Offres(int idhost, String nom, String description, Date datedebut, Date datefin, float prix, boolean etat, String ville, String image) {
+        this.idhost = idhost;
         this.nom = nom;
         this.description = description;
         this.datedebut = datedebut;
         this.datefin = datefin;
         this.prix = prix;
         this.etat = etat;
-        this.ville=ville;
-        this.File=image;
+        this.ville = ville;
+        this.File = image;
     }
-        
-    public Offres(String description, Date datedebut, Date datefin, float prix,String image) {
+
+    public Offres(String description, Date datedebut, Date datefin, float prix, String image) {
 
         this.description = description;
         this.datedebut = datedebut;
         this.datefin = datefin;
         this.prix = prix;
-        this.File=image;
+        this.File = image;
     }
-      public Offres(String description, Date datedebut, Date datefin, float prix) {
+
+    public Offres(String description, Date datedebut, Date datefin, float prix) {
 
         this.description = description;
         this.datedebut = datedebut;
@@ -78,15 +80,11 @@ public class Offres {
 
     @Override
     public String toString() {
-        return "{" + "id=" + id + ", idhost=" + idhost + ", nom=" + nom + ", description=" + description + ", datedebut=" + datedebut + ", datefin=" + datefin + ", prix=" + prix + ", etat=" + etat + ", ville=" + ville + ", typeOff=" + type + ", categ=" + categ + ", image="+this.File+'}';
+        return "{" + "id=" + id + ", idhost=" + idhost + ", nom=" + nom + ", description=" + description + ", datedebut=" + datedebut + ", datefin=" + datefin + ", prix=" + prix + ", etat=" + etat + ", ville=" + ville + ", typeOff=" + type + ", categ=" + categ + ", image=" + this.File + '}';
     }
-    
-    
-    
-
 
     public Offres() {
-        
+
     }
 
     public void setFile(String File) {
@@ -96,8 +94,6 @@ public class Offres {
     public String getFile() {
         return File;
     }
-
-
 
     public String getNom() {
         return nom;
@@ -186,7 +182,4 @@ public class Offres {
     public void setCateg(CategorieOffres categ) {
         this.categ = categ;
     }
-    
-    
-    
 }
