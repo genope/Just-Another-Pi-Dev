@@ -16,16 +16,25 @@
     -fx-background-color: #D3D3D3;
 }
 
-.shadow{
-    -fx-effect: dropShadow(three-pass-box,rgba(0,0,0,0.1), 10.0 , 0.0 , 0.0 ,10.0);
-}
+
 
 .chosen-fruit-card{
     -fx-background-color: #F16C31;
     -fx-background-radius: 50;
     
 }
-
+.chosen-fruit-card2{
+    -fx-background-color:  #05071F;
+    -fx-background-radius: 50;
+    -fx-border-color:#1620A1;
+    -fx-border-radius: 50;
+}
+.scroll-pane > .viewport {
+   -fx-background-color: transparent;
+}
+.scroll-pane {
+   -fx-background-color: transparent;
+}
 .comboBox{
     -fx-background-color: rgba(255,255,255,0.3);
     -fx-background-radius: 30;

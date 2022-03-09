@@ -17,6 +17,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.Label;
 import javafx.scene.control.ScrollPane;
@@ -206,6 +207,71 @@ public class TestController implements Initializable {
         }
 
     }
+
+    @FXML
+    private void Horeca(ActionEvent event) {
+         grid.getChildren().clear();
+        OffreServices offres = new OffreServices();
+        
+        
+        
+        if (offres.getAllHorecaById().size() > 0) {
+            setChosenOffre(offres.getAllOffres(CategorieOffres()).get(0));
+            myListener=new MyListener() {
+                @Override
+                public void onClickListener(Offres offre) {
+                setChosenOffre(offre);
+                }
+            };
+            
+            
+        int column = 1;
+        int row = 0;
+
+        try {
+
+            for (int i = 0; i < offres.getAllHorecaById().size(); i++) {
+
+                FXMLLoader cards = new FXMLLoader();
+                cards.setLocation(getClass().getResource("CardOffres.fxml"));
+
+                AnchorPane anchorPane = cards.load();
+
+                CardOffresController offreservice = cards.getController();
+
+                offreservice.setData(offres.getAllHorecaById().get(i),myListener);
+               
+
+                // System.out.println("hhh");
+                // System.out.println(offreservice.getAllHoreca().get(i).getClass().getSimpleName());
+                if (column == 3) {
+                    column = 1;
+                    row++;
+                }
+                grid.add(anchorPane, column++, row); //(child,column,row)
+                //set grid width
+                grid.setMinWidth(Region.USE_COMPUTED_SIZE);
+                grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
+                grid.setMaxWidth(Region.USE_PREF_SIZE);
+
+                //set grid height
+                grid.setMinHeight(Region.USE_COMPUTED_SIZE);
+                grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
+                grid.setMaxHeight(Region.USE_PREF_SIZE);
+
+                GridPane.setMargin(anchorPane, new javafx.geometry.Insets(20));
+            }
+
+////                  
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+
+    }
+        
+    }
+    
+    
 
   
 }

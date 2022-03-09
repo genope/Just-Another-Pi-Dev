@@ -144,4 +144,6 @@ public class HostCardsController implements Initializable {
        modif.modifier(offre);
 
     }   
+
+  
 }

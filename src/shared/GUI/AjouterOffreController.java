@@ -96,7 +96,7 @@ public class AjouterOffreController implements Initializable {
         Categ.getItems().add("Voiture");
         Categ.getItems().add("Moto");
         Categ.getItems().add("Velo");
-        Categ.selectionModelProperty().get().selectFirst();
+
         ville.getItems().add("Ariana");
         ville.getItems().add("Beja");
         ville.getItems().add("Ben Arous");
@@ -220,76 +220,71 @@ public class AjouterOffreController implements Initializable {
 
     @FXML
     private void addOffre(ActionEvent event) throws FileNotFoundException, IOException {
-        
-         if (txtnom.getText().isEmpty()  
+
+        if (txtnom.getText().isEmpty()
                 || txtdescrip.getText().isEmpty() || txtprix.getText().isEmpty()) {
-             
-             InnerShadow in = new InnerShadow();
+
+            InnerShadow in = new InnerShadow();
             in.setColor(Color.web("#f80000"));
             txtnom.setEffect(in);
             txtprix.setEffect(in);
             txtdescrip.setEffect(in);
-             //txtnom.setStyle("-fx-border-color: red " );
+            //txtnom.setStyle("-fx-border-color: red " );
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Erreur");
             alert.setHeaderText(null);
             alert.setContentText("Il faut remplir les champs obligatoires ");
             alert.showAndWait();
-         
-        }
-         
-         
-          else if (TestPrix() & TestText() & TestDescription() & TestDate()){
-          
-        String nom = txtnom.getText();
 
-        String description = txtdescrip.getText();
+        } else if (TestPrix() & TestText() & TestDescription() & TestDate()) {
 
-        Float prix = Float.parseFloat(txtprix.getText());
-      java.sql.Date   datedebut = java.sql.Date.valueOf(txtdatedebut.getValue());
-     
-      java.sql.Date   dateFin = java.sql.Date.valueOf(textdatefin.getValue());
-      
-        CategorieOffres categ = CategorieValue();
-        
-        String ville = VilleValue();
- 
-             
-               
-       
-      FileInputStream fl = new FileInputStream(file);
-      
-           
-      byte[] data = new byte[(int)file.length()];
-      String fileName = file.getName();
-      String path = fileName;
-      fl.read(data);
-      fl.close();
-     // OutputStream out = new FileOutputStream(new File(path));
-     
+            String nom = txtnom.getText();
+
+            String description = txtdescrip.getText();
+
+            Float prix = Float.parseFloat(txtprix.getText());
+            java.sql.Date datedebut = java.sql.Date.valueOf(txtdatedebut.getValue());
+
+            java.sql.Date dateFin = java.sql.Date.valueOf(textdatefin.getValue());
+
+            CategorieOffres categ;
+
+            if (Categ.getSelectionModel().isEmpty()) {
+                categ = null;
+            } else {
+                categ = CategorieValue();
+            }
+
+            String ville = VilleValue();
+
+            FileInputStream fl = new FileInputStream(file);
+
+            byte[] data = new byte[(int) file.length()];
+            String fileName = file.getName();
+            String path = fileName;
+            fl.read(data);
+            fl.close();
+            // OutputStream out = new FileOutputStream(new File(path));
 
 //        OutputStream out = new FileOutputStream(new File(path));
 //        out.write(data);
 //        out.close();
-        Offres of = new Offres(110405018, nom, description, datedebut, dateFin, prix, false, ville, categ, path);
-             
-              
+            Offres of = new Offres(110405018, nom, description, datedebut, dateFin, prix, false, ville, categ, path);
 
-        OffreServices offresService = new OffreServices();
-        //     System.out.println("hh");
-        offresService.ajoutOffre(of);
-       
-        
-         final Stage dialog = new Stage();
-                dialog.initModality(Modality.WINDOW_MODAL);
-                 
-              //  dialog.initOwner(primaryStage);
-                VBox dialogVbox = new VBox(10);
-                dialogVbox.getChildren().add(new Text("Offre Ajputé"));
-                Scene dialogScene = new Scene(dialogVbox, 200, 200);
-                dialog.setScene(dialogScene);
-                dialog.show();
-        
+            OffreServices offresService = new OffreServices();
+            //     System.out.println("hh");
+            offresService.ajoutOffre(of);
+
+            final Stage dialog = new Stage();
+            dialog.initModality(Modality.WINDOW_MODAL);
+
+            //  dialog.initOwner(primaryStage);
+            VBox dialogVbox = new VBox(10);
+            dialogVbox.getChildren().add(new Text("Offre Ajputé"));
+            Scene dialogScene = new Scene(dialogVbox, 200, 200);
+            dialog.setScene(dialogScene);
+            dialog.show();
+
 //                try {
 //                        FXMLLoader loader = new FXMLLoader(getClass().getResource("AfficherPersonne.fxml"));
 //                        Parent root = loader.load();
@@ -306,7 +301,8 @@ public class AjouterOffreController implements Initializable {
 //                System.out.println (ex.getMessage ());
 //
 //            }
-    }}
+        }
+    }
 
 //    public void sauverImage(BufferedImage image, String nomImage) throws IOException {
 //        File nomfichier = new File("C:\\Users\\user\\Desktop\\iheb" + nomImage + ".bmp");// ou jpg
@@ -315,127 +311,124 @@ public class AjouterOffreController implements Initializable {
 //    }
     @FXML
     private File addimage(ActionEvent event) {
-     
+
         Path to1 = null;
-         String  m = null;
-         String path = "C:\\xampp\\htdocs\\uploads\\images";
-         JFileChooser chooser = new JFileChooser();
-        
+        String m = null;
+        String path = "C:\\xampp\\htdocs\\uploads\\images";
+        JFileChooser chooser = new JFileChooser();
+
         FileNameExtensionFilter filter = new FileNameExtensionFilter(
-                "JPG & PNG Images", "jpg","jpeg","PNG");
+                "JPG & PNG Images", "jpg", "jpeg", "PNG");
         chooser.setFileFilter(filter);
         int returnVal = chooser.showOpenDialog(null);
-        if(returnVal == JFileChooser.APPROVE_OPTION) {
-           m = chooser.getSelectedFile().getAbsolutePath();
+        if (returnVal == JFileChooser.APPROVE_OPTION) {
+            m = chooser.getSelectedFile().getAbsolutePath();
 
-            
-           file=chooser.getSelectedFile();
-             String fileName= file.getName();
-       
-            
-            if(chooser.getSelectedFile() != null){
-                
-               try {
-                   Path from = Paths.get(chooser.getSelectedFile().toURI());
-                    to1=Paths.get(path+"\\"+fileName);
-         //           to2 = Paths.get("src\\"+path+"\\"+file.getName()+".png");
-                       
-                   CopyOption[] options = new CopyOption[]{
-                       StandardCopyOption.REPLACE_EXISTING,
-                       StandardCopyOption.COPY_ATTRIBUTES
-                   };
-                  Files.copy(from,to1,options);
-                   System.out.println("added");
-                   System.out.println(file);
-                 
+            file = chooser.getSelectedFile();
+            String fileName = file.getName();
 
-               } catch (IOException ex) {
-                   System.out.println();
-               }
+            if (chooser.getSelectedFile() != null) {
+
+                try {
+                    Path from = Paths.get(chooser.getSelectedFile().toURI());
+                    to1 = Paths.get(path + "\\" + fileName);
+                    //           to2 = Paths.get("src\\"+path+"\\"+file.getName()+".png");
+
+                    CopyOption[] options = new CopyOption[]{
+                        StandardCopyOption.REPLACE_EXISTING,
+                        StandardCopyOption.COPY_ATTRIBUTES
+                    };
+                    Files.copy(from, to1, options);
+                    System.out.println("added");
+                    System.out.println(file);
+
+                } catch (IOException ex) {
+                    System.out.println();
+                }
             }
-             
-        
-    }
+
+        }
         return file;
     }
-    private boolean TestText(){
+
+    private boolean TestText() {
         Pattern p = Pattern.compile("[a-zA-Z0-9]*[a-zA-Z0-9]*");
         Pattern p1 = Pattern.compile("[s][+][0-9]*");
         Matcher m = p.matcher(txtnom.getText());
         Matcher m1 = p.matcher(txtnom.getText());
-        if(m.find() && m.group().equals(txtnom.getText()) ||  m1.find()  && m1.group().equals(txtnom.getText()) ){
+        if (m.find() && m.group().equals(txtnom.getText()) || m1.find() && m1.group().equals(txtnom.getText())) {
             return true;
-        }else{
-                
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Syntaxe Email");
-                alert.setHeaderText(null);
-                alert.setContentText("S'il vous plait saisir un nom valide");
-                alert.showAndWait();
-            
-            return false;            
+        } else {
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Syntaxe Email");
+            alert.setHeaderText(null);
+            alert.setContentText("S'il vous plait saisir un nom valide");
+            alert.showAndWait();
+
+            return false;
         }
-      }
-    
-  private boolean TestDate(){
-           java.sql.Date   datedebut = java.sql.Date.valueOf(txtdatedebut.getValue());
-     
-      java.sql.Date   dateFin = java.sql.Date.valueOf(textdatefin.getValue());
-        if(dateFin.compareTo(datedebut) >0){
-             InnerShadow in = new InnerShadow();
+    }
+
+    private boolean TestDate() {
+        java.sql.Date datedebut = java.sql.Date.valueOf(txtdatedebut.getValue());
+
+        java.sql.Date dateFin = java.sql.Date.valueOf(textdatefin.getValue());
+        if (dateFin.compareTo(datedebut) > 0) {
+            InnerShadow in = new InnerShadow();
             in.setColor(Color.web("#52FF00"));
-            
+
             txtdatedebut.setEffect(in);
-             textdatefin.setEffect(in);
+            textdatefin.setEffect(in);
             return true;
-            
-        }else{
+
+        } else {
             InnerShadow in = new InnerShadow();
             in.setColor(Color.web("#f80000"));
-            
+
             txtdatedebut.setEffect(in);
-             textdatefin.setEffect(in);
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Syntaxe Email");
-                alert.setHeaderText(null);
-                alert.setContentText("S'il vous plait saisir une date valide");
-                alert.showAndWait();
-            
-            return false;            
+            textdatefin.setEffect(in);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Syntaxe Email");
+            alert.setHeaderText(null);
+            alert.setContentText("S'il vous plait saisir une date valide");
+            alert.showAndWait();
+
+            return false;
         }
-      }
-    
-    private boolean TestDescription(){
+    }
+
+    private boolean TestDescription() {
         Pattern p = Pattern.compile("[a-zA-Z0-9][a-zA-Z0-9]*");
         Matcher m = p.matcher(txtdescrip.getText());
-        if(m.find() && m.group().equals(txtdescrip.getText())){
+        if (m.find() && m.group().equals(txtdescrip.getText())) {
             return true;
-        }else{
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle("Syntaxe Email");
-                alert.setHeaderText(null);
-                alert.setContentText("S'il vous plait saisir une description  valide");
-                alert.showAndWait();
-            
-            return false;            
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Syntaxe Email");
+            alert.setHeaderText(null);
+            alert.setContentText("S'il vous plait saisir une description  valide");
+            alert.showAndWait();
+
+            return false;
         }
-      }
-    
-  private boolean TestPrix(){
+    }
+
+    private boolean TestPrix() {
         Pattern p = Pattern.compile("[0-9]+");
         Matcher m = p.matcher(txtprix.getText());
-        if(m.find() && m.group().equals(txtprix.getText())){
+        if (m.find() && m.group().equals(txtprix.getText())) {
             return true;
-        }else{
-                Alert alert = new Alert(Alert.AlertType.WARNING);
-                alert.setTitle(" Syntaxe Prix");
-                alert.setHeaderText(null);
-                alert.setContentText("S'il vous plait saisir un prix valide");
-                alert.showAndWait();
-            
-            return false;            
+        } else {
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle(" Syntaxe Prix");
+            alert.setHeaderText(null);
+            alert.setContentText("S'il vous plait saisir un prix valide");
+            alert.showAndWait();
+
+            return false;
         }
-        }
+    }
 
 //    ImageTypeSpecifier createFromRenderedImage(RenderedImage image) throws IOException {
 //        String fileNmaeExt = file.getName();
@@ -451,62 +444,58 @@ public class AjouterOffreController implements Initializable {
 //        }
 //        return new ImageTypeSpecifier(image);
 //    }
-
     @FXML
     private void testprix(KeyEvent event) {
-        if(txtprix.getText().isEmpty()==false){
-        if(TestPrix() ){
-                    
-             InnerShadow in = new InnerShadow();
-            in.setColor(Color.web("#52FF00"));
-            
-            txtprix.setEffect(in);
-        }
-        else{
-            InnerShadow in = new InnerShadow();
-            in.setColor(Color.web("#f80000"));
-            
-            txtprix.setEffect(in);
-        }
-        
-    }}
+        if (txtprix.getText().isEmpty() == false) {
+            if (TestPrix()) {
 
-    @FXML
-    private void testDescri(KeyEvent event) {
-        if(txtdescrip.getText().isEmpty()==false){
-                if(TestDescription()){
-                    
-             InnerShadow in = new InnerShadow();
-            in.setColor(Color.web("#52FF00"));
-            
-            txtdescrip.setEffect(in);
-        }
-        else{
-            InnerShadow in = new InnerShadow();
-            in.setColor(Color.web("#f80000"));
-            
-            txtdescrip.setEffect(in);
-        }
-    }}
+                InnerShadow in = new InnerShadow();
+                in.setColor(Color.web("#52FF00"));
 
-    @FXML
-    private void testNomm(KeyEvent event) {
-                if(TestText() & txtnom.getText().isEmpty()==false){
-                           
-             InnerShadow in = new InnerShadow();
-            in.setColor(Color.web("#52FF00"));
-            
-            txtnom.setEffect(in);
-        }
-        else{
-                        
-            InnerShadow in = new InnerShadow();
-            in.setColor(Color.web("#f80000"));
-            
-            txtnom.setEffect(in);
+                txtprix.setEffect(in);
+            } else {
+                InnerShadow in = new InnerShadow();
+                in.setColor(Color.web("#f80000"));
+
+                txtprix.setEffect(in);
+            }
+
         }
     }
 
- 
+    @FXML
+    private void testDescri(KeyEvent event) {
+        if (txtdescrip.getText().isEmpty() == false) {
+            if (TestDescription()) {
+
+                InnerShadow in = new InnerShadow();
+                in.setColor(Color.web("#52FF00"));
+
+                txtdescrip.setEffect(in);
+            } else {
+                InnerShadow in = new InnerShadow();
+                in.setColor(Color.web("#f80000"));
+
+                txtdescrip.setEffect(in);
+            }
+        }
+    }
+
+    @FXML
+    private void testNomm(KeyEvent event) {
+        if (TestText() & txtnom.getText().isEmpty() == false) {
+
+            InnerShadow in = new InnerShadow();
+            in.setColor(Color.web("#52FF00"));
+
+            txtnom.setEffect(in);
+        } else {
+
+            InnerShadow in = new InnerShadow();
+            in.setColor(Color.web("#f80000"));
+
+            txtnom.setEffect(in);
+        }
+    }
 
 }

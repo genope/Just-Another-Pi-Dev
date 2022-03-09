@@ -65,12 +65,12 @@
             </HBox>
             <HBox prefHeight="100.0" prefWidth="320.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#modifieroffre" prefHeight="31.0" prefWidth="99.0" styleClass="button0" text="Modifier" textFill="WHITE">
+                  <Button mnemonicParsing="false" onAction="#modifieroffre" prefHeight="31.0" prefWidth="99.0" styleClass="button8" text="Modifier" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="30.0" top="20.0" />
                      </HBox.margin>
                   </Button>
-                  <Button fx:id="supproffre" mnemonicParsing="false" onAction="#supprimer" prefHeight="31.0" prefWidth="98.0" styleClass="button0" text="Supprimer" textFill="WHITE">
+                  <Button fx:id="supproffre" mnemonicParsing="false" onAction="#supprimer" prefHeight="31.0" prefWidth="98.0" styleClass="button8" text="Supprimer" textFill="WHITE">
                      <HBox.margin>
                         <Insets left="70.0" top="20.0" />
                      </HBox.margin>

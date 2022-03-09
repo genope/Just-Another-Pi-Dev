@@ -5,12 +5,16 @@
  */
 package shared.GUI;
 
+import com.jfoenix.controls.JFXDatePicker;
 import com.jfoenix.controls.JFXTextField;
+import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.net.URL;
 import java.sql.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.LocalDate;
 import java.util.ResourceBundle;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -32,9 +36,11 @@ import javafx.scene.control.TableView;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.GridPane;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.stage.Modality;
@@ -98,22 +104,28 @@ public class GererOffresController implements Initializable {
     }
     @FXML
     private VBox chosenOffreCard;
-    @FXML
     private JFXTextField Nprix;
     @FXML
     private ImageView fruitImg;
-    @FXML
     private Label LabelDateD;
-    @FXML
     private Label LabelDateF;
     @FXML
     private Label LabelV;
-    @FXML
-    private Label LabelP;
 
-    
-         private void openModalwindow(String resource, String title) throws IOException {
-      Parent root = FXMLLoader.load(getClass().getResource(resource));
+    private MyListener myListener;
+    @FXML
+    private JFXTextField Nnom;
+    @FXML
+    private JFXDatePicker NvDateD;
+    @FXML
+    private JFXDatePicker NvDateF;
+    private HBox Nvprix;
+    @FXML
+    private JFXTextField Nprix3;
+    private int i=0;
+
+    private void openModalwindow(String resource, String title) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource(resource));
         fxmlFile = new Scene(root);
         window = new Stage();
         window.setScene(fxmlFile);
@@ -126,37 +138,76 @@ public class GererOffresController implements Initializable {
         window.showAndWait();
 
     }
-         
-         
-   private void modifierr(Offres offre) {
-            
-     
+//private void setChosenOffre(Offres offre) {
+//        try {
+//            Nnom.setText(offre.getNom());
+//            LabelV.setText(offre.getVille());
+//            NvDateD.setText(String.valueOf(offre.getDatedebut()));
+//            NvDateF.setText(String.valueOf(offre.getDatefin()));
+//            Nprix3.setText(String.valueOf(offre.getPrix()));
+//            
+//            
+//            Image imge = new Image(new FileInputStream("C:\\Users\\user\\Documents\\NetBeansProjects\\Shared\\src\\ressources\\"+offre.getFile()));
+//            fruitImg.setImage(imge);
+//            
+//            
+////       chosenOffreCard.setStyle("-fx-background-color: #" + offre.getColor() + ";\n"
+////                + "    -fx-background-radius: 30;");
+//        } catch (FileNotFoundException ex) {
+//            System.out.println(ex.getMessage());
+//        }
+//    }
+
+    private void modifierr(Offres offre) {
+//
+//        Nnom.setText(offre.getNom());
+//        
+
+
+
+  LocalDate localDate1 = offre.getDatedebut().toLocalDate();
+  LocalDate localDate2 = offre.getDatefin().toLocalDate();
+ 
+       NvDateD.setValue(localDate1);
+       NvDateF.setValue(localDate2);
+        Nprix3.setText(String.valueOf(offre.getPrix()));
+        LabelV.setText(offre.getVille());
+        i=offre.getId();
+        System.out.println(i);
+          Image imge;
         try {
-            
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierOffres.fxml"));
-            Parent root = loader.load();
-        //  ModifierOffresController modifi = new ModifierOffresController();
-   
-   // modifi.setTxtId(offre.getId());
+            imge = new Image(new FileInputStream("C:\\Users\\user\\Documents\\NetBeansProjects\\Shared\\src\\ressources\\"+offre.getFile()));
+             fruitImg.setImage(imge);
+        } catch (FileNotFoundException ex) {
+            System.out.println(ex.getMessage());
+        }
+//        
+        
+        
+//        try {
+//            
+//            FXMLLoader loader = new FXMLLoader(getClass().getResource("ModifierOffres.fxml"));
+//            Parent root = loader.load();
+//          ModifierOffresController modifi = new ModifierOffresController();
+//   
+//    modifi.setTxtId(offre.getId());
 //            modif.setTxtnom1(offre.getNom());
 //            modif.setTxtId(String.valueOf(offre.getId()));
 //            modif.setTxtprix1(String.valueOf(offre.getPrix()));
 //            modif.setTxtdescrip(offre.getDescription());
 //         
-            keywordTextField.getScene().setRoot(root);
-        } catch (IOException ex) {
-            System.out.println(ex.getMessage());
-                  
-        }
+//            keywordTextField.getScene().setRoot(root);
+//        } catch (IOException ex) {
+//            System.out.println(ex.getMessage());
+//                  
+//        }
     }
+
     private void supprimerr(Offres offre) {
         OffreServices offree = new OffreServices();
         offree.suuprimerLogement(offre.getId());
-   
-                
+
     }
-
-
 
     @Override
 
@@ -201,76 +252,69 @@ public class GererOffresController implements Initializable {
             SortedList<Offres> sortedData = new SortedList<>(filteredData);
 
             sortedData.comparatorProperty().bind(OffresTables.comparatorProperty());
-            
 
             OffresTables.setItems(sortedData);
         });
 
         showProdTable();
         addListenerOffre();
-   int column = 1;
+        int column = 1;
         int row = 0;
-        
-       
+
         for (int i = 0; i < offre.getAllOffresById2(110405018).size(); i++) {
-            
-             
-                   
+
+           
 
             try {
-                
-             
+
                 sup = new SupprimerCard() {
                     @Override
                     public void supprimer(Offres offre) {
                         supprimerr(offre);
                     }
                 };
-               modif =new Modifier() {
+                modif = new Modifier() {
                     @Override
                     public void modifier(Offres offre) {
                         modifierr(offre);
-                              
-                               
+
                     }
                 };
                 FXMLLoader cards = new FXMLLoader();
                 cards.setLocation(getClass().getResource("HostCards.fxml"));
-                
+
                 AnchorPane anchorPane = cards.load();
-                
+
                 HostCardsController offreservice = cards.getController();
-                
+
                 offreservice.setData(offre.getAllOffresById2(110405018).get(i), sup, modif);
-                
+
                 //       offreservice.setData(offre, supp);
                 if (column == 3) {
                     column = 1;
                     row++;
-                  
+
                 }
                 grid.add(anchorPane, column++, row); //(child,column,row)
                 //set grid width
                 grid.setMinWidth(Region.USE_COMPUTED_SIZE);
                 grid.setPrefWidth(Region.USE_COMPUTED_SIZE);
                 grid.setMaxWidth(Region.USE_PREF_SIZE);
-                
+
                 //set grid height
                 grid.setMinHeight(Region.USE_COMPUTED_SIZE);
                 grid.setPrefHeight(Region.USE_COMPUTED_SIZE);
                 grid.setMaxHeight(Region.USE_PREF_SIZE);
-                
+
                 GridPane.setMargin(anchorPane, new javafx.geometry.Insets(20));
-                
+
 ////                  
             } catch (IOException ex) {
                 Logger.getLogger(GererOffresController.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
-       
 
     }
-
 
     public void showProdTable() {
 
@@ -281,7 +325,7 @@ public class GererOffresController implements Initializable {
         categcol.setCellValueFactory(new PropertyValueFactory<Offres, String>("categ"));
         villecol.setCellValueFactory(new PropertyValueFactory<Offres, String>("ville"));
         prixcol.setCellValueFactory(new PropertyValueFactory<Offres, Float>("prix"));
-       
+
         OffresTables.setItems(list);
     }
 
@@ -318,24 +362,22 @@ public class GererOffresController implements Initializable {
 
     }
 
-    private void ModifierOffres(ActionEvent event) throws ParseException {
-
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
-        Date date = new Date(sdf.parse(newdateDe.getText()).getTime());
-        Date date1 = new Date(sdf.parse(newdateF.getText()).getTime());
-
-        Offres off = new Offres(newDescrip.getText(), date, date1, Float.parseFloat(newprix.getText()));
-
+    @FXML
+    private void Modif(ActionEvent event) {
+         java.sql.Date   newdateDeb = java.sql.Date.valueOf(NvDateD.getValue());
+     
+      java.sql.Date   newdateFin = java.sql.Date.valueOf(NvDateF.getValue());
+        
+        
+        
+        
+        
+     Offres off=new Offres("Laico",newdateDeb ,newdateFin, Float.valueOf(Nprix3.getText()));
+        System.out.println(i);
+      //  Offres off = new Offres("gggg", newdateDeb, newdateFin, 0f);
+        //System.out.println(off);
         OffreServices offres = new OffreServices();
-        offres.modifierOffreById(Integer.parseInt(txtId.getText()), off);
-
-
+        offres.modifierOffreById(i, off);
     }
-//
-//    private void SupprimerOffres(ActionEvent event) {
-//        OffreServices offres = new OffreServices();
-//        offres.suuprimerLogement(Integer.parseInt(txtId.getText()));
-//        //showProdTable();
-//
-//    }
+
 }

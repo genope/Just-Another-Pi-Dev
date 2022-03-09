@@ -5,8 +5,8 @@
 .VBox {
  -fx-background-radius :  50;
  -fx-border-radius:50;
- -fx-border-color:#5b0e2d;
- -fx-background-color:linear-gradient(to top left, white, #ffa781);
+ -fx-border-color:#1620A1;
+ -fx-background-color:linear-gradient(to top left, #0D1255, #05071F);
 }
 
 
@@ -186,6 +186,15 @@
 .button0:hover
 {
 -fx-background-color :chocolate ;
+}
+.button8
+{
+-fx-background-color : #3B0219;
+-fx-background-radius :  20;
+}
+.button8:hover
+{
+-fx-background-color : #690A30;
 }
 .button2:hover
 {

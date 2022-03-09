@@ -6,26 +6,32 @@
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/NewFXMain.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/OffreServices.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/UIController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/CardOffres.fxml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/DahshbordHost.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/ajouteroffre.css</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/MyListener.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/Shared.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/FalseOffres.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/TestController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/Styles/style_1.css</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/Styles/cardoffres.css</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/GererOffresController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/Modifier.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/Styles/style.css</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/cardoffres.css</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/ApprouveOffre.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/GererOffres.fxml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/CardOffresController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/ModifierOffresController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/DashboardAdmin.fxml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/DashboardAdminController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Offres.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/Shared.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/DahshbordHostController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/FalseOffres.fxml</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/AjouterOffreController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/TestController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/SupprimerCard.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/DashboardHostController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/Styles/cardoffres.css</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/FalseOffresController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/GererOffresController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/AjouterOffre.fxml</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/API/SendMsg.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/mail.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/HostCardsController.java</file>
-            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/Modifier.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/Styles/style-AjoutOffre.css</file>
         </group>
     </open-files>
 </project-private>
