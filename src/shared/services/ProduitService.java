@@ -36,7 +36,7 @@ public class ProduitService {
             ste.setString(2, prod.getDesignation());
             ste.setString(3, prod.getDescription());
             ste.setDouble(4, prod.getPrix());
-            ste.setString(5, prod.getImage());
+            ste.setBlob(5, prod.getImage());
             ste.setInt(6, prod.getQte_stock());
             ste.setString(7, prod.getNomCategorie());
             ste.setString(8, prod.getRegion());
@@ -78,7 +78,7 @@ public class ProduitService {
                         rs.getString("designation"),
                         rs.getString("description"),
                         rs.getDouble("prix"),
-                        rs.getString("image"),
+                        rs.getBlob("image"),
                         rs.getInt("qte_stock"),
                         rs.getString("nomCategorie"),
                         rs.getString("region"));
@@ -102,7 +102,7 @@ public class ProduitService {
             ste.setString(2, prod.getDesignation());
             ste.setString(3, prod.getDescription());
             ste.setDouble(4, prod.getPrix());
-            ste.setString(5, prod.getImage());
+            ste.setBlob(5, prod.getImage());
             ste.setInt(6, prod.getQte_stock());
             ste.setString(7, prod.getNomCategorie());
             ste.setString(8, prod.getRegion());
@@ -130,7 +130,7 @@ public class ProduitService {
                         rs.getString("designation"),
                         rs.getString("description"),
                         rs.getDouble("prix"),
-                        rs.getString("image"),
+                        rs.getBlob("image"),
                         rs.getInt("qte_stock"),
                         rs.getString("nomCategorie"),
                         rs.getString("region")
@@ -156,7 +156,7 @@ public class ProduitService {
                         rs.getString("designation"),
                         rs.getString("description"),
                         rs.getDouble("prix"),
-                        rs.getString("image"),
+                        rs.getBlob("image"),
                         rs.getInt("qte_stock"),
                         rs.getString("nomCategorie"),
                         rs.getString("region")
@@ -182,7 +182,7 @@ public class ProduitService {
                         rs.getString("designation"),
                         rs.getString("description"),
                         rs.getDouble("prix"),
-                        rs.getString("image"),
+                        rs.getBlob("image"),
                         rs.getInt("qte_stock"),
                         rs.getString("nomCategorie"),
                         rs.getString("region")
@@ -207,7 +207,7 @@ public class ProduitService {
                         rs.getString("designation"),
                         rs.getString("description"),
                         rs.getDouble("prix"),
-                        rs.getString("image"),
+                        rs.getBlob("image"),
                         rs.getInt("qte_stock"),
                         rs.getString("nomCategorie"),
                         rs.getString("region")
@@ -231,7 +231,7 @@ public class ProduitService {
                         rs.getString("designation"),
                         rs.getString("description"),
                         rs.getDouble("prix"),
-                        rs.getString("image"),
+                        rs.getBlob("image"),
                         rs.getInt("qte_stock"),
                         rs.getString("nomCategorie"),
                         rs.getString("region")
