@@ -173,7 +173,6 @@ public class ProfileAdminController implements Initializable {
                     };
 
                     Files.copy(from1, to11, options1);
-                    //  System.out.println(file);
 
                 } catch (IOException ex) {
                     System.out.println(ex.getMessage());

@@ -23,12 +23,13 @@ public class User {
     private Date ddn;
     private int number;
     private Role role;
-    private Etat etat;
+    private String etat;
     private String adress_host;
     private String image_cin;
     private String image_profile;
+    private String roles;
 
-    public User(int cin, String nom, String prenom, String email, String password, Date ddn, int number, Role role, Etat etat, String adress_host, String image_cin ,String image_profile) {
+    public User(int cin, String nom, String prenom, String email, String password, Date ddn, int number, Role role, String etat, String adress_host, String image_cin ,String image_profile,String roles) {
         this.cin = cin;
         this.nom = nom;
         this.prenom = prenom;
@@ -39,6 +40,7 @@ public class User {
         this.role = role;
         this.etat = etat;
         this.image_profile =image_profile ;
+        this.roles=roles;
         if (Role.Host.equals(role)) {
             this.adress_host = adress_host;
             this.image_cin = image_cin;
@@ -85,12 +87,6 @@ public class User {
         this.cin = cin;
         this.email = email;
         this.image_profile = image_profile;
-    }
-    
-
-    @Override
-    public String toString() {
-        return "User{" + "cin=" + cin + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", password=" + password + ", ddn=" + ddn + ", number=" + number + ", role=" + role + ", etat=" + etat + ", adress_host=" + adress_host + ", image_cin=" + image_cin +",image_profile"+ '}';
     }
 
     public int getCin() {
@@ -157,13 +153,14 @@ public class User {
         this.role = role;
     }
 
-    public Etat getEtat() {
+    public String getEtat() {
         return etat;
     }
 
-    public void setEtat(Etat etat) {
+    public void setEtat(String etat) {
         this.etat = etat;
     }
+
 
     public String getAdress_host() {
         return adress_host;
@@ -181,4 +178,19 @@ public class User {
         this.image_cin = image_cin;
     }
 
+    public String getRoles() {
+        return roles;
+    }
+
+    public void setRoles(String roles) {
+        this.roles = roles;
+    }
+
+    @Override
+    public String toString() {
+        return "User{" + "cin=" + cin + ", nom=" + nom + ", prenom=" + prenom + ", email=" + email + ", password=" + password + ", ddn=" + ddn + ", number=" + number + ", role=" + role + ", etat=" + etat + ", adress_host=" + adress_host + ", image_cin=" + image_cin + ", image_profile=" + image_profile + ", roles=" + roles + '}';
+    }
+    
+
+   
 }
