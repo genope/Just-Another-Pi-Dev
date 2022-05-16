@@ -48,20 +48,6 @@ import shared.services.UserSession;
 public class ProfileAdminController implements Initializable {
 
     @FXML
-    private Button btnOverview;
-    @FXML
-    private Button btnOrders;
-    @FXML
-    private Button btnCustomers;
-    @FXML
-    private Button btnMenus;
-    @FXML
-    private Button btnPackages;
-    @FXML
-    private Button btnSettings;
-    @FXML
-    private Button btnSignout;
-    @FXML
     private Pane pnlOverview;
     @FXML
     private JFXTextField adminpagename;
@@ -109,7 +95,7 @@ public class ProfileAdminController implements Initializable {
                     Image imge = new Image(new FileInputStream("C:\\xampp\\htdocs\\uploads\\images\\" + userSession.getUser().getImage_profile()));
                     HostPic.setFill(new ImagePattern(imge));
                     cir2.setFill(new ImagePattern(imge));
-                } catch (FileNotFoundException ex) {
+                }   catch (FileNotFoundException ex) {
                     System.out.println(ex.getMessage());
                 }
             }
@@ -123,9 +109,6 @@ public class ProfileAdminController implements Initializable {
         adminpagepass.setText("");
     }    
 
-    @FXML
-    private void handleClicks(ActionEvent event) {
-    }
 
     @FXML
     private void updtahost(ActionEvent event) {

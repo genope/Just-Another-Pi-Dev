@@ -1,0 +1,160 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import com.jfoenix.controls.JFXDatePicker?>
+<?import com.jfoenix.controls.JFXTextField?>
+<?import java.lang.String?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" prefHeight="783.0" prefWidth="1176.0" style="-fx-background-color: #05071F;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.GUI.GererOffresController">
+   <children>
+      <TableView fx:id="OffresTables" layoutX="343.0" layoutY="502.0" prefHeight="281.0" prefWidth="833.0" style="-fx-background-color: #05071F;" stylesheets="@Styles/style.css">
+        <columns>
+            <TableColumn fx:id="dateDcol" prefWidth="186.0" style="-fx-alignment: center;" text="Date Début" />
+            <TableColumn fx:id="dateFcol" minWidth="9.0" prefWidth="151.0" style="-fx-alignment: center;" text="Date Fin" />
+            <TableColumn fx:id="typecol" prefWidth="179.0" style="-fx-alignment: center;" text="Description" />
+            <TableColumn fx:id="categcol" prefWidth="108.0" style="-fx-alignment: center;" text="Catégorie" />
+            <TableColumn fx:id="villecol" prefWidth="125.0" style="-fx-alignment: center;" text="Ville" />
+            <TableColumn fx:id="prixcol" prefWidth="72.0" style="-fx-alignment: center;" text="Prix" />
+        </columns>
+      </TableView>
+      <HBox alignment="CENTER" layoutX="14.0" layoutY="598.0" prefHeight="61.0" prefWidth="321.0" stylesheets="@Styles/style.css">
+         <children>
+            <TextField fx:id="keywordTextField" prefHeight="40.0" prefWidth="353.0" promptText="Type here to search" styleClass="transparent" stylesheets="@Styles/style.css">
+               <HBox.margin>
+                  <Insets left="20.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Cambria" size="18.0" />
+               </font>
+            </TextField>
+         </children>
+         <styleClass>
+            <String fx:value="search-box" />
+            <String fx:value="shadow" />
+         </styleClass>
+      </HBox>
+      <ScrollPane layoutX="300.0" layoutY="4.0" prefHeight="498.0" prefWidth="820.0" stylesheets="@Styles/style.css">
+         <content>
+            <GridPane fx:id="grid" prefHeight="12.0" prefWidth="15.0">
+              <columnConstraints>
+                <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+              </columnConstraints>
+            </GridPane>
+         </content>
+      </ScrollPane>
+      <VBox fx:id="chosenOffreCard" alignment="CENTER" layoutX="14.0" layoutY="55.0" prefHeight="406.0" prefWidth="321.0" styleClass="chosen-fruit-card2" stylesheets="@Styles/style.css">
+         <children>
+            <HBox prefHeight="60.0" prefWidth="335.0">
+               <children>
+                  <Label prefHeight="48.0" prefWidth="338.0" text="Name User" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria" size="24.0" />
+                     </font>
+                  </Label>
+                  <JFXTextField fx:id="Nnom" prefHeight="31.0" prefWidth="239.0" unFocusColor="#4059a9" />
+               </children>
+               <VBox.margin>
+                  <Insets left="20.0" top="30.0" />
+               </VBox.margin>
+            </HBox>
+            <ImageView fx:id="fruitImg" fitHeight="138.0" fitWidth="231.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../ressources/maisons-laprise-prefab-realisation-lap0532-quebec.jpg" />
+               </image>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </ImageView>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="194.0" text="Date Début" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXDatePicker fx:id="NvDateD" defaultColor="#4059a9" />
+               </children>
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
+               <children>
+                  <Label prefHeight="30.0" prefWidth="162.0" text="Date Fin" textFill="WHITE">
+                     <font>
+                        <Font name="Cambria" size="20.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets left="15.0" />
+                     </HBox.margin>
+                  </Label>
+                  <JFXDatePicker fx:id="NvDateF" defaultColor="#4059a9" />
+               </children>
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="45.0" prefWidth="200.0">
+               <VBox.margin>
+                  <Insets bottom="20.0" top="20.0" />
+               </VBox.margin>
+               <children>
+                  <Separator prefHeight="0.0" prefWidth="118.0" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="53.0" prefWidth="335.0">
+                     <children>
+                        <Label fx:id="LabelV" prefHeight="30.0" prefWidth="216.0" text="Ville" textFill="WHITE">
+                           <font>
+                              <Font name="Cambria" size="20.0" />
+                           </font>
+                           <HBox.margin>
+                              <Insets left="25.0" />
+                           </HBox.margin>
+                        </Label>
+                        <JFXTextField fx:id="Nprix3" prefHeight="31.0" prefWidth="169.0" unFocusColor="#4059a9">
+                           <HBox.margin>
+                              <Insets />
+                           </HBox.margin>
+                        </JFXTextField>
+                     </children>
+                     <HBox.margin>
+                        <Insets bottom="30.0" />
+                     </HBox.margin>
+                  </HBox>
+               </children></HBox>
+            <Button mnemonicParsing="false" onAction="#Modif" prefHeight="51.0" prefWidth="189.0" style="-fx-border-color: #2A73FF; -fx-border-radius: 20; -fx-background-color: transparent;" stylesheets="@Styles/DashHost.css" text="Modifier" textFill="WHITE">
+               <font>
+                  <Font size="21.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Button>
+         </children>
+      </VBox>
+   </children>
+   <padding>
+      <Insets left="-15.0" />
+   </padding>
+</AnchorPane>

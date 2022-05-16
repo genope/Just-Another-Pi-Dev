@@ -36,20 +36,6 @@ import shared.services.UserSession;
 public class ProfileGuestController implements Initializable {
 
     @FXML
-    private Button btnOverview;
-    @FXML
-    private Button btnOrders;
-    @FXML
-    private Button btnCustomers;
-    @FXML
-    private Button btnMenus;
-    @FXML
-    private Button btnPackages;
-    @FXML
-    private Button btnSettings;
-    @FXML
-    private Button btnSignout;
-    @FXML
     private Pane pnlOverview;
     @FXML
     private JFXTextField guestpagename;
@@ -109,9 +95,6 @@ public class ProfileGuestController implements Initializable {
         guestpagepass.setText("");
     }    
 
-    @FXML
-    private void handleClicks(ActionEvent event) {
-    }
 
     @FXML
     private void updtaguest(ActionEvent event) {

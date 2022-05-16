@@ -141,7 +141,7 @@ public class Register_pageGuestController implements Initializable {
     @FXML
     private Button register_guest;
     @FXML
-    private JFXButton id_host;
+    private JFXButton id_user;
     @FXML
     private Button register_host;
     @FXML

@@ -11,6 +11,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.stage.StageStyle;
+import shared.connexion.MaConnexion;
 
 /**
  *
@@ -18,12 +19,14 @@ import javafx.stage.StageStyle;
  */
 
 public class Main extends Application {
-    
     @Override
     public void start(Stage primaryStage) {
- 
         try {
-            Parent root =FXMLLoader.load(getClass().getResource("../gui/login_page.fxml"));
+                    MaConnexion.getInstance();
+                    
+                    
+
+            Parent root =FXMLLoader.load(getClass().getResource("../gui/Register_user.fxml"));
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("../gui/Style/controls.css").toExternalForm());
            primaryStage.initStyle(StageStyle.UNDECORATED);
