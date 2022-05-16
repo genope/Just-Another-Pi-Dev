@@ -48,20 +48,6 @@ import shared.services.UserSession;
 public class ProfileAdminController implements Initializable {
 
     @FXML
-    private Button btnOverview;
-    @FXML
-    private Button btnOrders;
-    @FXML
-    private Button btnCustomers;
-    @FXML
-    private Button btnMenus;
-    @FXML
-    private Button btnPackages;
-    @FXML
-    private Button btnSettings;
-    @FXML
-    private Button btnSignout;
-    @FXML
     private Pane pnlOverview;
     @FXML
     private JFXTextField adminpagename;
@@ -123,9 +109,6 @@ public class ProfileAdminController implements Initializable {
         adminpagepass.setText("");
     }    
 
-    @FXML
-    private void handleClicks(ActionEvent event) {
-    }
 
     @FXML
     private void updtahost(ActionEvent event) {

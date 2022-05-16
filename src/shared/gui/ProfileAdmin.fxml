@@ -26,7 +26,7 @@
             </AnchorPane>
             <Pane fx:id="pnlOverview" layoutX="10.0" layoutY="10.0" prefHeight="755.0" prefWidth="1061.0" style="-fx-background-color: #0a1034;">
                <children>
-                  <Label layoutY="39.0" prefHeight="42.0" prefWidth="1081.0" styleClass="buttond" stylesheets="@Style/controls.css" text=" Profile Details">
+                  <Label layoutY="39.0" prefHeight="42.0" prefWidth="1081.0" styleClass="buttond" stylesheets="@Style/controls.css" text="Admin Profile">
                      <font>
                         <Font size="44.0" />
                      </font>

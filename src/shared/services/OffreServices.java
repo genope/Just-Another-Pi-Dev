@@ -32,7 +32,7 @@ public class OffreServices {
 
           public void ajoutOffre(Offres offre){
         
-        String req="insert into offres(id_host,nom,description,datedebut,datefin,prix,etat,ville,type,categ,image) Values(?,?,?,?,?,?,?,?,?,?,?)";
+        String req="insert into offres(id_user,nom,description,datedebut,datefin,prix,etat,ville,type,categ,image) Values(?,?,?,?,?,?,?,?,?,?,?)";
         
          try {
             ste=mc.prepareStatement(req);
@@ -102,7 +102,7 @@ public class OffreServices {
 //                maison.setEtat(rs.getBoolean("etat"));
 //                maison.setVille(rs.getString("ville"));
 //                maison.setTypeOff(TypeOffres.valueOf(rs.getString("type")));
-//                maison.setIdhost(rs.getInt("id_host"));
+//                maison.setIdhost(rs.getInt("id_user"));
 //                maison.setId(rs.getInt("id_offre"));
 //                maison.setCateg(CategorieOffres.valueOf(rs.getString("categ")));
 //                 
@@ -136,7 +136,7 @@ public class OffreServices {
 //                appartement.setEtat(rs.getBoolean("etat"));
 //                appartement.setVille(rs.getString("ville"));
 //                appartement.setTypeOff(TypeOffres.valueOf(rs.getString("type")));
-//                appartement.setIdhost(rs.getInt("id_host"));
+//                appartement.setIdhost(rs.getInt("id_user"));
 //                appartement.setId(rs.getInt("id_offre"));
 //                appartement.setCateg(CategorieOffres.valueOf(rs.getString("categ")));
 //                 
@@ -172,7 +172,7 @@ public class OffreServices {
                 chambre.setEtat(rs.getBoolean("etat"));
                 chambre.setVille(rs.getString("ville"));
                 chambre.setTypeOff(TypeOffres.valueOf(rs.getString("type")));
-                chambre.setIdhost(rs.getInt("id_host"));
+                chambre.setIdhost(rs.getInt("id_user"));
                 chambre.setId(rs.getInt("id_offre"));
                 chambre.setCateg(CategorieOffres.valueOf(rs.getString("categ")));
                 chambre.setFile(rs.getString("image"));
@@ -193,7 +193,7 @@ public class OffreServices {
     
      public ObservableList<Offres> getAllOffresById2(int i){
      ObservableList<Offres> Offres = FXCollections.observableArrayList();
-        String req="SELECT * FROM `offres` where id_Host=?";
+        String req="SELECT * FROM `offres` where id_user=?";
          try {
             ste=mc.prepareStatement(req);
             ste.setInt(1,i);
@@ -208,7 +208,7 @@ public class OffreServices {
                 chambre.setEtat(rs.getBoolean("etat"));
                 chambre.setVille(rs.getString("ville"));
                 chambre.setTypeOff(TypeOffres.valueOf(rs.getString("type")));
-                chambre.setIdhost(rs.getInt("id_host"));
+                chambre.setIdhost(rs.getInt("id_user"));
                 chambre.setId(rs.getInt("id_offre"));
                 chambre.setFile(rs.getString("image"));
                 
@@ -244,7 +244,7 @@ public class OffreServices {
                 chambre.setEtat(rs.getBoolean("etat"));
                 chambre.setVille(rs.getString("ville"));
                 chambre.setTypeOff(TypeOffres.valueOf(rs.getString("type")));
-                chambre.setIdhost(rs.getInt("id_host"));
+                chambre.setIdhost(rs.getInt("id_user"));
                 chambre.setId(rs.getInt("id_offre"));
                 chambre.setFile(rs.getString("image"));
                 
@@ -265,7 +265,7 @@ public class OffreServices {
     }
        public List<Offres> getAllMyOffres(int i){
      List<Offres> Offres = new ArrayList<>();
-        String req="SELECT * FROM `offres` where id_Host=?";
+        String req="SELECT * FROM `offres` where id_user=?";
          try {
             ste=mc.prepareStatement(req);
             ste.setInt(1,i);
@@ -280,7 +280,7 @@ public class OffreServices {
                 offre.setEtat(rs.getBoolean("etat"));
                 offre.setVille(rs.getString("ville"));
                 offre.setTypeOff(TypeOffres.valueOf(rs.getString("type")));
-                offre.setIdhost(rs.getInt("id_host"));
+                offre.setIdhost(rs.getInt("id_user"));
                 offre.setId(rs.getInt("id_offre"));
                 offre.setFile(rs.getString("image"));
                 
@@ -315,7 +315,7 @@ public class OffreServices {
                 Horeca.setEtat(rs.getBoolean("etat"));
                 Horeca.setVille(rs.getString("ville"));
                 Horeca.setTypeOff(TypeOffres.valueOf(rs.getString("type")));
-                Horeca.setIdhost(rs.getInt("id_host"));
+                Horeca.setIdhost(rs.getInt("id_user"));
                 Horeca.setId(rs.getInt("id_offre"));
                 
                 
@@ -387,7 +387,7 @@ public int nombreOffres(){
 
 
 public int getNbrMyOffres(int cin){
-       String req="select * FROM `offres` WHERE id_Host=?";
+       String req="select * FROM `offres` WHERE id_user=?";
   
        int count=0;
        try {
@@ -406,7 +406,7 @@ public int getNbrMyOffres(int cin){
        return count;
    }
 public int getNbrLogemts(int cin){
-       String req="select * FROM `offres` WHERE id_Host=? and type='Logement' ";
+       String req="select * FROM `offres` WHERE id_user=? and type='Logement' ";
   
        int count=0;
        try {
@@ -426,7 +426,7 @@ public int getNbrLogemts(int cin){
    }
 
 public int getNbrMoyTransports(int cin){
-       String req="select * FROM `offres` WHERE id_Host=? and type='MoyenDeTransport' ";
+       String req="select * FROM `offres` WHERE id_user=? and type='MoyenDeTransport' ";
   
        int count=0;
        try {
@@ -446,7 +446,7 @@ public int getNbrMoyTransports(int cin){
    }
 
 public int getNbrMyHoreca(int cin){
-       String req="select * FROM `offres` WHERE id_Host=? and type='Horeca'";
+       String req="select * FROM `offres` WHERE id_user=? and type='Horeca'";
   
        int count=0;
        try {
@@ -467,7 +467,7 @@ public int getNbrMyHoreca(int cin){
 
 
 public int getNbrMyLogements(int cin,TypeOffres type){
-       String req="select * FROM `offres` WHERE id_Host=? and type=?";
+       String req="select * FROM `offres` WHERE id_user=? and type=?";
   
        int count=0;
        try {

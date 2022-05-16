@@ -80,6 +80,9 @@ public class CardOffresController implements Initializable {
 		}
                 return list;
 	}
+    
+    
+    
         public void setData(Offres offre,MyListener mylistener) throws IOException {
       
             this.offre=offre;

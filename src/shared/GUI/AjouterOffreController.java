@@ -377,33 +377,7 @@ public class AjouterOffreController implements Initializable {
         }
     }
 
-    private boolean TestDate() {
-        java.sql.Date datedebut = java.sql.Date.valueOf(txtdatedebut.getValue());
-
-        java.sql.Date dateFin = java.sql.Date.valueOf(textdatefin.getValue());
-        if (dateFin.compareTo(datedebut) > 0) {
-            InnerShadow in = new InnerShadow();
-            in.setColor(Color.web("#52FF00"));
-
-            txtdatedebut.setEffect(in);
-            textdatefin.setEffect(in);
-            return true;
-
-        } else {
-            InnerShadow in = new InnerShadow();
-            in.setColor(Color.web("#f80000"));
-
-            txtdatedebut.setEffect(in);
-            textdatefin.setEffect(in);
-            Alert alert = new Alert(Alert.AlertType.WARNING);
-            alert.setTitle("Syntaxe Email");
-            alert.setHeaderText(null);
-            alert.setContentText("S'il vous plait saisir une date valide");
-            alert.showAndWait();
-
-            return false;
-        }
-    }
+   
 
     private boolean TestDescription() {
         Pattern p = Pattern.compile("[a-zA-Z0-9][a-zA-Z0-9]*");
@@ -451,6 +425,33 @@ public class AjouterOffreController implements Initializable {
 //        }
 //        return new ImageTypeSpecifier(image);
 //    }
+     private boolean TestDate() {
+        java.sql.Date datedebut = java.sql.Date.valueOf(txtdatedebut.getValue());
+
+        java.sql.Date dateFin = java.sql.Date.valueOf(textdatefin.getValue());
+        if (dateFin.compareTo(datedebut) > 0) {
+            InnerShadow in = new InnerShadow();
+            in.setColor(Color.web("#52FF00"));
+
+            txtdatedebut.setEffect(in);
+            textdatefin.setEffect(in);
+            return true;
+
+        } else {
+            InnerShadow in = new InnerShadow();
+            in.setColor(Color.web("#f80000"));
+
+            txtdatedebut.setEffect(in);
+            textdatefin.setEffect(in);
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Syntaxe Email");
+            alert.setHeaderText(null);
+            alert.setContentText("S'il vous plait saisir une date valide");
+            alert.showAndWait();
+
+            return false;
+        }
+    }
     @FXML
     private void testprix(KeyEvent event) {
         if (txtprix.getText().isEmpty() == false) {
