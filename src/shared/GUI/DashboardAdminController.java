@@ -29,7 +29,12 @@ import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javafx.scene.Scene;
 import javafx.scene.image.Image;
+import javafx.scene.layout.VBox;
+import javafx.scene.text.Text;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
 import static shared.gui.ForgetPasswordController.ACCOUNT_SID;
 import static shared.gui.ForgetPasswordController.AUTH_TOKEN;
 
@@ -82,7 +87,16 @@ public class DashboardAdminController implements Initializable {
             
             OffreServices offree = new OffreServices();
             offree.ApprouverOf(offre.getId());
+             VBox dialogVbox = new VBox(10);
+             
+              final Stage dialog = new Stage();
+            dialog.initModality(Modality.WINDOW_MODAL);
+
             
+            dialogVbox.getChildren().add(new Text("Approuved"));
+            Scene dialogScene = new Scene(dialogVbox, 200, 200);
+            dialog.setScene(dialogScene);
+            dialog.show();
             String a=userS.GetUserByCin(offre.getIdhost()).getEmail();
             
             // SendMsg mail=new SendMsg();

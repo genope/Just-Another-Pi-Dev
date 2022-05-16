@@ -32,27 +32,29 @@ public class SendMsg {
             System.out.println("pre");
             Properties props = new Properties();
 
+            String from = "kiraamv1337@gmail.com";
+            String pass = "A5i3zow0jn";
+            String host = "mail.javatpoint.com";
+            String sub = "Password Recovery";
+
             props.put("mail.smtp.host", "smtp.gmail.com");
             props.put("mail.smtp.socketFactory.port", "465");
             props.put("mail.smtp.socketFactory.class",
                     "javax.net.ssl.SSLSocketFactory");
             props.put("mail.smtp.auth", "true");
             props.put("mail.smtp.port", "465");
-    props.put("mail.smtp.starttls.enable","true"); 
-            String myaccountEmail = "iheb.kraiem@esprit.tn";
-            String pass = "213JMT0178";
 
             Session session = Session.getInstance(props, new javax.mail.Authenticator() {
 
                 protected PasswordAuthentication getPasswordAuthentication() {
 
-                    return new PasswordAuthentication(myaccountEmail, pass);
+                    return new PasswordAuthentication(from, pass);
 
                 }
 
             });
 
-            Message message = prepareMessage(session, myaccountEmail, recepient);
+            Message message = prepareMessage(session, from, recepient);
 
             Transport.send(message);
             System.out.println("message send");
