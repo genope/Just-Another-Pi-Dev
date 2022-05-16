@@ -3,7 +3,24 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/genop/OneDrive/Desktop/my%20project/Just-Another-Pi-Dev/src/shared/Shared.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/Shared.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/services/CommentaireService.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/gui/Register_pageGuestController.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/gui/Login_pageController.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/services/PublicationService.java</file>
+            <file>jar:file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/shared.LIBS/jbcrypt-0.4-sources.jar!/org/mindrot/jbcrypt/BCrypt.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/gui/ProfileHostController.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/services/ReclamationServices.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/gui/ProfileAdminController.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/services/AvisServices.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/entities/enums/Role.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/entities/User.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/entities/enums/Statut.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/main/Main.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/services/UserService.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/LoginData.ini</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/services/UserSession.java</file>
+            <file>file:/C:/Users/genop/OneDrive/Desktop/javaprojet/my%20project/Just-Another-Pi-Dev/src/shared/gui/ProfileGuestController.java</file>
         </group>
     </open-files>
 </project-private>
