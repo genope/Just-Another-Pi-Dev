@@ -45,6 +45,8 @@ public class MenuGusestController implements Initializable {
      * Initializes the controller class.
      */
     UserSession userS=new UserSession();
+    @FXML
+    private Button boutique;
     @Override
     public void initialize(URL url, ResourceBundle rb) {
         labelnom.setText(userS.getUser().getNom()+" "+userS.getUser().getPrenom());
@@ -94,6 +96,24 @@ public class MenuGusestController implements Initializable {
             // TODO
             FXMLLoader cards = new FXMLLoader();
             cards.setLocation(getClass().getResource("ProfileGuest.fxml"));
+
+            AnchorPane anchorPane = cards.load();
+
+            grid.add(anchorPane, 1, 1);
+
+            GridPane.setMargin(anchorPane, new javafx.geometry.Insets(10));
+        } catch (IOException ex) {
+            System.out.println(ex.getMessage());
+        }
+    }
+
+    @FXML
+    private void Boutique(ActionEvent event) {
+          grid.getChildren().clear();
+             try {
+            // TODO
+            FXMLLoader cards = new FXMLLoader();
+            cards.setLocation(getClass().getResource("AffichageProduit.fxml"));
 
             AnchorPane anchorPane = cards.load();
 

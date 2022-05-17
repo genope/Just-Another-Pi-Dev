@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane id="AnchorPane" onMouseClicked="#click" prefHeight="230.0" prefWidth="115.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="shared.GUI.CardProduitController">
+   <children>
+      <Pane opacity="0.3" prefHeight="463.0" prefWidth="312.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #2A73FF;" />
+      <ImageView fx:id="IvProd" fitHeight="135.0" fitWidth="163.0" layoutX="70.0" layoutY="86.0" nodeOrientation="INHERIT" pickOnBounds="true" preserveRatio="true" />
+      <Label fx:id="LabelPrix" alignment="CENTER" contentDisplay="CENTER" layoutX="18.0" layoutY="388.0" prefHeight="53.0" prefWidth="141.0" text="Prix" textFill="WHITE">
+         <font>
+            <Font name="Cambria" size="24.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelNom" alignment="CENTER" contentDisplay="CENTER" layoutX="5.0" layoutY="14.0" prefHeight="53.0" prefWidth="300.0" style="-fx-border-color: black; -fx-background-color: black; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #FFAB76;" styleClass="label1" stylesheets="@../style/Produits.css" text="Produit" textFill="WHITE">
+         <font>
+            <Font name="DejaVu Serif Italic" size="27.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelDescription" alignment="CENTER" contentDisplay="CENTER" layoutX="23.0" layoutY="278.0" prefHeight="53.0" prefWidth="266.0" text="Description" textFill="WHITE">
+         <font>
+            <Font size="23.0" />
+         </font>
+      </Label>
+      <Separator layoutX="96.0" layoutY="277.0" prefHeight="0.0" prefWidth="118.0" />
+      <Separator layoutX="92.0" layoutY="345.0" prefHeight="0.0" prefWidth="118.0" />
+      <Label layoutX="191.0" layoutY="402.0" text="Prix" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label layoutX="188.0" layoutY="360.0" text="Ville" textFill="WHITE">
+         <font>
+            <Font size="22.0" />
+         </font>
+      </Label>
+      <Label fx:id="labelregion" alignment="CENTER" contentDisplay="CENTER" layoutX="22.0" layoutY="346.0" prefHeight="53.0" prefWidth="133.0" text="Ville" textFill="WHITE">
+         <font>
+            <Font name="Cambria" size="24.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>
