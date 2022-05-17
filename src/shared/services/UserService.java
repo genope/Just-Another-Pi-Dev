@@ -72,7 +72,7 @@ public class UserService {
             }
 
             if (BCrypt.checkpw(password, pass)) {
-                System.out.println("aaaa");
+
                 requete = "SELECT cin,nom,prenom,datedenaissance,telephone,etat,image_profile FROM user WHERE Email like ?";
                 pst = MaConnexion.getInstance().getCnx().prepareStatement(requete);
                 pst.setString(1, mail);
