@@ -23,8 +23,10 @@ public class Main extends Application {
     public void start(Stage primaryStage) {
         try {
                     MaConnexion.getInstance();
+                    
+                    
 
-            Parent root =FXMLLoader.load(getClass().getResource("../gui/login_page.fxml"));
+            Parent root =FXMLLoader.load(getClass().getResource("../gui/Register_user.fxml"));
             Scene scene = new Scene(root);
             scene.getStylesheets().add(getClass().getResource("../gui/Style/controls.css").toExternalForm());
            primaryStage.initStyle(StageStyle.UNDECORATED);

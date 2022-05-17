@@ -87,10 +87,11 @@ public class UserService {
                             rs.getDate("datedenaissance"),
                             rs.getInt("telephone"),
                             role,
-                            Etat.valueOf(rs.getString("etat")),
                             null,
                             null,
-                            rs.getString("image_profile")
+                            null,
+                            rs.getString("image_profile"),
+                            null
                     );
 
                 }
@@ -121,10 +122,11 @@ public class UserService {
                                 rs.getDate("datedenaissance"),
                                 rs.getInt("telephone"),
                                 role,
-                                Etat.valueOf(rs.getString("etat")),
                                 null,
                                 null,
-                                rs.getString("image_profile")
+                                null,
+                                rs.getString("image_profile"),
+                                null
                         );
 
                     }
@@ -155,7 +157,7 @@ public class UserService {
         Statement stmt;
 
         try {
-            String requete = "insert into user (cin,nom,prenom,email,password,datedenaissance,telephone,role,etat,image_cin,adress_host,image_profile)values (?,?,?,?,?,?,?,?,?,?,?,?)";
+            String requete = "insert into user (cin,nom,prenom,email,password,datedenaissance,telephone,role,etat,image_cin,adress_host,image_profile,roles)values (?,?,?,?,?,?,?,?,?,?,?,?,?)";
             PreparedStatement pst = MaConnexion.getInstance().getCnx().prepareStatement(requete);
             pst.setInt(1, user.getCin());
             pst.setString(2, user.getNom());
@@ -165,8 +167,9 @@ public class UserService {
             pst.setDate(6, user.getDdn());
             pst.setInt(7, user.getNumber());
             pst.setString(8, user.getRole().toString());
-            pst.setString(9, user.getEtat().toString());
+            pst.setString(9, user.getEtat());
             pst.setString(12, user.getImage_profile());
+            pst.setString(13, user.getRoles());
 
             if (Role.Host.equals(user.getRole())) {
                 pst.setString(10, user.getImage_cin());
@@ -314,10 +317,11 @@ public class UserService {
                         rs.getDate("datedenaissance"),
                         rs.getInt("telephone"),
                         role,
-                        Etat.valueOf(rs.getString("etat")),
                         null,
                         null,
-                        rs.getString("image_profile")
+                        null,
+                        rs.getString("image_profile"),
+                        null
                 );
             }
 

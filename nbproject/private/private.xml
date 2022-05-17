@@ -8,6 +8,7 @@
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/OffreServices.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/MenuHost.fxml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/ajouteroffre.css</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/UserSession.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/MenuGusest.fxml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/MyListener.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/entities/Offres.java</file>
@@ -15,9 +16,11 @@
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/MenuHostController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/TestController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/services/UserService.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/utils/sendMail.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/Styles/style_1.css</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/DashboardHostController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/ProfileAdminController.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/utils/UploadAPI.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/Styles/cardoffres.css</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/GererOffresController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/Modifier.java</file>
@@ -25,6 +28,7 @@
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/MenuAdminController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/cardoffres.css</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/ApprouveOffre.java</file>
+            <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/ProfileHostController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/GererOffres.fxml</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/ProfileGuestController.java</file>
             <file>file:/C:/Users/user/Documents/NetBeansProjects/Shared/src/shared/GUI/CardOffresController.java</file>

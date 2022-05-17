@@ -7,7 +7,6 @@ package shared.gui;
 
 import com.jfoenix.controls.JFXButton;
 import com.jfoenix.controls.JFXDatePicker;
-import com.jfoenix.controls.JFXPasswordField;
 import com.jfoenix.controls.JFXTextField;
 import java.io.File;
 import java.io.FileInputStream;
@@ -19,19 +18,15 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.StandardCopyOption;
-import java.sql.Date;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.Pane;
 import javafx.scene.paint.ImagePattern;
@@ -39,7 +34,6 @@ import javafx.scene.shape.Circle;
 import javax.swing.JFileChooser;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import shared.entities.User;
-import shared.entities.enums.Etat;
 import shared.entities.enums.Role;
 import shared.services.UserService;
 import shared.services.UserSession;
@@ -192,7 +186,6 @@ public class ProfileHostController implements Initializable {
                     };
 
                     Files.copy(from1, to11, options1);
-                    //  System.out.println(file);
 
                 } catch (IOException ex) {
                     System.out.println(ex.getMessage());

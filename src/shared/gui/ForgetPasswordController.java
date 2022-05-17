@@ -10,15 +10,10 @@ import com.twilio.Twilio;
 import com.twilio.type.PhoneNumber;
 import java.io.IOException;
 import java.net.URL;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
-import java.util.Properties;
 import java.util.Random;
 import java.util.ResourceBundle;
-import java.util.logging.Level;
-import java.util.logging.Logger;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -30,15 +25,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.MouseEvent;
 import javafx.stage.Stage;
 import javax.activation.DataSource;
-import javax.mail.Message;
 import javax.mail.MessagingException;
-import javax.mail.PasswordAuthentication;
-import javax.mail.Session;
-import javax.mail.Transport;
-import javax.mail.internet.AddressException;
-import javax.mail.internet.InternetAddress;
-import javax.mail.internet.MimeMessage;
-import shared.entities.User;
 import shared.services.UserService;
 import shared.services.UserSession;
 
@@ -57,10 +44,8 @@ public class ForgetPasswordController implements Initializable {
     private Button btnid;
     private DataSource cnx;
     public ResultSet rs;
-    public int x;
     public String y, z;
     public String username, pass, mesg;
-   // private String aze  ="";
     UserService userService = new UserService();
     UserSession userSession ;
     public static final String ACCOUNT_SID = "AC90ac083ebfd6f6485124fb25d08fbbb0";
@@ -99,7 +84,6 @@ public class ForgetPasswordController implements Initializable {
         } else {
            userService.GetuserBytel(mailid.getText()).toString();
             
-            System.out.println(userService.GetuserBytel(mailid.getText()));
             y = getSaltString();
             z = mailid.getText();
             try {
@@ -119,7 +103,6 @@ CodeController ccc = loader.getController();
 ccc.setEmail(z);
 ccc.setCode(y);
 mailid.getScene().setRoot(root);
-            System.out.println(mailid.getText());
 
         }
     }

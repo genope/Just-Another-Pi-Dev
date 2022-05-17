@@ -30,10 +30,9 @@ public class NewFXMain extends Application {
 
         try {
             Parent root = FXMLLoader.load(getClass().getResource("MenuHost.fxml"));
-
             Scene scene = new Scene(root);
-
-            primaryStage.initStyle(StageStyle.UNDECORATED);
+            scene.getStylesheets().add(getClass().getResource("Style/controls.css").toExternalForm());
+           primaryStage.initStyle(StageStyle.UNDECORATED);
             primaryStage.setScene(scene);
             primaryStage.show();
         } catch (IOException ex) {

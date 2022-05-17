@@ -141,7 +141,7 @@ public class Register_pageGuestController implements Initializable {
     @FXML
     private Button register_guest;
     @FXML
-    private JFXButton id_host;
+    private JFXButton id_user;
     @FXML
     private Button register_host;
     @FXML
@@ -251,7 +251,7 @@ public class Register_pageGuestController implements Initializable {
                         EmailGuest.getText(), passwordGuest.getText(),
                         gettedDatePickerDate,
                         Integer.parseInt(telNumberGuest.getText()),
-                        Role.Guest, Etat.approved, telNumberHost1.getText(), id_host.getText(),fileName3);
+                        Role.Guest, "[\"Approved\"]", telNumberHost1.getText(), id_host.getText(),fileName3,"[\"ROLE_GUEST\"]");
                 userService.register(user);
                 Parent root = FXMLLoader.load(getClass().getResource("login_page.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
@@ -325,7 +325,7 @@ public class Register_pageGuestController implements Initializable {
                         emailHost.getText(), passwordHost.getText(),
                         gettedDatePickerDate,
                         Integer.parseInt(telNumberHost.getText()),
-                        Role.Host, Etat.approved, telNumberHost1.getText(), fileName ,fileP2);
+                        Role.Host,"[\"Approved\"]", telNumberHost1.getText(), fileName ,fileP2,"[\"ROLE_HOST\"]");
                 userService.register(user);
                 Parent root = FXMLLoader.load(getClass().getResource("login_page.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
